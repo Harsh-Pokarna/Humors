@@ -23,7 +23,7 @@ import java.util.Objects;
 public class WelcomeFragment extends Fragment {
 
     private TextView registerNowButton;
-    private Button mailSignInButton;
+    private Button mailSignInButton, googleSignInButton;
 
 //    public static WelcomeFragment newInstance(String param1, String param2) {
 //        WelcomeFragment fragment = new WelcomeFragment();
@@ -60,8 +60,7 @@ public class WelcomeFragment extends Fragment {
 
     private void setCurrentFragment(Fragment fragment) {
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.login_fragment_container, fragment)
-                    .disallowAddToBackStack().commit();
+                    .replace(R.id.login_fragment_container, fragment).addToBackStack(null).commit();
         }
 
     private void setListeners() {
@@ -79,6 +78,7 @@ public class WelcomeFragment extends Fragment {
     private void initialiseVariables() {
         registerNowButton = requireView().findViewById(R.id.register_now_button_welcome);
         mailSignInButton = requireView().findViewById(R.id.mail_signin_button);
+        googleSignInButton = requireView().findViewById(R.id.google_signin_button);
     }
 
     private void setViews() {

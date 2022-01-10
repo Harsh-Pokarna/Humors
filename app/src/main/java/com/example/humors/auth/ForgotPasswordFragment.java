@@ -10,11 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.humors.R;
 public class ForgotPasswordFragment extends Fragment {
 
     private Button receiveOtpButton;
+    private EditText userEmailEditText;
+
+    private String userEmail;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,12 +44,12 @@ public class ForgotPasswordFragment extends Fragment {
 
     private void setCurrentFragment(Fragment fragment) {
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.login_fragment_container, fragment)
-                    .disallowAddToBackStack().commit();
+                    .replace(R.id.login_fragment_container, fragment).addToBackStack(null).commit();
         }
 
     private void initialiseVariables() {
         receiveOtpButton = requireView().findViewById(R.id.receive_otp_button);
+        userEmailEditText = requireView().findViewById(R.id.user_email_forgot_password);
     }
 
     private void fetchData() {
@@ -57,7 +61,11 @@ public class ForgotPasswordFragment extends Fragment {
     }
 
     private void setListeners() {
-        receiveOtpButton.setOnClickListener(view -> setCurrentFragment(new ForgotPassVerificationFragment()));
+        receiveOtpButton.setOnClickListener(view -> {
+            userEmail = userEmailEditText.getText().toString();
+            // TODO: CHECK USER AND GIVE OTP
+            setCurrentFragment(new ForgotPassVerificationFragment());
+        });
 
     }
 

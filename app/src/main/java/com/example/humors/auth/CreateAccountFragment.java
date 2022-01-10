@@ -10,11 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.humors.R;
 public class CreateAccountFragment extends Fragment {
 
     private Button createAccountButton;
+    private EditText userNameEditText, userEmailEditText, userPasswordEditText, confirmPasswordEditText;
+
+    private String userName, userEmail, userPassword, confirmPassword;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,13 +42,15 @@ public class CreateAccountFragment extends Fragment {
 
     private void setCurrentFragment(Fragment fragment) {
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.login_fragment_container, fragment).
-                    disallowAddToBackStack().commit();
+                    .replace(R.id.login_fragment_container, fragment).addToBackStack(null).commit();
         }
 
     private void initialiseVariables() {
         createAccountButton = requireView().findViewById(R.id.create_account_button);
-
+        userNameEditText = requireView().findViewById(R.id.user_name_edittext);
+        userEmailEditText = requireView().findViewById(R.id.user_email_edittext_create_account);
+        userPasswordEditText = requireView().findViewById(R.id.user_password_edittext_create_account);
+        confirmPasswordEditText = requireView().findViewById(R.id.confirm_password_edittext);
     }
 
     private void fetchData() {
@@ -57,7 +63,15 @@ public class CreateAccountFragment extends Fragment {
 
     private void setListeners() {
 
-        createAccountButton.setOnClickListener(view -> setCurrentFragment(new EmailVerificationFragment()));
+        createAccountButton.setOnClickListener(view -> {
+            userName = userNameEditText.getText().toString();
+            userEmail = userEmailEditText.getText().toString();
+            userPassword = userPasswordEditText.getText().toString();
+            confirmPassword = confirmPasswordEditText.getText().toString();
+
+            // TODO: CHECK USER
+            setCurrentFragment(new EmailVerificationFragment());
+        });
 
     }
 
