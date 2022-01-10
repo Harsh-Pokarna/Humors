@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gradientLightColor"
+    tools:context=".auth.WelcomeFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/MainHeadings"
+            android:text="HUMORS"
+            android:textColor="@color/white"
+            android:textSize="38sp" />
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                style="@style/SubHeadings"
+                android:layout_marginTop="15dp"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Detect disorders early, "
+                android:textSize="20sp"/>
+            <TextView
+                style="@style/SubHeadings"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="before they turn"
+                android:textSize="20sp"/>
+            <TextView
+                style="@style/SubHeadings"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="problematic"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@drawable/google_signin_button_bg"
+            android:id="@+id/google_signin_button">
+
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+    </LinearLayout>
+
+
+</FrameLayout>
