@@ -9,12 +9,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.humors.R;
-public class CreateAccountFragment extends Fragment {
+import com.example.humors.utils.ExtFunctions;
 
-    private Button createAccountButton;
+public class ForgotPassVerificationFragment extends Fragment {
+
+    private TextView resendOtpButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,14 +38,8 @@ public class CreateAccountFragment extends Fragment {
         setObservers();
     }
 
-    private void setCurrentFragment(Fragment fragment) {
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.login_fragment_container, fragment).
-                    disallowAddToBackStack().commit();
-        }
-
     private void initialiseVariables() {
-        createAccountButton = requireView().findViewById(R.id.create_account_button);
+        resendOtpButton = requireView().findViewById(R.id.resend_otp_textview_forgot_pass);
 
     }
 
@@ -52,12 +48,10 @@ public class CreateAccountFragment extends Fragment {
     }
 
     private void setViews() {
-
+        ExtFunctions.underlineText(resendOtpButton);
     }
 
     private void setListeners() {
-
-        createAccountButton.setOnClickListener(view -> setCurrentFragment(new EmailVerificationFragment()));
 
     }
 
@@ -68,6 +62,7 @@ public class CreateAccountFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_create_account, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_forgot_pass_verification, container, false);
     }
 }

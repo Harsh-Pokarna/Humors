@@ -7,7 +7,7 @@
     android:paddingTop="30dp"
     android:paddingHorizontal="20dp"
     android:background="@color/transparentColor"
-    tools:context=".auth.EmailVerificationFragment">
+    tools:context=".auth.ForgotPassVerificationFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text="E-mail Verification"
+            android:text="Forgot password"
             style="@style/MontserratBold"
             android:textSize="24sp"/>
         <TextView
@@ -30,7 +30,7 @@
             android:textSize="16sp"/>
 
         <com.mukesh.OtpView
-            android:id="@+id/otp_input_email_verify"
+            android:id="@+id/otp_input_forgot_pass"
             android:textColor="@color/white"
             app:cursorColor="@color/white"
             android:layout_width="wrap_content"
@@ -56,15 +56,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-        	<TextView
-        	    android:layout_width="wrap_content"
-        	    android:layout_height="wrap_content"
-        	    android:textColor="@color/white"
-        	    android:text="Did not receive OTP? "
-        	    style="@style/PoppinsRegular"
-        	    android:textSize="13sp"/>
             <TextView
-                android:id="@+id/resend_otp_textview_email_verify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Did not receive OTP? "
+                style="@style/PoppinsRegular"
+                android:textSize="13sp"/>
+            <TextView
+                android:id="@+id/resend_otp_textview_forgot_pass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
@@ -73,17 +73,16 @@
                 android:textSize="13sp"/>
 
         </LinearLayout>
-        
+
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:background="@drawable/button_bg"
             style="@style/MontserratBold"
-            android:id="@+id/confirm_otp_button_email_verify"
+            android:id="@+id/confirm_otp_button_forgot_pass"
             android:layout_marginTop="25dp"
             android:text="CONFIRM OTP"/>
-
 
     </LinearLayout>
 

@@ -13,9 +13,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.humors.R;
+import com.example.humors.utils.ExtFunctions;
+
 public class LoginFragment extends Fragment {
 
-    private TextView registerNowButton;
+    private TextView registerNowButton, forgotPasswordButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class LoginFragment extends Fragment {
 
     private void initialiseVariables() {
         registerNowButton = getView().findViewById(R.id.register_now_button_login);
+        forgotPasswordButton = requireView().findViewById(R.id.forgot_password_button);
     }
 
     private void fetchData() {
@@ -58,12 +61,14 @@ public class LoginFragment extends Fragment {
     }
 
     private void setViews() {
-        registerNowButton.setPaintFlags(registerNowButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        ExtFunctions.underlineText(registerNowButton);
     }
 
     private void setListeners() {
 
         registerNowButton.setOnClickListener(view -> setCurrentFragment(new CreateAccountFragment()));
+
+        forgotPasswordButton.setOnClickListener(view -> setCurrentFragment(new ForgotPasswordFragment()));
 
     }
 

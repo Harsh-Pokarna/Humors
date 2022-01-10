@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.humors.R;
+import com.example.humors.utils.ExtFunctions;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -42,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setViews() {
-        termsText.setPaintFlags(termsText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        ExtFunctions.underlineText(termsText);
     }
 
     public static Intent newInstance(Context context) {

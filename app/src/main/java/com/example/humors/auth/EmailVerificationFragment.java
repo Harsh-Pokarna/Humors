@@ -2,18 +2,31 @@ package com.example.humors.auth;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.humors.R;
+import com.example.humors.utils.ExtFunctions;
+
 public class EmailVerificationFragment extends Fragment {
+
+    private TextView resendOtpButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         init();
     }
@@ -27,7 +40,7 @@ public class EmailVerificationFragment extends Fragment {
     }
 
     private void initialiseVariables() {
-
+        resendOtpButton = requireView().findViewById(R.id.resend_otp_textview_email_verify);
     }
 
     private void fetchData() {
@@ -35,6 +48,7 @@ public class EmailVerificationFragment extends Fragment {
     }
 
     private void setViews() {
+        ExtFunctions.underlineText(resendOtpButton);
 
     }
 

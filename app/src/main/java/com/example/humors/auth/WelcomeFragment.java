@@ -16,6 +16,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.humors.R;
+import com.example.humors.utils.ExtFunctions;
+
+import java.util.Objects;
+
 public class WelcomeFragment extends Fragment {
 
     private TextView registerNowButton;
@@ -73,12 +77,12 @@ public class WelcomeFragment extends Fragment {
     }
 
     private void initialiseVariables() {
-        registerNowButton = getView().findViewById(R.id.register_now_button_welcome);
-        mailSignInButton = getView().findViewById(R.id.mail_signin_button);
+        registerNowButton = requireView().findViewById(R.id.register_now_button_welcome);
+        mailSignInButton = requireView().findViewById(R.id.mail_signin_button);
     }
 
     private void setViews() {
-        registerNowButton.setPaintFlags(registerNowButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        ExtFunctions.underlineText(registerNowButton);
     }
 
     @Override

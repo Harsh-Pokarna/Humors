@@ -28,7 +28,7 @@
             android:layout_marginTop="32dp"
             android:background="@drawable/edittext_bg"
             android:hint="Enter your name"
-            android:paddingStart="12dp"
+            android:paddingHorizontal="12dp"
             android:textColor="@color/black"
             android:layout_height="42dp"/>
 
@@ -38,7 +38,7 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/edittext_bg"
             android:hint="Enter your email"
-            android:paddingStart="12dp"
+            android:paddingHorizontal="12dp"
             android:textColor="@color/black"
             android:layout_height="42dp"/>
 
@@ -48,7 +48,7 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/edittext_bg"
             android:hint="Enter your password"
-            android:paddingStart="12dp"
+            android:paddingHorizontal="12dp"
             android:textColor="@color/black"
             android:layout_height="42dp"/>
 
@@ -58,7 +58,7 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/edittext_bg"
             android:hint="Confirm password"
-            android:paddingStart="12dp"
+            android:paddingHorizontal="12dp"
             android:textColor="@color/black"
             android:layout_height="42dp"/>
 

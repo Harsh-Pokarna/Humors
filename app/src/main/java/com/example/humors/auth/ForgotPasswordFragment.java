@@ -12,13 +12,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.humors.R;
-public class CreateAccountFragment extends Fragment {
+public class ForgotPasswordFragment extends Fragment {
 
-    private Button createAccountButton;
+    private Button receiveOtpButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override
@@ -38,13 +40,12 @@ public class CreateAccountFragment extends Fragment {
 
     private void setCurrentFragment(Fragment fragment) {
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.login_fragment_container, fragment).
-                    disallowAddToBackStack().commit();
+                    .replace(R.id.login_fragment_container, fragment)
+                    .disallowAddToBackStack().commit();
         }
 
     private void initialiseVariables() {
-        createAccountButton = requireView().findViewById(R.id.create_account_button);
-
+        receiveOtpButton = requireView().findViewById(R.id.receive_otp_button);
     }
 
     private void fetchData() {
@@ -56,8 +57,7 @@ public class CreateAccountFragment extends Fragment {
     }
 
     private void setListeners() {
-
-        createAccountButton.setOnClickListener(view -> setCurrentFragment(new EmailVerificationFragment()));
+        receiveOtpButton.setOnClickListener(view -> setCurrentFragment(new ForgotPassVerificationFragment()));
 
     }
 
@@ -68,6 +68,7 @@ public class CreateAccountFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_create_account, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_forgot_password, container, false);
     }
 }
