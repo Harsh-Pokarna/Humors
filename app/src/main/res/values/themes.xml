@@ -14,10 +14,16 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="MainHeadings" parent="Widget.AppCompat.TextView">
+    <style name="MontserratBold" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/montserrat_bold</item>
     </style>
-    <style name="SubHeadings" parent="Widget.AppCompat.TextView">
+    <style name="PoppinsMedium" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/poppins_medium</item>
+    </style>
+    <style name="PoppinsRegular" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="PoppinsBold" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/poppins_bold</item>
     </style>
 </resources>

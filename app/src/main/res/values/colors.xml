@@ -10,5 +10,8 @@
 
     <color name="gradientLightColor">#08C3F8</color>
     <color name="gradientDarkColor">#025BE8</color>
+    <color name="colorAccent">#2A00D1</color>
+    <color name="transparentColor">@android:color/transparent</color>
+    <color name="editTextColor">#FFF1F1</color>
     <color name="red">#FF2828</color>
 </resources>
