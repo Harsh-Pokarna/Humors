@@ -14,4 +14,5 @@
     <color name="transparentColor">@android:color/transparent</color>
     <color name="editTextColor">#FFF1F1</color>
     <color name="red">#FF2828</color>
+    <color name="yellow">#FFDA7A</color>
 </resources>
