@@ -8,11 +8,17 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.example.humors.R;
+import com.example.humors.utils.ExtFunctions;
 
 public class WelcomeActivity extends AppCompatActivity {
+
+    private TextView registerNowButton;
+    private Button mailSignInButton, googleSignInButton;
 
     private VideoView videoView;
 
@@ -34,6 +40,9 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void initialiseVariables() {
         videoView = findViewById(R.id.video_view);
+        registerNowButton = findViewById(R.id.register_now_button_welcome);
+        mailSignInButton = findViewById(R.id.mail_signin_button);
+        googleSignInButton = findViewById(R.id.google_signin_button);
     }
 
     private void fetchData() {
@@ -42,7 +51,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void setViews() {
 
-        Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.dummy_video);
+        Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.bg);
+        Log.e("TAG", video.toString() );
         videoView.setVideoURI(video);
         videoView.setOnPreparedListener(mp -> {
             float videoRatio = mp.getVideoWidth() / (float) mp.getVideoHeight();
@@ -58,9 +68,15 @@ public class WelcomeActivity extends AppCompatActivity {
             mp.setLooping(true);
             videoView.start();
         });
+
+        ExtFunctions.underlineText(registerNowButton);
     }
 
     private void setListeners() {
+
+        mailSignInButton.setOnClickListener(view -> startActivity(LoginActivity.newInstance(getApplicationContext())));
+
+//        registerNowButton.setOnClickListener(view -> setCurrentFragment(new CreateAccountFragment()));
 
     }
 

@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void init() {
-        startActivity(LoginActivity.newInstance(getApplicationContext()));
+        startActivity(WelcomeActivity.newInstance(getApplicationContext()));
 //        startActivity(WelcomeActivity.newInstance(getApplicationContext()));
         finish();
     }

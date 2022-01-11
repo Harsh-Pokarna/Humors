@@ -74,8 +74,8 @@
                 android:text="Sign in With Google"
                 android:drawableStart="@drawable/ic_google_signin_icon"
                 android:paddingStart="11dp"
+                android:id="@+id/google_signin_button"
                 android:paddingEnd="105dp"/>
-            <!--                    android:id="@+id/google_signin_button"-->
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_marginTop="15dp"
@@ -86,8 +86,8 @@
                 android:text="Sign in With Email"
                 android:drawableStart="@drawable/ic_mail_siginin_icon"
                 android:paddingStart="11dp"
+                android:id="@+id/mail_signin_button"
                 android:paddingEnd="105dp"/>
-            <!--                    android:id="@+id/mail_signin_button"-->
 
             <LinearLayout
                 android:layout_gravity="center"
@@ -103,12 +103,12 @@
                     android:text="New to Humors? "
                     android:textColor="@color/white"
                     android:textSize="13sp" />
-                <!--                     android:id="@+id/register_now_button_welcome"-->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:text="Register Now!"
+                    android:id="@+id/register_now_button_welcome"
                     style="@style/PoppinsBold"
                     android:textSize="13sp"/>
             </LinearLayout>
@@ -127,8 +127,8 @@
                 android:textColor="@color/white"
                 android:text="By continuing. You agree to our "
                 android:textSize="12sp"/>
-<!--            android:id="@+id/terms_text"-->
             <TextView
+                android:id="@+id/terms_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"

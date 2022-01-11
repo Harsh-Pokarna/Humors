@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextView termsText;
     private SliderView sliderView;
-    private final WelcomeFragment welcomeFragment = new WelcomeFragment();
+//    private final WelcomeFragment welcomeFragment = new WelcomeFragment();/
 
     private List<Drawable> listOfIllustrations;
 
@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         initialiseVariables();
         setViews();
 
-        setCurrentFragment(welcomeFragment);
+        setCurrentFragment(new LoginFragment());
     }
 
     private void setCurrentFragment(Fragment fragment) {
