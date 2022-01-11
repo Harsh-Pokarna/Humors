@@ -39,4 +39,7 @@ dependencies {
 
     // OTP View
     implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.0.0'
+
+    // Image Slider
+    implementation 'com.github.smarteist:autoimageslider:1.4.0-appcompat'
 }
