@@ -9,6 +9,8 @@ import android.os.Bundle;
 
 import com.example.humors.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.shape.CornerFamily;
+import com.google.android.material.shape.MaterialShapeDrawable;
 
 public class NewUserActivity extends AppCompatActivity {
 
@@ -50,6 +52,13 @@ public class NewUserActivity extends AppCompatActivity {
     private void setViews() {
         bottomNavigationView.getMenu().findItem(R.id.home_item).setChecked(true);
 
+        MaterialShapeDrawable materialShapeDrawable = (MaterialShapeDrawable) bottomNavigationView.getBackground();
+        materialShapeDrawable.setShapeAppearanceModel(
+                materialShapeDrawable
+                .getShapeAppearanceModel().toBuilder()
+                .setTopLeftCorner(CornerFamily.ROUNDED, 40)
+                .setTopRightCorner(CornerFamily.ROUNDED, 40).build()
+        );
     }
 
     private void setListeners() {

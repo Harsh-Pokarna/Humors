@@ -51,13 +51,17 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void setViews() {
 
-        Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.bg);
+        Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.dummy_video);
         Log.e("TAG", video.toString() );
         videoView.setVideoURI(video);
         videoView.setOnPreparedListener(mp -> {
+            mp.setOnErrorListener((mediaPlayer, i, i1) -> {
+                Log.e("TAG", "onError: called i" + i );
+                Log.e("TAG", "onError: called i1" + i1);
+                return false;
+            });
             float videoRatio = mp.getVideoWidth() / (float) mp.getVideoHeight();
             float screenRatio = videoView.getWidth() / ((float) videoView.getHeight() + 300);
-            Log.e("TAG", "" + videoRatio +  "  " + screenRatio);
             float scaleX = videoRatio / screenRatio;
             if (scaleX >= 1f) {
                 videoView.setScaleX(scaleX);
@@ -76,7 +80,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
         mailSignInButton.setOnClickListener(view -> startActivity(LoginActivity.newInstance(getApplicationContext())));
 
-//        registerNowButton.setOnClickListener(view -> setCurrentFragment(new CreateAccountFragment()));
+        registerNowButton.setOnClickListener(view -> startActivity(LoginActivity.newInstance(getApplicationContext())));
+
 
     }
 

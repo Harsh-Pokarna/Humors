@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         sliderView.startAutoCycle();
         sliderView.setAutoCycle(true);
 
+
     }
 
     private void setViews() {
