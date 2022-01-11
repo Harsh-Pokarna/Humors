@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.humors.auth.LoginActivity;
+import com.example.humors.auth.WelcomeActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -17,7 +18,8 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void init() {
-        startActivity(LoginActivity.newInstance(getApplicationContext()));
+//        startActivity(LoginActivity.newInstance(getApplicationContext()));
+        startActivity(WelcomeActivity.newInstance(getApplicationContext()));
         finish();
     }
 

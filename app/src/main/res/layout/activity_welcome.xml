@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.WelcomeActivity">
+
+    <FrameLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <VideoView
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/MontserratBold"
+                android:text="HUMORS"
+                android:textColor="@color/white"
+                android:textSize="38sp" />
+
+            <TextView
+                style="@style/PoppinsMedium"
+                android:layout_marginTop="10dp"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Detect disorders early, "
+                android:textSize="20sp"/>
+            <TextView
+                style="@style/PoppinsMedium"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="before they turn"
+                android:textSize="20sp"/>
+            <TextView
+                style="@style/PoppinsMedium"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="problematic"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:layout_gravity="bottom|center"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="300dp"
+                android:layout_height="42dp"
+                android:textColor="@color/white"
+                android:background="@drawable/google_signin_button_bg"
+                android:text="Sign in With Google"
+                android:drawableStart="@drawable/ic_google_signin_icon"
+                android:paddingStart="11dp"
+                android:paddingEnd="105dp"/>
+            <!--                    android:id="@+id/google_signin_button"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:layout_width="300dp"
+                android:layout_height="42dp"
+                android:textColor="@color/white"
+                android:background="@drawable/button_bg"
+                android:text="Sign in With Email"
+                android:drawableStart="@drawable/ic_mail_siginin_icon"
+                android:paddingStart="11dp"
+                android:paddingEnd="105dp"/>
+            <!--                    android:id="@+id/mail_signin_button"-->
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/PoppinsRegular"
+                    android:text="New to Humors? "
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+                <!--                     android:id="@+id/register_now_button_welcome"-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Register Now!"
+                    style="@style/PoppinsBold"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="40dp"
+            android:layout_gravity="bottom|center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="By continuing. You agree to our "
+                android:textSize="12sp"/>
+<!--            android:id="@+id/terms_text"-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Terms and Conditions"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,34 +20,29 @@
             android:text="HUMORS"
             android:textColor="@color/white"
             android:textSize="38sp" />
-        
-        <LinearLayout
-            android:layout_width="wrap_content"
+
+        <TextView
+            style="@style/PoppinsMedium"
+            android:layout_marginTop="10dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                style="@style/PoppinsMedium"
-                android:layout_marginTop="10dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="Detect disorders early, "
-                android:textSize="20sp"/>
-            <TextView
-                style="@style/PoppinsMedium"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="before they turn"
-                android:textSize="20sp"/>
-            <TextView
-                style="@style/PoppinsMedium"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="problematic"
-                android:textSize="20sp"/>
-        </LinearLayout>
+            android:textColor="@color/white"
+            android:text="Detect disorders early, "
+            android:textSize="20sp"/>
+        <TextView
+            style="@style/PoppinsMedium"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="before they turn"
+            android:textSize="20sp"/>
+        <TextView
+            style="@style/PoppinsMedium"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="problematic"
+            android:textSize="20sp"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_marginTop="32dp"

@@ -18,6 +18,7 @@ import com.mukesh.OtpView;
 
 public class EmailVerificationFragment extends Fragment {
 
+
     private TextView resendOtpButton;
     private OtpView otpView;
     private Button confirmOtp;
