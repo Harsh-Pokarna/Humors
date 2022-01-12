@@ -16,7 +16,6 @@
         android:layout_height="0dp">
 
     </FrameLayout>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         app:itemIconTint="@color/black"
         app:labelVisibilityMode="labeled"

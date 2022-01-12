@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/button_bg.xml" value="0.37864583333333335" />
+        <entry key="app/src/main/res/drawable/dashboard_button_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/editext_bg.xml" value="0.378125" />
         <entry key="app/src/main/res/drawable/google_signin_button_bg.xml" value="0.378125" />
+        <entry key="app/src/main/res/drawable/image_button_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/login_gradient.xml" value="0.378125" />
         <entry key="app/src/main/res/drawable/mail_signin_button_bg.xml" value="0.378125" />
         <entry key="app/src/main/res/drawable/navbar_item_bg.xml" value="0.37864583333333335" />
@@ -21,7 +23,7 @@
         <entry key="app/src/main/res/layout/fragment_forgot_pass_verification.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/fragment_forgot_password.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.3619791666666667" />
-        <entry key="app/src/main/res/layout/fragment_new_user_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_new_user_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/slider_image.xml" value="0.3625" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3625" />

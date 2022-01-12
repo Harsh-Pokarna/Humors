@@ -14,6 +14,9 @@ import android.widget.VideoView;
 
 import com.example.humors.R;
 import com.example.humors.utils.ExtFunctions;
+import com.yqritc.scalablevideoview.ScalableVideoView;
+
+import java.io.IOException;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -52,23 +55,32 @@ public class WelcomeActivity extends AppCompatActivity {
     private void setViews() {
 
         Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.dummy_video);
-        Log.e("TAG", video.toString() );
         videoView.setVideoURI(video);
+        Log.e("TAG", video.toString() );
+//        try {
+//            videoView.setRawData(R.raw.dummy_video);
+//        } catch (IOException e) {
+//            Log.e("TAG", e.getMessage());
+//        }
+//        videoView.start();
         videoView.setOnPreparedListener(mp -> {
             mp.setOnErrorListener((mediaPlayer, i, i1) -> {
                 Log.e("TAG", "onError: called i" + i );
                 Log.e("TAG", "onError: called i1" + i1);
                 return false;
             });
-            float videoRatio = mp.getVideoWidth() / (float) mp.getVideoHeight();
-            float screenRatio = videoView.getWidth() / ((float) videoView.getHeight() + 300);
-            float scaleX = videoRatio / screenRatio;
+            float videoRatioX = mp.getVideoWidth() / (float) mp.getVideoHeight();
+            float screenRatioX = videoView.getWidth() / ((float) videoView.getHeight()+400);
+            float scaleX = videoRatioX / screenRatioX;
+            float videoRatioY = mp.getVideoHeight() / (float) mp.getVideoWidth();
+            float screenRatioY = (videoView.getHeight()+400) / ((float) videoView.getWidth());
+            float scaleY = videoRatioY / screenRatioY;
             if (scaleX >= 1f) {
                 videoView.setScaleX(scaleX);
             } else {
                 videoView.setScaleY(1f / scaleX);
             }
-            videoView.setScaleY(scaleX);
+            videoView.setScaleY(1f / scaleY);
             mp.setLooping(true);
             videoView.start();
         });

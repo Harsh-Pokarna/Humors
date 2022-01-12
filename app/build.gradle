@@ -42,4 +42,7 @@ dependencies {
 
     // Image Slider
     implementation 'com.github.smarteist:autoimageslider:1.4.0-appcompat'
+
+    // Scalable VideoViewmaven { url 'https://jitpack.io' }
+    implementation 'com.yqritc:android-scalablevideoview:1.0.4'
 }
