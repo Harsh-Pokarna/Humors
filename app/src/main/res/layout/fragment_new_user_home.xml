@@ -17,268 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <FrameLayout
-                android:id="@+id/fm1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_dash_board_bg"/>
-
-                <LinearLayout
-                    android:id="@+id/profile_photo"
-                    android:layout_gravity="end"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/profile_bg"
-                    android:gravity="center"
-                    android:layout_marginTop="34dp"
-                    android:layout_marginEnd="34dp"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_profile_avatar"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginStart="30dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="Good morning!,"
-                        style="@style/MontserratBold"
-                        android:minHeight="0dp"
-                        android:textSize="25sp"/>
-                    <TextView
-                        android:id="@+id/user_first_name_textview"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="Sagar"
-                        android:minHeight="0dp"
-                        style="@style/MontserratBold"
-                        android:textSize="25sp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="150dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/ic_card_view_bg1"/>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_marginHorizontal="10dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center_vertical"
-                                android:orientation="horizontal">
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_weight="1"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-                                    <ImageView
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_marginTop="15dp"
-                                        android:layout_gravity="center_horizontal"
-                                        android:src="@drawable/learning_icon"/>
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textColor="@color/black"
-                                        android:text="Learn about Humors"
-                                        android:textAlignment="center"
-                                        style="@style/PoppinsRegular"
-                                        android:layout_marginTop="8dp"
-                                        android:layout_gravity="bottom|center"
-                                        android:textSize="12sp"/>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_weight="1"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-                                    <ImageView
-                                        android:layout_width="40dp"
-                                        android:layout_height="40dp"
-                                        android:layout_marginTop="15dp"
-                                        android:layout_gravity="center_horizontal"
-                                        android:src="@drawable/ic_youtube_icon"/>
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textColor="@color/black"
-                                        android:text="Watch Video"
-                                        style="@style/PoppinsRegular"
-                                        android:layout_gravity="bottom|center"
-                                        android:layout_marginBottom="22dp"
-                                        android:textSize="12sp"/>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_weight="1"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-                                    <ImageView
-                                        android:layout_width="40dp"
-                                        android:layout_height="40dp"
-                                        android:layout_marginTop="15dp"
-                                        android:layout_gravity="center_horizontal"
-                                        android:src="@drawable/ic_youtube_icon"/>
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textColor="@color/black"
-                                        android:text="Why Humors"
-                                        style="@style/PoppinsRegular"
-                                        android:layout_gravity="bottom|center"
-                                        android:layout_marginBottom="22dp"
-                                        android:textSize="12sp"/>
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                        </FrameLayout>
-
-                </LinearLayout>
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginHorizontal="10dp"-->
-<!--                    android:layout_marginTop="150dp"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                    <androidx.cardview.widget.CardView-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:id="@+id/learn_about_card_view"-->
-<!--                        app:cardCornerRadius="10dp"-->
-<!--                        android:layout_height="100dp">-->
-
-<!--                        <FrameLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="match_parent">-->
-<!--                            <ImageView-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:scaleType="fitXY"-->
-<!--                                android:src="@drawable/ic_card_view_bg1"/>-->
-<!--                            <ImageView-->
-<!--                                android:layout_width="30dp"-->
-<!--                                android:layout_height="30dp"-->
-<!--                                android:layout_marginTop="15dp"-->
-<!--                                android:layout_gravity="center_horizontal"-->
-<!--                                android:src="@drawable/learning_icon"/>-->
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:text="Learn about Humors"-->
-<!--                                android:textAlignment="center"-->
-<!--                                style="@style/PoppinsRegular"-->
-<!--                                android:layout_marginBottom="6dp"-->
-<!--                                android:layout_gravity="bottom|center"-->
-<!--                                android:textSize="12sp"/>-->
-<!--                        </FrameLayout>-->
-<!--                    </androidx.cardview.widget.CardView>-->
-
-<!--                    <View-->
-<!--                        android:layout_width="20dp"-->
-<!--                        android:layout_height="0dp"/>-->
-
-<!--                    <androidx.cardview.widget.CardView-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:id="@+id/watch_video_card_view"-->
-<!--                        app:cardCornerRadius="10dp"-->
-<!--                        android:layout_height="100dp">-->
-<!--                        <FrameLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="match_parent">-->
-<!--                            <ImageView-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:scaleType="fitXY"-->
-<!--                                android:src="@drawable/ic_card_view_bg2"/>-->
-<!--                            <ImageView-->
-<!--                                android:layout_width="40dp"-->
-<!--                                android:layout_height="40dp"-->
-<!--                                android:layout_marginTop="15dp"-->
-<!--                                android:layout_gravity="center_horizontal"-->
-<!--                                android:src="@drawable/ic_youtube_icon"/>-->
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:text="Watch Video"-->
-<!--                                style="@style/PoppinsRegular"-->
-<!--                                android:layout_gravity="bottom|center"-->
-<!--                                android:layout_marginBottom="22dp"-->
-<!--                                android:textSize="12sp"/>-->
-<!--                        </FrameLayout>-->
-<!--                    </androidx.cardview.widget.CardView>-->
-
-
-<!--                    <View-->
-<!--                        android:layout_width="30dp"-->
-<!--                        android:layout_height="0dp"/>-->
-
-<!--                    <androidx.cardview.widget.CardView-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:id="@+id/why_humors_card_view"-->
-<!--                        app:cardCornerRadius="10dp"-->
-<!--                        android:layout_height="100dp">-->
-<!--                        <FrameLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="match_parent">-->
-<!--                            <ImageView-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:scaleType="fitXY"-->
-<!--                                android:src="@drawable/ic_card_view_bg3"/>-->
-<!--                            <ImageView-->
-<!--                                android:layout_width="40dp"-->
-<!--                                android:layout_height="40dp"-->
-<!--                                android:layout_marginTop="15dp"-->
-<!--                                android:layout_gravity="center_horizontal"-->
-<!--                                android:src="@drawable/ic_youtube_icon"/>-->
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:text="Why Humors"-->
-<!--                                style="@style/PoppinsRegular"-->
-<!--                                android:layout_gravity="bottom|center"-->
-<!--                                android:layout_marginBottom="22dp"-->
-<!--                                android:textSize="12sp"/>-->
-<!--                        </FrameLayout>-->
-<!--                    </androidx.cardview.widget.CardView>-->
-<!--                </LinearLayout>-->
-
-            </FrameLayout>
+<!--            <include layout="@layout/home_dashboard"/>-->
             <LinearLayout
                 android:paddingHorizontal="15dp"
                 android:layout_marginTop="40dp"
@@ -313,9 +52,7 @@
                             android:layout_marginStart="2dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:scaleY="1.38"
-                            android:scaleX="1.38"
-                            android:src="@drawable/ic_walking_man_icon"/>
+                            android:src="@drawable/ic_add_data_icon"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -356,9 +93,7 @@
                             android:layout_marginStart="2dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:scaleY="1.38"
-                            android:scaleX="1.38"
-                            android:src="@drawable/ic_walking_man_icon"/>
+                            android:src="@drawable/ic_share_habits_icon"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -399,9 +134,7 @@
                             android:layout_marginStart="2dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:scaleY="1.38"
-                            android:scaleX="1.38"
-                            android:src="@drawable/ic_walking_man_icon"/>
+                            android:src="@drawable/ic_share_medical_history_icon"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -425,14 +158,77 @@
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
-            <androidx.appcompat.widget.AppCompatButton
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginHorizontal="70dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_height="100dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/selected_dashboard_button_bg"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="2dp"
+                    android:src="@drawable/ic_connect_icon"/>
+                
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="Connect your device"
+                        style="@style/PoppinsMedium"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:textColor="#ADC2EA"
+                        android:text="To record your health with ease"
+                        android:textSize="12sp"
+                        style="@style/PoppinsRegular"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/connect_device"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    style="@style/PoppinsMedium"
+                    android:textColor="@color/white"
+                    android:text="Connect"
+                    android:stateListAnimator="@null"
+                    android:background="@drawable/connect_button_bg"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/take_first_reading"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="40dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 style="@style/MontserratBold"
-                android:background="@drawable/dashboard_button_bg"
+                android:background="@drawable/unselected_dashbaord_button_bg"
                 android:text="TAKE YOUR FIRST READING"/>
         </LinearLayout>
     </ScrollView>

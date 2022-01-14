@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screenBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".home.AddDataFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/homeToolBar"
+        android:layout_width="match_parent"
+        android:elevation="0dp"
+        app:elevation="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/screenBackground"
+        android:layout_marginTop="20dp"
+        android:padding="10dp">
+
+    	<FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/add_details_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_back_button"/>
+
+    		<TextView
+    		   android:layout_width="wrap_content"
+    		   android:layout_height="wrap_content"
+    		   android:textColor="@color/black"
+    		   android:text="ADD YOUR DATA"
+                android:layout_gravity="center"
+                style="@style/MontserratBold"
+    		   android:textSize="18sp"/>
+
+        </FrameLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:paddingTop="20dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:layout_marginBottom="20dp"
+                    android:id="@+id/user_name_edittext_add_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@drawable/data_input_bg"
+                    android:paddingHorizontal="15dp"
+                    style="@style/PoppinsRegular"
+                    android:hint="Enter your name"/>
+
+                <EditText
+                    android:layout_marginBottom="20dp"
+                    android:id="@+id/user_dob"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@drawable/data_input_bg"
+                    android:inputType="date"
+                    android:paddingHorizontal="15dp"
+                    android:drawableEnd="@drawable/ic_calendar_icon"
+                    style="@style/PoppinsRegular"
+                    android:hint="Select your DOB"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/data_input_bg"
+                    android:layout_marginHorizontal="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/lightTextColor"
+                        android:text="Select your gender"
+                        android:textSize="14sp"
+                        style="@style/PoppinsRegular"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/male_radio_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Male"
+                            style="@style/PoppinsBold"
+                            android:layout_marginEnd="10dp"
+                            android:buttonTint="@color/gradientDarkColor"/>
+                        <RadioButton
+                            android:id="@+id/female_radio_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Female"
+                            android:layout_marginEnd="10dp"
+                            style="@style/PoppinsBold"
+                            android:buttonTint="@color/gradientDarkColor"/>
+                        <RadioButton
+                            android:id="@+id/other_gender_radio_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Other"
+                            style="@style/PoppinsBold"
+                            android:buttonTint="@color/gradientDarkColor"/>
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/user_height"
+                            android:gravity="center_vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:background="@drawable/data_input_bg"
+                            android:paddingHorizontal="15dp"
+                            app:suffixTextColor="@color/black"
+                            style="@style/PoppinsRegular"
+                            android:hint="Height"/>
+
+                        <TextView
+                            android:textColor="@color/black"
+                            android:text="cms"
+                            android:textSize="12sp"
+                            style="@style/PoppinsMedium"
+                            android:layout_gravity="end|center_vertical"
+                            android:layout_marginEnd="12dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="0dp"/>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/user_weight"
+                            android:gravity="center_vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:background="@drawable/data_input_bg"
+                            android:paddingHorizontal="15dp"
+                            style="@style/PoppinsRegular"
+                            android:hint="Weight"/>
+
+                        <TextView
+                            android:textColor="@color/black"
+                            android:text="kgs"
+                            android:textSize="12sp"
+                            style="@style/PoppinsMedium"
+                            android:layout_gravity="end|center_vertical"
+                            android:layout_marginEnd="12dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </FrameLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_data_next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/gradientDarkColor"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:tint="@color/white"/>
+
+
+</FrameLayout>

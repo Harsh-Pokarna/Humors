@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initialiseVariables() {
         termsText = findViewById(R.id.terms_text);
-        sliderView = findViewById(R.id.slider_view);
+//        sliderView = findViewById(R.id.slider_view);
 
         listOfIllustrations = new ArrayList<>();
         listOfIllustrations.add(getResources().getDrawable(R.drawable.ic_welcom_illustration_1));
@@ -60,10 +60,10 @@ public class LoginActivity extends AppCompatActivity {
         listOfIllustrations.add(getResources().getDrawable(R.drawable.ic_welcome_illustration_3));
 
 
-        sliderAdapter = new SliderAdapter(listOfIllustrations);
-        sliderView.setSliderAdapter(sliderAdapter);
-        sliderView.startAutoCycle();
-        sliderView.setAutoCycle(true);
+//        sliderAdapter = new SliderAdapter(listOfIllustrations);
+//        sliderView.setSliderAdapter(sliderAdapter);
+//        sliderView.startAutoCycle();
+//        sliderView.setAutoCycle(true);
 
 
     }

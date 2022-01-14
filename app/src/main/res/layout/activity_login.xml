@@ -30,15 +30,15 @@
 <!--                android:layout_height="200dp"-->
 <!--                android:orientation="horizontal" />-->
 
-            <com.smarteist.autoimageslider.SliderView
-                android:layout_marginTop="40dp"
-                android:id="@+id/slider_view"
-                app:sliderAutoCycleEnabled="true"
-                app:sliderAutoCycleDirection="right"
-                app:sliderIndicatorEnabled="false"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                app:sliderStartAutoCycle="true"/>
+<!--            <com.smarteist.autoimageslider.SliderView-->
+<!--                android:layout_marginTop="40dp"-->
+<!--                android:id="@+id/slider_view"-->
+<!--                app:sliderAutoCycleEnabled="true"-->
+<!--                app:sliderAutoCycleDirection="right"-->
+<!--                app:sliderIndicatorEnabled="false"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                app:sliderStartAutoCycle="true"/>-->
 
 
 
