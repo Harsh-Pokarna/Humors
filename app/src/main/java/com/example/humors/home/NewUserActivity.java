@@ -13,9 +13,6 @@ import com.google.android.material.shape.CornerFamily;
 import com.google.android.material.shape.MaterialShapeDrawable;
 
 public class NewUserActivity extends AppCompatActivity {
-
-    BottomNavigationView bottomNavigationView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +38,6 @@ public class NewUserActivity extends AppCompatActivity {
 
     private void initialiseVariables() {
 
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
-
     }
 
     private void fetchData() {
@@ -50,15 +45,6 @@ public class NewUserActivity extends AppCompatActivity {
     }
 
     private void setViews() {
-        bottomNavigationView.getMenu().findItem(R.id.home_item).setChecked(true);
-
-        MaterialShapeDrawable materialShapeDrawable = (MaterialShapeDrawable) bottomNavigationView.getBackground();
-        materialShapeDrawable.setShapeAppearanceModel(
-                materialShapeDrawable
-                .getShapeAppearanceModel().toBuilder()
-                .setTopLeftCorner(CornerFamily.ROUNDED, 40)
-                .setTopRightCorner(CornerFamily.ROUNDED, 40).build()
-        );
     }
 
     private void setListeners() {

@@ -3,12 +3,260 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/screenBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".home.ShareHabitsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/homeToolBar"
+            android:layout_width="match_parent"
+            android:elevation="0dp"
+            app:elevation="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/screenBackground"
+            android:layout_marginTop="20dp"
+            android:padding="10dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/share_habits_back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="start"
+                    android:src="@drawable/ic_back_button"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="SHARE YOUR HABITS"
+                    android:layout_gravity="center"
+                    style="@style/MontserratBold"
+                    android:textSize="18sp"/>
+
+            </FrameLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:id="@+id/share_habits_scroll_view"
+            android:layout_width="match_parent"
+            android:paddingTop="20dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/data_input_bg"
+                    android:layout_marginHorizontal="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/lightTextColor"
+                        android:text="Do you consume alcohol?"
+                        android:textSize="14sp"
+                        style="@style/PoppinsRegular"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <RadioGroup
+                        android:id="@+id/alcohol_radio_grp1"
+                        android:layout_width="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/never_alcohol"
+                            android:layout_width="wrap_content"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            android:text="Never"
+                            style="@style/PoppinsBold"
+                            android:layout_marginEnd="10dp"
+                            android:buttonTint="@color/gradientDarkColor"/>
+                        <RadioButton
+                            android:id="@+id/sometimes_alcohol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sometimes"
+                            android:gravity="center"
+                            android:layout_marginEnd="10dp"
+                            style="@style/PoppinsBold"
+                            android:buttonTint="@color/gradientDarkColor"/>
+
+                    </RadioGroup>
+                    <RadioGroup
+                        android:id="@+id/alcohol_radio_grp2"
+                        android:layout_width="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/monthly_alcohol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Monthly"
+                            android:gravity="center"
+                            style="@style/PoppinsBold"
+                            android:layout_marginEnd="10dp"
+                            android:buttonTint="@color/gradientDarkColor"/>
+                        <RadioButton
+                            android:id="@+id/daily_alcohol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Daily"
+                            android:gravity="center"
+                            android:layout_marginEnd="10dp"
+                            style="@style/PoppinsBold"
+                            android:buttonTint="@color/gradientDarkColor"/>
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/data_input_bg"
+                    android:layout_marginHorizontal="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/lightTextColor"
+                        android:text="Do you smoke?"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        style="@style/PoppinsRegular"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <RadioGroup
+                        android:id="@+id/smoke_radio_grp"
+                        android:layout_width="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/no_smoke"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="No"
+                            style="@style/PoppinsBold"
+                            android:layout_marginEnd="10dp"
+                            android:buttonTint="@color/gradientDarkColor"/>
+                        <RadioButton
+                            android:layout_marginStart="20dp"
+                            android:id="@+id/yes_smoke"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yes"
+                            android:layout_marginEnd="10dp"
+                            android:gravity="center"
+                            style="@style/PoppinsBold"
+                            android:buttonTint="@color/gradientDarkColor"/>
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/data_input_bg"
+                    android:layout_marginHorizontal="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/lightTextColor"
+                        android:text="Do you exercise?"
+                        android:textSize="14sp"
+                        style="@style/PoppinsRegular"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <RadioGroup
+                        android:id="@+id/exercise_radio_grp"
+                        android:layout_width="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/never_exercise"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Never"
+                            style="@style/PoppinsBold"
+                            android:layout_marginEnd="10dp"
+                            android:gravity="center"
+                            android:buttonTint="@color/gradientDarkColor"/>
+                        <RadioButton
+                            android:id="@+id/daily_exercise"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Daily"
+                            android:layout_marginEnd="10dp"
+                            style="@style/PoppinsBold"
+                            android:gravity="center"
+                            android:buttonTint="@color/gradientDarkColor"/>
+                        <RadioButton
+                            android:id="@+id/thrice_exercise"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Thrice a week"
+                            android:layout_marginEnd="10dp"
+                            style="@style/PoppinsBold"
+                            android:buttonTint="@color/gradientDarkColor"/>
+
+                    </RadioGroup>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/share_habits_next_button"
+        style="@style/PoppinsMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/gradientDarkColor"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:tint="@color/white"/>
 
 </FrameLayout>

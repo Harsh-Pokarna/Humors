@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screenBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".home.SleepScheduleFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/homeToolBar"
+            android:layout_width="match_parent"
+            android:elevation="0dp"
+            app:elevation="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/screenBackground"
+            android:layout_marginTop="20dp"
+            android:padding="10dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/sleep_schedule_back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="start"
+                    android:src="@drawable/ic_back_button"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="SLEEP SCHEDULE"
+                    android:layout_gravity="center"
+                    style="@style/MontserratBold"
+                    android:textSize="18sp"/>
+
+            </FrameLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
+            style="@style/PoppinsRegular"
+            android:text="Adjust the time that matches your sleep schedule"
+            android:textSize="14sp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"/>
+
+        <nl.joery.timerangepicker.TimeRangePicker
+            android:id="@+id/user_sleep_schedule"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_width="250dp"
+            app:trp_thumbIconEnd="@drawable/ic_baseline_alarm_24"
+            app:trp_thumbIconStart="@drawable/ic_baseline_dark_mode_24"
+            app:trp_sliderWidth="28dp"
+            android:layout_height="250dp"
+            app:trp_clockFace="APPLE"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:text="Your total sleeping hours are: 8hrs"
+            android:textSize="16sp"
+            style="@style/PoppinsMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/sleep_schedule_next_button"
+        style="@style/PoppinsMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/gradientDarkColor"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:tint="@color/white"/>
+
+</FrameLayout>

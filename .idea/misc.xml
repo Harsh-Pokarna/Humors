@@ -33,6 +33,7 @@
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/fragment_new_user_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_share_habits.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/fragment_sleep_schedule.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/home_dashboard.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/slider_image.xml" value="0.3625" />

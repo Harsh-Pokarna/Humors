@@ -26,9 +26,4 @@
     <style name="PoppinsBold" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/poppins_bold</item>
     </style>
-    <style name="DataInputStyle" parent="Widget.AppCompat.EditText">
-        <item name="background">@drawable/data_input_bg</item>
-        <item name="android:paddingHorizontal">15dp</item>
-        <item name="fontFamily">@font/poppins</item>
-    </style>
 </resources>

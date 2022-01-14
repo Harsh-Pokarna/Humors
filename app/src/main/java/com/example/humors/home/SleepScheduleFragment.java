@@ -1,6 +1,5 @@
 package com.example.humors.home;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,30 +7,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ScrollView;
 
 import com.example.humors.R;
-
-import java.util.Objects;
-
-import nl.joery.timerangepicker.TimeRangePicker;
-
-public class ShareHabitsFragment extends Fragment {
+public class SleepScheduleFragment extends Fragment {
 
     private ImageButton backButton;
-    private TimeRangePicker userSleepSchedule;
-    private ScrollView scrollView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
     }
 
@@ -51,9 +38,7 @@ public class ShareHabitsFragment extends Fragment {
     }
 
     private void initialiseVariables() {
-        backButton = requireView().findViewById(R.id.share_habits_back_button);
-        userSleepSchedule = requireView().findViewById(R.id.user_sleep_schedule);
-        scrollView = requireView().findViewById(R.id.share_habits_scroll_view);
+        backButton = requireView().findViewById(R.id.sleep_schedule_back_button);
     }
 
     private void fetchData() {
@@ -64,11 +49,8 @@ public class ShareHabitsFragment extends Fragment {
 
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     private void setListeners() {
         backButton.setOnClickListener(view -> requireActivity().getSupportFragmentManager().popBackStack());
-
-
     }
 
     private void setObservers() {
@@ -79,6 +61,6 @@ public class ShareHabitsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_share_habits, container, false);
+        return inflater.inflate(R.layout.fragment_sleep_schedule, container, false);
     }
 }

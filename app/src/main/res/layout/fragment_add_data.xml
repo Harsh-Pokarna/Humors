@@ -106,6 +106,7 @@
                         android:layout_height="wrap_content"/>
 
                     <RadioGroup
+                        android:id="@+id/gender_radio_grp"
                         android:layout_width="wrap_content"
                         android:layout_marginHorizontal="15dp"
                         android:layout_height="wrap_content"
@@ -114,6 +115,7 @@
                             android:id="@+id/male_radio_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text="Male"
                             style="@style/PoppinsBold"
                             android:layout_marginEnd="10dp"
@@ -122,6 +124,7 @@
                             android:id="@+id/female_radio_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text="Female"
                             android:layout_marginEnd="10dp"
                             style="@style/PoppinsBold"
@@ -130,6 +133,7 @@
                             android:id="@+id/other_gender_radio_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text="Other"
                             style="@style/PoppinsBold"
                             android:buttonTint="@color/gradientDarkColor"/>

@@ -20,7 +20,8 @@ import java.util.Objects;
 
 public class NewUserHomeFragment extends Fragment {
 
-    CardView addDetailsCardView;
+    CardView addDetailsCardView, sleepScheduleCardView, shareHabitsCardView;
+    ImageButton bt1, bt2, bt3, bt4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,13 @@ public class NewUserHomeFragment extends Fragment {
 
     private void initialiseVariables() {
         addDetailsCardView = requireView().findViewById(R.id.add_details_card_view);
+        shareHabitsCardView = requireView().findViewById(R.id.share_habits_card_view);
+        sleepScheduleCardView = requireView().findViewById(R.id.sleep_schedule_card_view);
+
+        bt1 = requireView().findViewById(R.id.bt1);
+        bt2 = requireView().findViewById(R.id.bt2);
+        bt3 = requireView().findViewById(R.id.bt3);
+        bt4 = requireView().findViewById(R.id.bt4);
     }
 
     private void fetchData() {
@@ -64,6 +72,12 @@ public class NewUserHomeFragment extends Fragment {
 
     private void setListeners() {
         addDetailsCardView.setOnClickListener(view -> setCurrentFragment(new AddDataFragment()));
+        sleepScheduleCardView.setOnClickListener(view -> setCurrentFragment(new SleepScheduleFragment()));
+        shareHabitsCardView.setOnClickListener(view -> setCurrentFragment(new ShareHabitsFragment()));
+
+        bt1.setOnClickListener(view -> addDetailsCardView.callOnClick());
+        bt2.setOnClickListener(view -> sleepScheduleCardView.callOnClick());
+        bt3.setOnClickListener(view -> shareHabitsCardView.callOnClick());
     }
 
     private void setObservers() {
