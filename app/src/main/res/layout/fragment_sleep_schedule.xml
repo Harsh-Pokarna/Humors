@@ -66,25 +66,119 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"/>
 
-        <nl.joery.timerangepicker.TimeRangePicker
-            android:id="@+id/user_sleep_schedule"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_width="250dp"
-            app:trp_thumbIconEnd="@drawable/ic_baseline_alarm_24"
-            app:trp_thumbIconStart="@drawable/ic_baseline_dark_mode_24"
-            app:trp_sliderWidth="28dp"
-            android:layout_height="250dp"
-            app:trp_clockFace="APPLE"/>
-
-        <TextView
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"
-            android:text="Your total sleeping hours are: 8hrs"
-            android:textSize="16sp"
-            style="@style/PoppinsMedium"
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <nl.joery.timerangepicker.TimeRangePicker
+                android:id="@+id/user_sleep_schedule"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="250dp"
+                app:trp_thumbIconEnd="@drawable/ic_baseline_alarm_24"
+                app:trp_thumbIconStart="@drawable/ic_baseline_dark_mode_24"
+                app:trp_sliderWidth="28dp"
+                android:layout_height="250dp"
+                app:trp_clockFace="SAMSUNG"/>
+            <TextView
+                android:id="@+id/user_sleep_duration"
+                android:textColor="@color/black"
+                android:text="8"
+                android:textSize="22sp"
+                style="@style/PoppinsBold"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"
+                android:text="HRS"
+                android:textSize="22sp"
+                style="@style/PoppinsBold"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            
+        </FrameLayout>
+        
+        <LinearLayout
+            android:layout_marginTop="30dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:src="@drawable/ic_sleep_icon"
+                        android:layout_marginEnd="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textColor="@color/black"
+                        android:text="Sleep time"
+                        android:textSize="14sp"
+                        style="@style/PoppinsMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/user_start_sleep_time"
+                    android:textColor="@color/black"
+                    android:text="11:00 PM"
+                    android:textSize="22sp"
+                    style="@style/MontserratBold"
+                    android:layout_marginTop="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="1dp"
+                android:background="@color/lightTextColor"
+                android:layout_marginHorizontal="30dp"
+                android:layout_height="70dp"
+                android:orientation="horizontal"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:src="@drawable/ic_ialarm_icon"
+                        android:layout_marginEnd="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textColor="@color/black"
+                        android:text="Wake time"
+                        android:textSize="14sp"
+                        style="@style/PoppinsMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/user_end_sleep_time"
+                    android:textColor="@color/black"
+                    android:text="08:00 AM"
+                    android:textSize="22sp"
+                    style="@style/MontserratBold"
+                    android:layout_marginTop="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
 
     </LinearLayout>
 
@@ -95,7 +189,7 @@
         style="@style/PoppinsMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/gradientDarkColor"
+        app:backgroundTint="@color/colorPrimary"
         android:layout_gravity="end|bottom"
         android:layout_marginBottom="30dp"
         android:layout_marginEnd="30dp"

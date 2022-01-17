@@ -12,9 +12,11 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.example.humors.R;
+import com.example.humors.newUser.NewUserHomeFragment;
+import com.example.humors.newUser.ShareHabitsFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class SleepScheduleFragment extends Fragment {
+public class FoodHabitsFragment extends Fragment {
 
     private ImageButton backButton;
     private FloatingActionButton nextButton;
@@ -40,9 +42,15 @@ public class SleepScheduleFragment extends Fragment {
         setObservers();
     }
 
+    private void setCurrentFragment(Fragment fragment) {
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.new_user_fragment_container, fragment)
+                    .disallowAddToBackStack().commit();
+        }
+
     private void initialiseVariables() {
-        backButton = requireView().findViewById(R.id.sleep_schedule_back_button);
-        nextButton = requireView().findViewById(R.id.sleep_schedule_next_button);
+        backButton = requireView().findViewById(R.id.food_habits_back_button);
+        nextButton = requireView().findViewById(R.id.food_habits_next_button);
     }
 
     private void fetchData() {
@@ -53,15 +61,11 @@ public class SleepScheduleFragment extends Fragment {
 
     }
 
-    private void setCurrentFragment(Fragment fragment) {
-            requireActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.new_user_fragment_container, fragment)
-                    .disallowAddToBackStack().commit();
-        }
-
     private void setListeners() {
-        backButton.setOnClickListener(view -> requireActivity().getSupportFragmentManager().popBackStack());
-        nextButton.setOnClickListener(view -> setCurrentFragment(new ShareHabitsFragment()));
+        backButton.setOnClickListener(view -> setCurrentFragment(new ShareHabitsFragment()));
+        nextButton.setOnClickListener(view -> setCurrentFragment(new NewUserHomeFragment()));
+
+
     }
 
     private void setObservers() {
@@ -72,6 +76,6 @@ public class SleepScheduleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sleep_schedule, container, false);
+        return inflater.inflate(R.layout.fragment_food_habits, container, false);
     }
 }

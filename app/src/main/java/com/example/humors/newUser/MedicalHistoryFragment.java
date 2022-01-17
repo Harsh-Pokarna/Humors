@@ -14,12 +14,15 @@ import android.widget.ImageButton;
 import android.widget.RadioGroup;
 
 import com.example.humors.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class MedicalHistoryFragment extends Fragment {
 
     private CheckBox diabetesCheckbox;
     private RadioGroup diabetesRadioGroup;
 
     private ImageButton backButton;
+    private FloatingActionButton nextButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,12 @@ public class MedicalHistoryFragment extends Fragment {
         setListeners();
         setObservers();
     }
+
+    private void setCurrentFragment(Fragment fragment) {
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.new_user_fragment_container, fragment)
+                    .disallowAddToBackStack().commit();
+        }
 
     private void initialiseVariables() {
         backButton = requireView().findViewById(R.id.medical_history_back_button);
@@ -67,6 +76,7 @@ public class MedicalHistoryFragment extends Fragment {
         });
 
         backButton.setOnClickListener(view -> requireActivity().getSupportFragmentManager().popBackStack());
+        nextButton.setOnClickListener(view -> setCurrentFragment(new NewUserHomeFragment()));
 
     }
 

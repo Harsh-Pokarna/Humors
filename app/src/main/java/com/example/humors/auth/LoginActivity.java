@@ -22,13 +22,6 @@ import java.util.List;
 public class LoginActivity extends AppCompatActivity {
 
     private TextView termsText;
-    private SliderView sliderView;
-//    private final WelcomeFragment welcomeFragment = new WelcomeFragment();/
-
-    private List<Drawable> listOfIllustrations;
-
-    private SliderAdapter sliderAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,18 +45,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initialiseVariables() {
         termsText = findViewById(R.id.terms_text);
-//        sliderView = findViewById(R.id.slider_view);
-
-        listOfIllustrations = new ArrayList<>();
-        listOfIllustrations.add(getResources().getDrawable(R.drawable.ic_welcom_illustration_1));
-        listOfIllustrations.add(getResources().getDrawable(R.drawable.ic_welcome_illustration_2));
-        listOfIllustrations.add(getResources().getDrawable(R.drawable.ic_welcome_illustration_3));
-
-
-//        sliderAdapter = new SliderAdapter(listOfIllustrations);
-//        sliderView.setSliderAdapter(sliderAdapter);
-//        sliderView.startAutoCycle();
-//        sliderView.setAutoCycle(true);
 
 
     }

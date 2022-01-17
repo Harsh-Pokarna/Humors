@@ -67,7 +67,7 @@ public class NewUserHomeFragment extends Fragment {
 
     private void setListeners() {
         addDetailsCardView.setOnClickListener(view -> setCurrentFragment(new AddDataFragment()));
-        shareHabitsCardView.setOnClickListener(view -> setCurrentFragment(new ShareHabitsFragment()));
+        shareHabitsCardView.setOnClickListener(view -> setCurrentFragment(new SleepScheduleFragment()));
         medicalHistoryCardView.setOnClickListener(view -> setCurrentFragment(new MedicalHistoryFragment()));
 
 

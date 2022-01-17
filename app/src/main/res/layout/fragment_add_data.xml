@@ -225,7 +225,7 @@
         android:id="@+id/add_data_next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/gradientDarkColor"
+        app:backgroundTint="@color/colorPrimary"
         android:layout_gravity="end|bottom"
         android:layout_marginBottom="30dp"
         android:layout_marginEnd="30dp"

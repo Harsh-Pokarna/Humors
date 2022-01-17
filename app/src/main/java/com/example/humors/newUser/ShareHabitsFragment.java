@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ScrollView;
 
 import com.example.humors.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import nl.joery.timerangepicker.TimeRangePicker;
 
@@ -22,6 +23,7 @@ public class ShareHabitsFragment extends Fragment {
     private ImageButton backButton;
     private TimeRangePicker userSleepSchedule;
     private ScrollView scrollView;
+    private FloatingActionButton nextButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,10 +47,17 @@ public class ShareHabitsFragment extends Fragment {
         setObservers();
     }
 
+    private void setCurrentFragment(Fragment fragment) {
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.new_user_fragment_container, fragment)
+                    .disallowAddToBackStack().commit();
+        }
+
     private void initialiseVariables() {
         backButton = requireView().findViewById(R.id.share_habits_back_button);
         userSleepSchedule = requireView().findViewById(R.id.user_sleep_schedule);
         scrollView = requireView().findViewById(R.id.share_habits_scroll_view);
+        nextButton = requireView().findViewById(R.id.share_habits_next_button);
     }
 
     private void fetchData() {
@@ -62,8 +71,7 @@ public class ShareHabitsFragment extends Fragment {
     @SuppressLint("ClickableViewAccessibility")
     private void setListeners() {
         backButton.setOnClickListener(view -> requireActivity().getSupportFragmentManager().popBackStack());
-
-
+        nextButton.setOnClickListener(view -> setCurrentFragment(new FoodHabitsFragment()));
     }
 
     private void setObservers() {

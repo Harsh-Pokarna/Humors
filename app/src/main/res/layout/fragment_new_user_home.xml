@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/screenBackground"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".newUser.NewUserHomeFragment">
 
@@ -39,6 +40,7 @@
                     android:layout_marginHorizontal="5dp"
                     android:layout_marginTop="25dp"
                     android:layout_width="match_parent"
+                    android:background="@color/editTextColor"
                     android:layout_height="72dp"
                     app:cardMaxElevation="100dp"
                     app:cardCornerRadius="10dp">

@@ -13,10 +13,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.humors.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class AddDataFragment extends Fragment {
 
     private ImageButton backButton;
     private EditText userNameEditText;
+    private FloatingActionButton nextButton;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +42,16 @@ public class AddDataFragment extends Fragment {
         setObservers();
     }
 
+    private void setCurrentFragment(Fragment fragment) {
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.new_user_fragment_container, fragment)
+                    .disallowAddToBackStack().commit();
+        }
+
     private void initialiseVariables() {
         backButton = requireView().findViewById(R.id.add_details_back_button);
         userNameEditText = requireView().findViewById(R.id.user_name_edittext_add_data);
+        nextButton = requireView().findViewById(R.id.add_data_next_button);
     }
 
     private void fetchData() {
@@ -54,7 +65,7 @@ public class AddDataFragment extends Fragment {
 
     private void setListeners() {
         backButton.setOnClickListener(view -> requireActivity().getSupportFragmentManager().popBackStack());
-
+        nextButton.setOnClickListener(view -> setCurrentFragment(new NewUserHomeFragment()));
     }
 
     private void setObservers() {
