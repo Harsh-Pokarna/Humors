@@ -1,6 +1,5 @@
-package com.example.humors.home;
+package com.example.humors.newUser;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,30 +7,19 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
+import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ScrollView;
 
 import com.example.humors.R;
-
-import java.util.Objects;
-
-import nl.joery.timerangepicker.TimeRangePicker;
-
-public class ShareHabitsFragment extends Fragment {
+public class AddDataFragment extends Fragment {
 
     private ImageButton backButton;
-    private TimeRangePicker userSleepSchedule;
-    private ScrollView scrollView;
-
+    private EditText userNameEditText;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
     }
 
@@ -51,9 +39,8 @@ public class ShareHabitsFragment extends Fragment {
     }
 
     private void initialiseVariables() {
-        backButton = requireView().findViewById(R.id.share_habits_back_button);
-        userSleepSchedule = requireView().findViewById(R.id.user_sleep_schedule);
-        scrollView = requireView().findViewById(R.id.share_habits_scroll_view);
+        backButton = requireView().findViewById(R.id.add_details_back_button);
+        userNameEditText = requireView().findViewById(R.id.user_name_edittext_add_data);
     }
 
     private void fetchData() {
@@ -61,13 +48,12 @@ public class ShareHabitsFragment extends Fragment {
     }
 
     private void setViews() {
+        userNameEditText.setError("Please enter a valid email");
 
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     private void setListeners() {
         backButton.setOnClickListener(view -> requireActivity().getSupportFragmentManager().popBackStack());
-
 
     }
 
@@ -79,6 +65,6 @@ public class ShareHabitsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_share_habits, container, false);
+        return inflater.inflate(R.layout.fragment_add_data, container, false);
     }
 }

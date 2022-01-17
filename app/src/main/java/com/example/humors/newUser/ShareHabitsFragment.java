@@ -1,5 +1,6 @@
-package com.example.humors.home;
+package com.example.humors.newUser;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,15 +11,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
 
 import com.example.humors.R;
-public class SleepScheduleFragment extends Fragment {
+
+import nl.joery.timerangepicker.TimeRangePicker;
+
+public class ShareHabitsFragment extends Fragment {
 
     private ImageButton backButton;
+    private TimeRangePicker userSleepSchedule;
+    private ScrollView scrollView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
     }
 
@@ -38,7 +46,9 @@ public class SleepScheduleFragment extends Fragment {
     }
 
     private void initialiseVariables() {
-        backButton = requireView().findViewById(R.id.sleep_schedule_back_button);
+        backButton = requireView().findViewById(R.id.share_habits_back_button);
+        userSleepSchedule = requireView().findViewById(R.id.user_sleep_schedule);
+        scrollView = requireView().findViewById(R.id.share_habits_scroll_view);
     }
 
     private void fetchData() {
@@ -49,8 +59,11 @@ public class SleepScheduleFragment extends Fragment {
 
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void setListeners() {
         backButton.setOnClickListener(view -> requireActivity().getSupportFragmentManager().popBackStack());
+
+
     }
 
     private void setObservers() {
@@ -61,6 +74,6 @@ public class SleepScheduleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sleep_schedule, container, false);
+        return inflater.inflate(R.layout.fragment_share_habits, container, false);
     }
 }

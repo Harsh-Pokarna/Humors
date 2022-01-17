@@ -1,4 +1,4 @@
-package com.example.humors.home;
+package com.example.humors.newUser;
 
 import android.os.Bundle;
 
@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.example.humors.R;
-public class AddDataFragment extends Fragment {
+public class SleepScheduleFragment extends Fragment {
 
-    ImageButton backButton;
+    private ImageButton backButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class AddDataFragment extends Fragment {
     }
 
     private void initialiseVariables() {
-        backButton = requireView().findViewById(R.id.add_details_back_button);
+        backButton = requireView().findViewById(R.id.sleep_schedule_back_button);
     }
 
     private void fetchData() {
@@ -51,7 +51,6 @@ public class AddDataFragment extends Fragment {
 
     private void setListeners() {
         backButton.setOnClickListener(view -> requireActivity().getSupportFragmentManager().popBackStack());
-
     }
 
     private void setObservers() {
@@ -62,6 +61,6 @@ public class AddDataFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_data, container, false);
+        return inflater.inflate(R.layout.fragment_sleep_schedule, container, false);
     }
 }

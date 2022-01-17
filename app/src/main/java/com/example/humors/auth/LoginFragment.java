@@ -1,6 +1,5 @@
 package com.example.humors.auth;
 
-import android.graphics.Paint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,7 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.humors.R;
-import com.example.humors.home.NewUserActivity;
+import com.example.humors.newUser.NewUserActivity;
 import com.example.humors.utils.ExtFunctions;
 
 public class LoginFragment extends Fragment {

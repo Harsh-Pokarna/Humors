@@ -1,4 +1,4 @@
-package com.example.humors.home;
+package com.example.humors.newUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -8,9 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.humors.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.shape.CornerFamily;
-import com.google.android.material.shape.MaterialShapeDrawable;
 
 public class NewUserActivity extends AppCompatActivity {
     @Override

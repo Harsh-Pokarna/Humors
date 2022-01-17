@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.humors.R;
-import com.example.humors.home.NewUserActivity;
+import com.example.humors.newUser.NewUserActivity;
 import com.example.humors.utils.ExtFunctions;
 import com.mukesh.OtpView;
 

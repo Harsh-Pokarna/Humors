@@ -1,4 +1,4 @@
-package com.example.humors.auth;
+package com.example.humors.newUser;
 
 import android.os.Bundle;
 
@@ -9,25 +9,22 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.CheckBox;
+import android.widget.ImageButton;
+import android.widget.RadioGroup;
 
 import com.example.humors.R;
-import com.example.humors.newUser.NewUserActivity;
-import com.example.humors.utils.ExtFunctions;
-import com.mukesh.OtpView;
+public class MedicalHistoryFragment extends Fragment {
 
-public class ForgotPassVerificationFragment extends Fragment {
+    private CheckBox diabetesCheckbox;
+    private RadioGroup diabetesRadioGroup;
 
-    private TextView resendOtpButton;
-    private OtpView otpView;
-    private Button confirmOtpButton;
-
-    private String otp;
+    private ImageButton backButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -46,9 +43,10 @@ public class ForgotPassVerificationFragment extends Fragment {
     }
 
     private void initialiseVariables() {
-        resendOtpButton = requireView().findViewById(R.id.resend_otp_textview_forgot_pass);
-        otpView = requireView().findViewById(R.id.otp_input_forgot_pass);
-        confirmOtpButton = requireView().findViewById(R.id.confirm_otp_button_forgot_pass);
+        backButton = requireView().findViewById(R.id.medical_history_back_button);
+
+        diabetesCheckbox = requireView().findViewById(R.id.diabetes_checkbox);
+        diabetesRadioGroup = requireView().findViewById(R.id.diabetes_radio_grp);
     }
 
     private void fetchData() {
@@ -56,15 +54,19 @@ public class ForgotPassVerificationFragment extends Fragment {
     }
 
     private void setViews() {
-        ExtFunctions.underlineText(resendOtpButton);
     }
 
     private void setListeners() {
-        confirmOtpButton.setOnClickListener(view -> {
-            otp = otpView.getText().toString();
-            startActivity(NewUserActivity.newInstance(getContext()));
-            // TODO: VERIFY OTP
+        diabetesCheckbox.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                diabetesRadioGroup.setVisibility(View.VISIBLE);
+            } else {
+                diabetesRadioGroup.clearCheck();
+                diabetesRadioGroup.setVisibility(View.GONE);
+            }
         });
+
+        backButton.setOnClickListener(view -> requireActivity().getSupportFragmentManager().popBackStack());
 
     }
 
@@ -76,6 +78,6 @@ public class ForgotPassVerificationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_forgot_pass_verification, container, false);
+        return inflater.inflate(R.layout.fragment_medical_history, container, false);
     }
 }
