@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -13,11 +14,13 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.example.humors.R;
+import com.example.humors.connect.SearchingActivity;
 
 public class NewUserHomeFragment extends Fragment {
 
     CardView addDetailsCardView, shareHabitsCardView, medicalHistoryCardView;
     ImageButton bt1, bt3, bt4;
+    AppCompatButton connectButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class NewUserHomeFragment extends Fragment {
         addDetailsCardView = requireView().findViewById(R.id.add_details_card_view);
         shareHabitsCardView = requireView().findViewById(R.id.share_habits_card_view);
         medicalHistoryCardView = requireView().findViewById(R.id.medical_history_card_view);
+        connectButton = requireView().findViewById(R.id.connect_device);
 
         bt1 = requireView().findViewById(R.id.bt1);
         bt3 = requireView().findViewById(R.id.bt3);
@@ -69,6 +73,7 @@ public class NewUserHomeFragment extends Fragment {
         addDetailsCardView.setOnClickListener(view -> setCurrentFragment(new AddDataFragment()));
         shareHabitsCardView.setOnClickListener(view -> setCurrentFragment(new SleepScheduleFragment()));
         medicalHistoryCardView.setOnClickListener(view -> setCurrentFragment(new MedicalHistoryFragment()));
+        connectButton.setOnClickListener(view -> startActivity(SearchingActivity.newInstance(requireContext())));
 
 
         bt1.setOnClickListener(view -> addDetailsCardView.callOnClick());
