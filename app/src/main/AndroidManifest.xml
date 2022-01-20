@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
+            android:name=".connect.ResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".connect.BreatheTestActivity"
+            android:exported="false" />
+        <activity
             android:name=".connect.SearchingActivity"
             android:exported="false" />
         <activity

@@ -52,4 +52,8 @@ dependencies {
     // Lottie Animations
     def lottieVersion = "4.2.1"
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    // Donut View
+    implementation("app.futured.donut:donut:2.2.0")
+
 }
