@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -55,8 +56,9 @@ public class ResultsActivity extends AppCompatActivity {
 
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-//        bottomSheetBehavior.setPeekHeight(Resources.getSystem().getDisplayMetrics().heightPixels - 400);
-        bottomSheetBehavior.setPeekHeight(100);
+        Log.e("TAG", String.valueOf(Resources.getSystem().getDisplayMetrics().heightPixels));
+        bottomSheetBehavior.setPeekHeight(Resources.getSystem().getDisplayMetrics().heightPixels - 750);
+//        bottomSheetBehavior.setPeekHeight(100);
 
     }
 
