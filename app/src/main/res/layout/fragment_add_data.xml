@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/screenBackground"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".newUser.AddDataFragment">
 
 
@@ -13,50 +13,50 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/homeToolBar"
-        android:layout_width="match_parent"
-        android:elevation="0dp"
-        app:elevation="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/screenBackground"
-        android:layout_marginTop="20dp"
-        android:padding="10dp">
-
-    	<FrameLayout
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/homeToolBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="20dp"
+            android:background="@color/screenBackground"
+            android:elevation="0dp"
+            android:padding="10dp"
+            app:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageButton
-                android:id="@+id/add_details_back_button"
-                android:layout_width="wrap_content"
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:layout_gravity="start"
-                android:src="@drawable/ic_back_button"/>
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal">
 
-    		<TextView
-    		   android:layout_width="wrap_content"
-    		   android:layout_height="wrap_content"
-    		   android:textColor="@color/black"
-    		   android:text="ADD YOUR DATA"
-                android:layout_gravity="center"
-                style="@style/MontserratBold"
-    		   android:textSize="18sp"/>
+                <ImageButton
+                    android:id="@+id/add_details_back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_back_button" />
 
-        </FrameLayout>
+                <TextView
+                    style="@style/MontserratBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="ADD YOUR DATA"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+            </FrameLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:paddingTop="20dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -64,79 +64,82 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:layout_marginBottom="20dp"
                     android:id="@+id/user_name_edittext_add_data"
+                    style="@style/PoppinsRegular"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/data_input_bg"
-                    android:paddingHorizontal="15dp"
-                    style="@style/PoppinsRegular"
-                    android:hint="Enter your name"/>
+                    android:hint="Enter your name"
+                    android:paddingHorizontal="15dp" />
 
                 <EditText
-                    android:layout_marginBottom="20dp"
                     android:id="@+id/user_dob"
+                    style="@style/PoppinsRegular"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/data_input_bg"
-                    android:inputType="date"
-                    android:paddingHorizontal="15dp"
                     android:drawableEnd="@drawable/ic_calendar_icon"
-                    style="@style/PoppinsRegular"
-                    android:hint="Select your DOB"/>
+                    android:hint="Select your DOB"
+                    android:inputType="date"
+                    android:paddingHorizontal="15dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/data_input_bg"
                     android:layout_marginHorizontal="20dp"
+                    android:background="@drawable/data_input_bg"
                     android:orientation="vertical">
 
                     <TextView
-                        android:textColor="@color/lightTextColor"
-                        android:text="Select your gender"
-                        android:textSize="14sp"
                         style="@style/PoppinsRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginHorizontal="15dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="6dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:text="Select your gender"
+                        android:textColor="@color/lightTextColor"
+                        android:textSize="14sp" />
 
                     <RadioGroup
                         android:id="@+id/gender_radio_grp"
                         android:layout_width="wrap_content"
-                        android:layout_marginHorizontal="15dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
                         android:orientation="horizontal">
+
                         <RadioButton
                             android:id="@+id/male_radio_button"
+                            style="@style/PoppinsBold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Male"
-                            style="@style/PoppinsBold"
                             android:layout_marginEnd="10dp"
-                            android:buttonTint="@color/gradientDarkColor"/>
+                            android:buttonTint="@color/gradientDarkColor"
+                            android:gravity="center"
+                            android:text="Male" />
+
                         <RadioButton
                             android:id="@+id/female_radio_button"
+                            style="@style/PoppinsBold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Female"
                             android:layout_marginEnd="10dp"
-                            style="@style/PoppinsBold"
-                            android:buttonTint="@color/gradientDarkColor"/>
+                            android:buttonTint="@color/gradientDarkColor"
+                            android:gravity="center"
+                            android:text="Female" />
+
                         <RadioButton
                             android:id="@+id/other_gender_radio_button"
+                            style="@style/PoppinsBold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:buttonTint="@color/gradientDarkColor"
                             android:gravity="center"
-                            android:text="Other"
-                            style="@style/PoppinsBold"
-                            android:buttonTint="@color/gradientDarkColor"/>
+                            android:text="Other" />
 
                     </RadioGroup>
                 </LinearLayout>
@@ -151,64 +154,64 @@
 
                     <FrameLayout
                         android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
 
                         <EditText
                             android:id="@+id/user_height"
-                            android:gravity="center_vertical"
+                            style="@style/PoppinsRegular"
                             android:layout_width="match_parent"
                             android:layout_height="52dp"
-                            android:inputType="number"
-                            android:textColor="@color/black"
                             android:background="@drawable/data_input_bg"
+                            android:gravity="center_vertical"
+                            android:hint="Height"
+                            android:inputType="number"
                             android:paddingHorizontal="15dp"
-                            app:suffixTextColor="@color/black"
-                            style="@style/PoppinsRegular"
-                            android:hint="Height"/>
+                            android:textColor="@color/black"
+                            app:suffixTextColor="@color/black" />
 
                         <TextView
-                            android:textColor="@color/black"
-                            android:text="cms"
-                            android:textSize="12sp"
                             style="@style/PoppinsMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="end|center_vertical"
                             android:layout_marginEnd="12dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:text="cms"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
 
                     </FrameLayout>
 
                     <View
                         android:layout_width="20dp"
-                        android:layout_height="0dp"/>
+                        android:layout_height="0dp" />
 
                     <FrameLayout
                         android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
 
                         <EditText
                             android:id="@+id/user_weight"
-                            android:gravity="center_vertical"
+                            style="@style/PoppinsRegular"
                             android:layout_width="match_parent"
                             android:layout_height="52dp"
-                            android:inputType="number"
-                            android:textColor="@color/black"
                             android:background="@drawable/data_input_bg"
+                            android:gravity="center_vertical"
+                            android:hint="Weight"
+                            android:inputType="number"
                             android:paddingHorizontal="15dp"
-                            style="@style/PoppinsRegular"
-                            android:hint="Weight"/>
+                            android:textColor="@color/black" />
 
                         <TextView
-                            android:textColor="@color/black"
-                            android:text="kgs"
-                            android:textSize="12sp"
                             style="@style/PoppinsMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="end|center_vertical"
                             android:layout_marginEnd="12dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:text="kgs"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
 
                     </FrameLayout>
 
@@ -225,12 +228,12 @@
         android:id="@+id/add_data_next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/colorPrimary"
         android:layout_gravity="end|bottom"
-        android:layout_marginBottom="30dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
         android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-        app:tint="@color/white"/>
+        app:backgroundTint="@color/colorPrimary"
+        app:tint="@color/white" />
 
 
 </FrameLayout>

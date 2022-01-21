@@ -46,6 +46,15 @@
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
+                <ImageButton
+                    android:id="@+id/profile_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_profile_avatar"
+                    android:background="@color/transparentColor"
+                    android:layout_gravity="end"/>
+
             </FrameLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -120,10 +129,6 @@
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
 
 
     </FrameLayout>
