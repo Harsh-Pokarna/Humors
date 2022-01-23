@@ -104,34 +104,49 @@
     </FrameLayout>
 
 
-    <FrameLayout
-        android:id="@+id/bottom_sheet_your_results"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:background="@color/white"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        android:layout_height="100dp">
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp">
+        <FrameLayout
+            android:id="@+id/bottom_sheet_your_results"
+            android:layout_width="match_parent"
+            android:background="@drawable/top_rounded_28"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+            android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_height="2dp"
-            android:background="@color/lightTextColor"
-            android:layout_gravity="center_horizontal"
-            android:orientation="vertical">
-        </LinearLayout>
-        
-        <TextView
-            android:textColor="@color/black"
-            android:text="Suggestions"
-            android:textSize="14sp"
-            style="@style/PoppinsMedium"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_height="2dp"
+                android:background="@color/lightTextColor"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+            </LinearLayout>
 
+            <TextView
+                android:textColor="@color/black"
+                android:text="Suggestions"
+                android:textSize="14sp"
+                style="@style/PoppinsMedium"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-    </FrameLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/suggestions_recycler_view"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                tools:itemCount="20"
+                tools:listitem="@layout/item_suggestion"
+                android:paddingBottom="20dp"/>
+
+        </FrameLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

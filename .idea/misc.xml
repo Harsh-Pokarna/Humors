@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.3776041666666667" />
         <entry key="app/src/main/res/drawable/button_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/circular_ring.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/connect_button_bg.xml" value="0.37864583333333335" />
@@ -24,6 +25,7 @@
         <entry key="app/src/main/res/drawable/selecte_navbar_item_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/selected_dashboard_button_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/square_box.xml" value="0.378125" />
+        <entry key="app/src/main/res/drawable/top_rounded_28.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/unselected_dashbaord_button_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/layout/activity_breathe_test.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3619791666666667" />
