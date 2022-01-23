@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 
 import com.example.humors.R;
 import com.example.humors.connect.SearchingActivity;
+import com.example.humors.home.HomeActivity;
 
 public class NewUserHomeFragment extends Fragment {
 
@@ -73,7 +74,8 @@ public class NewUserHomeFragment extends Fragment {
         addDetailsCardView.setOnClickListener(view -> setCurrentFragment(new AddDataFragment()));
         shareHabitsCardView.setOnClickListener(view -> setCurrentFragment(new SleepScheduleFragment()));
         medicalHistoryCardView.setOnClickListener(view -> setCurrentFragment(new MedicalHistoryFragment()));
-        connectButton.setOnClickListener(view -> startActivity(SearchingActivity.newInstance(requireContext())));
+//        connectButton.setOnClickListener(view -> startActivity(SearchingActivity.newInstance(requireContext())));
+        connectButton.setOnClickListener(view -> startActivity(HomeActivity.newInstance(requireContext())));
 
 
         bt1.setOnClickListener(view -> addDetailsCardView.callOnClick());

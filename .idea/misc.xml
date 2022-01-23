@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/drawable/ic_add_data_icon.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/ic_ight_arrow_white.xml" value="0.37864583333333335" />
+        <entry key="app/src/main/res/drawable/ic_outline_settings_24.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/ic_right_arrow_black.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/ic_user_guide_24.xml" value="0.18888888888888888" />
         <entry key="app/src/main/res/drawable/ic_welcom_illustration_1.xml" value="0.21875" />
@@ -28,6 +29,7 @@
         <entry key="app/src/main/res/drawable/top_rounded_28.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/unselected_dashbaord_button_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/layout/activity_breathe_test.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28804347826086957" />
         <entry key="app/src/main/res/layout/activity_new_user.xml" value="0.33" />
@@ -47,12 +49,16 @@
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/fragment_medical_history.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_new_user_home.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/fragment_share_habits.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/fragment_sleep_schedule.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/fragment_test_history.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/home_dashboard.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/item_suggestion.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/item_test_history.xml" value="0.5" />
         <entry key="app/src/main/res/layout/slider_image.xml" value="0.3625" />
+        <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.3625" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3625" />
       </map>
     </option>
@@ -62,5 +68,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.5" />
+      </ProjectState>
+    </option>
   </component>
 </project>

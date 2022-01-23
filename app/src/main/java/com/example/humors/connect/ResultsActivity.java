@@ -1,6 +1,5 @@
 package com.example.humors.connect;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,15 +9,11 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
 import com.example.humors.R;
-import com.example.humors.auth.ResultsAdapter;
 import com.example.humors.home.ProfileActivity;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
@@ -38,7 +33,7 @@ public class ResultsActivity extends AppCompatActivity {
 
     private BottomSheetBehavior bottomSheetBehavior = new BottomSheetBehavior();
 
-    private final ResultsAdapter resultsAdapter = new ResultsAdapter();
+    private final SuggestionsAdapter suggestionsAdapter = new SuggestionsAdapter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +76,7 @@ public class ResultsActivity extends AppCompatActivity {
     private void setViews() {
 
         suggestionsRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        suggestionsRecyclerView.setAdapter(resultsAdapter);
+        suggestionsRecyclerView.setAdapter(suggestionsAdapter);
 
     }
 

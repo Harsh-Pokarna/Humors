@@ -1,4 +1,4 @@
-package com.example.humors.auth;
+package com.example.humors.connect;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,16 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.humors.R;
 
-public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ResultsViewHolder> {
+public class SuggestionsAdapter extends RecyclerView.Adapter<SuggestionsAdapter.SuggestionsViewHolder> {
 
     @NonNull
     @Override
-    public ResultsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ResultsViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_suggestion, parent, false));
+    public SuggestionsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new SuggestionsViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_suggestion, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ResultsViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SuggestionsViewHolder holder, int position) {
         holder.bind();
     }
 
@@ -30,13 +30,13 @@ public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ResultsV
         return 20;
     }
 
-    class  ResultsViewHolder extends RecyclerView.ViewHolder {
+    class SuggestionsViewHolder extends RecyclerView.ViewHolder {
 
         TextView suggestionName;
         ImageButton nextButton;
         ImageView suggestionIcon;
 
-        public ResultsViewHolder(@NonNull View itemView) {
+        public SuggestionsViewHolder(@NonNull View itemView) {
             super(itemView);
 
             suggestionName = itemView.findViewById(R.id.suggestion_name);
