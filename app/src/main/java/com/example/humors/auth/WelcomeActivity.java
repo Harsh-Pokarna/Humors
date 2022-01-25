@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.humors.R;
@@ -91,8 +92,8 @@ public class WelcomeActivity extends AppCompatActivity {
     private void setListeners() {
 
         mailSignInButton.setOnClickListener(view -> startActivity(LoginActivity.newInstance(getApplicationContext())));
-
         registerNowButton.setOnClickListener(view -> startActivity(LoginActivity.newInstance(getApplicationContext())));
+        googleSignInButton.setOnClickListener(view -> Toast.makeText(this, "Press mail sign in button for complete experience", Toast.LENGTH_SHORT).show());
 
 
     }

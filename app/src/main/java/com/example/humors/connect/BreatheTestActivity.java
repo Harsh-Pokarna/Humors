@@ -1,4 +1,4 @@
-    package com.example.humors.connect;
+package com.example.humors.connect;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,10 +6,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.TextView;
 
 import com.example.humors.R;
 
 public class BreatheTestActivity extends AppCompatActivity {
+
+    int maxTime = 5;
+    int counter = 0;
+
+    private TextView breatheTimerTextView;
+
+    public static Intent newInstance(Context context) {
+        return new Intent(context, BreatheTestActivity.class);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +38,23 @@ public class BreatheTestActivity extends AppCompatActivity {
     }
 
     private void initialiseVariables() {
+
+        breatheTimerTextView = findViewById(R.id.timer_breathe_test);
+
         Handler handler = new Handler();
-        handler.postDelayed(() -> {
-            startActivity(ResultsActivity.newInstance(this));
-        }, 5000);
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                counter++;
+                if (counter == 6) {
+                    startActivity(ResultsActivity.newInstance(BreatheTestActivity.this));
+                    return;
+                }
+                breatheTimerTextView.setText("00:0" + (maxTime - counter));
+                handler.postDelayed(this, 1000);
+            }
+        }, 1000);
 
     }
 
@@ -49,9 +72,5 @@ public class BreatheTestActivity extends AppCompatActivity {
 
     private void setObservers() {
 
-    }
-
-    public static Intent newInstance(Context context) {
-        return  new Intent(context, BreatheTestActivity.class);
     }
 }

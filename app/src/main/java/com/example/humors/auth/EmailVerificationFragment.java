@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.humors.R;
-import com.example.humors.newUser.NewUserActivity;
+import com.example.humors.newUser.NewUserHomeActivity;
 import com.example.humors.utils.ExtFunctions;
 import com.mukesh.OtpView;
 
@@ -66,7 +66,7 @@ public class EmailVerificationFragment extends Fragment {
 
         confirmOtp.setOnClickListener(view -> {
             otp = otpView.getText().toString();
-            startActivity(NewUserActivity.newInstance(getContext()));
+            startActivity(NewUserHomeActivity.newInstance(getContext()));
             // TODO: VERIFY OTP
         });
 

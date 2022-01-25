@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/screenBackground"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".newUser.NewUserHomeFragment">
+    tools:context=".newUser.NewUserHomeActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-<!--            <include layout="@layout/home_dashboard"/>-->
+            <!--            <include layout="@layout/home_dashboard"/>-->
             <LinearLayout
                 android:paddingHorizontal="15dp"
                 android:layout_marginTop="40dp"
@@ -179,7 +179,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginBottom="2dp"
                     android:src="@drawable/ic_connect_icon"/>
-                
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -99,7 +99,7 @@ public class SearchingActivity extends AppCompatActivity {
             if (isConnected.getValue()) {
                 startActivity(BreatheTestActivity.newInstance(this));
             } else {
-                Toast.makeText(this, "Please buy one", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please wait for 5 sec", Toast.LENGTH_SHORT).show();
             }
         });
     }

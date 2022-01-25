@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.humors.R;
-import com.example.humors.newUser.NewUserActivity;
+import com.example.humors.newUser.NewUserHomeActivity;
 import com.example.humors.utils.ExtFunctions;
 
 public class LoginFragment extends Fragment {
@@ -83,7 +83,7 @@ public class LoginFragment extends Fragment {
             userEmail = userEmailTextView.getText().toString();
             userPassword = userPasswordTextView.getText().toString();
 
-            startActivity(NewUserActivity.newInstance(getContext()));
+            startActivity(NewUserHomeActivity.newInstance(getContext()));
             // TODO: LOGIN USER
         });
 

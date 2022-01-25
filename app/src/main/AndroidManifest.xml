@@ -12,6 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
+            android:name=".newUser.SleepScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".newUser.ShareHabitsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".newUser.MedicalHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".newUser.FoodHabitsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".newUser.NewUserHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".newUser.AddDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".others.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".home.HomeActivity"
             android:exported="false" />
         <activity
@@ -25,9 +46,6 @@
             android:exported="false" />
         <activity
             android:name=".connect.SearchingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".newUser.NewUserActivity"
             android:exported="false" />
         <activity
             android:name=".auth.WelcomeActivity"

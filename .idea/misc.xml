@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.3776041666666667" />
+        <entry key="app/src/main/res/drawable/all_rounded_4.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/button_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/circular_ring.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/connect_button_bg.xml" value="0.37864583333333335" />
@@ -28,20 +29,29 @@
         <entry key="app/src/main/res/drawable/square_box.xml" value="0.378125" />
         <entry key="app/src/main/res/drawable/top_rounded_28.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/unselected_dashbaord_button_bg.xml" value="0.37864583333333335" />
+        <entry key="app/src/main/res/layout/activity_add_data.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/activity_breathe_test.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/activity_food_habits.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28804347826086957" />
+        <entry key="app/src/main/res/layout/activity_mecial_history.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/activity_medical_history.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/activity_new_user.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_new_user_home.xml" value="0.34791666666666665" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_results.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_searching.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_share_habits.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/activity_sleep_schedule.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/divider.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_add_data.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_add_details.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.3619791666666667" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_email_verification.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/fragment_food_habits.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_forgot_pass_verification.xml" value="0.3625" />
@@ -57,6 +67,7 @@
         <entry key="app/src/main/res/layout/home_dashboard.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/item_suggestion.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/item_test_history.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/main_widget.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/slider_image.xml" value="0.3625" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.3625" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3625" />

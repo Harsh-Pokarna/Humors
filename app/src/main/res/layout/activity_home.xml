@@ -10,8 +10,9 @@
         android:layout_width="match_parent"
         android:id="@+id/home_fragment_container"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_view"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_height="0dp">
+        android:layout_height="match_parent">
     </FrameLayout>
 
 

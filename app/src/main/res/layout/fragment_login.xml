@@ -56,6 +56,7 @@
             android:background="@drawable/edittext_bg"
             android:hint="Enter your mail"
             android:paddingHorizontal="12dp"
+            style="@style/PoppinsRegular"
             android:textColor="@color/black"
             android:layout_height="42dp"/>
 
@@ -67,6 +68,7 @@
             android:background="@drawable/edittext_bg"
             android:hint="Enter your password"
             android:paddingHorizontal="12dp"
+            style="@style/PoppinsRegular"
             android:textColor="@color/black"
             android:layout_height="42dp"/>
         

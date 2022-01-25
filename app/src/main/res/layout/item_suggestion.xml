@@ -17,13 +17,14 @@
         <LinearLayout
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/all_rounded_4"
             android:layout_marginStart="20dp"
             android:gravity="center"
             android:orientation="vertical">
             <ImageView
                 android:id="@+id/suggestion_icon"
-                android:src="@drawable/ic_ialarm_icon"
+                android:src="@drawable/ic_food_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -41,11 +42,12 @@
 
         <ImageButton
             android:id="@+id/next_button_suggestion"
-            android:layout_width="wrap_content"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="end|center_vertical"
             android:layout_marginEnd="20dp"
-            android:background="@color/white"
+            android:background="@drawable/all_rounded_4"
+            android:backgroundTint="@color/white"
             android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
             app:tint="@color/black" />
 

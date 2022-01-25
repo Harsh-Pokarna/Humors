@@ -88,7 +88,7 @@
         <TextView
             android:id="@+id/timer_breathe_test"
             android:textColor="@color/colorPrimary"
-            android:text="00:04"
+            android:text="00:05"
             android:textSize="40sp"
             style="@style/PoppinsBold"
             android:layout_gravity="center_horizontal"

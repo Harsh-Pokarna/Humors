@@ -42,6 +42,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setViews() {
+        setCurrentFragment(new DashboardFragment());
+        bottomNavigationView.setSelectedItemId(R.id.home_item);
 
     }
 
@@ -63,7 +65,11 @@ public class HomeActivity extends AppCompatActivity {
 
             }
 
-            return false;
+            if (item.getItemId() == R.id.home_item) {
+                setCurrentFragment(new DashboardFragment());
+            }
+
+            return true;
         });
     }
 
