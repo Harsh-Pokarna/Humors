@@ -1,18 +1,35 @@
 package com.example.humors.home;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.dynamicanimation.animation.SpringAnimation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.humors.R;
+import com.example.humors.pojos.Test;
+
+import org.w3c.dom.Text;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import app.futured.donut.DonutProgressView;
+import app.futured.donut.DonutSection;
 
 public class TestHistoryAdapter extends RecyclerView.Adapter<TestHistoryAdapter.TestHistoryViewHolder> {
+
+    private List<Test> listOfTests;
+
+    public TestHistoryAdapter(List<Test> listOfTests) {
+        this.listOfTests = listOfTests;
+    }
 
     @NonNull
     @Override
@@ -22,12 +39,17 @@ public class TestHistoryAdapter extends RecyclerView.Adapter<TestHistoryAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull TestHistoryViewHolder holder, int position) {
-
+        holder.bind(listOfTests.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 20;
+        return listOfTests.size();
+    }
+
+    public void addData(List<Test> listOfTests) {
+        this.listOfTests = listOfTests;
+        notifyDataSetChanged();
     }
 
     class TestHistoryViewHolder extends RecyclerView.ViewHolder {
@@ -44,6 +66,15 @@ public class TestHistoryAdapter extends RecyclerView.Adapter<TestHistoryAdapter.
             testTime = itemView.findViewById(R.id.test_time);
             viewDetails = itemView.findViewById(R.id.view_details);
 
+        }
+
+        public void bind(Test test) {
+            DonutSection donutSection = new DonutSection(test.getTestId(), Color.parseColor("#1550E8"), Integer.parseInt(test.getHealthStatus()));
+            donutProgressView.setCap(100);
+            donutProgressView.submitData(Collections.singletonList(donutSection));
+            healthStatus.setText(test.getHealthStatus() + "%");
+            testDate.setText(test.getDate());
+            testTime.setText(test.getTime());
         }
     }
 }

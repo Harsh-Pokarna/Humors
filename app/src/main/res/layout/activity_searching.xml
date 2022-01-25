@@ -92,6 +92,7 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 			android:text="BUY NOW"
+			style="@style/MontserratBold"
 			android:textColor="@color/white"
 			android:background="@drawable/selected_dashboard_button_bg"
 			android:layout_gravity="top|center_horizontal"
