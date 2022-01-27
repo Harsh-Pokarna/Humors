@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimary"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".home.DashboardFragment">
 
     <FrameLayout
+        android:id="@+id/homeToolBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/homeToolBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:background="@color/colorPrimary"
             android:elevation="0dp"
             android:paddingHorizontal="10dp"
+            android:paddingTop="20dp"
             app:elevation="0dp">
 
             <FrameLayout
@@ -28,56 +29,159 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    style="@style/MontserratBold"
+                    style="@style/PoppinsBold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="DASHBOARD"
+                    android:text="Welcome,"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/user_first_name"
+                    style="@style/PoppinsBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Sagar"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
 
                 <ImageButton
                     android:id="@+id/profile_button_dashboard"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_profile_avatar"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="4dp"
                     android:background="@color/transparentColor"
-                    android:layout_gravity="end"/>
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_profile_avatar" />
 
             </FrameLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <include layout="@layout/main_widget"
-            android:layout_marginTop="100dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
     </FrameLayout>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_marginTop="60dp"
-        android:layout_height="match_parent">
-        <FrameLayout
-            android:id="@+id/bottom_sheet_dashboard"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeToolBar">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-            android:background="@drawable/top_rounded_28"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/main_widget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <LinearLayout
-                android:layout_width="50dp"
-                android:layout_marginTop="5dp"
-                android:layout_height="2dp"
-                android:background="@color/lightTextColor"
-                android:layout_gravity="center_horizontal"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/rounded_primary_15"
+                android:orientation="horizontal"
+                android:paddingVertical="20dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:src="@drawable/ic_iphone_11_pro_breathe_icon" />
+
+                <TextView
+                    style="@style/PoppinsMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="15dp"
+                    android:text="Take reading"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/take_reading_button"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/white_circle"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                    app:tint="@color/colorPrimary" />
+
 
             </LinearLayout>
 
-        </FrameLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/rounded_green_15"
+                android:orientation="horizontal"
+                android:paddingVertical="14dp">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:scaleType="fitXY"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="30dp"
+                    android:src="@drawable/ic_headphone_icon" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:orientation="vertical">
+                    
+                    <TextView
+                        style="@style/PoppinsMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="How To Use"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:textColor="@color/white"
+                        android:text="Get Assistance to use Humors"
+                        android:textSize="12sp"
+                        style="@style/PoppinsRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/how_to_use_button"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/white_circle"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                    app:tint="@color/colorPrimary" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

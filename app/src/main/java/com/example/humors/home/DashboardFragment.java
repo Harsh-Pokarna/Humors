@@ -20,7 +20,6 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 public class DashboardFragment extends Fragment {
 
-    private FrameLayout bottomSheet;
     private ImageButton profileImage;
 
     @Override
@@ -50,14 +49,9 @@ public class DashboardFragment extends Fragment {
     private void initialiseVariables() {
 
         Log.e("TAG", "initialiseVariables: ");
-        bottomSheet = requireView().findViewById(R.id.bottom_sheet_dashboard);
         profileImage = requireView().findViewById(R.id.profile_button_dashboard);
 
         Log.e("TAG", "initialised bototm sheet behavior");
-        BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
-        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        Log.e("TAG", "setting peek height");
-        bottomSheetBehavior.setPeekHeight(Resources.getSystem().getDisplayMetrics().heightPixels - 750);
 
     }
 
