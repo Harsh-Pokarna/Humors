@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 
 import com.example.humors.R;
 import com.example.humors.connect.ResultsActivity;
+import com.example.humors.connect.SearchingActivity;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -33,7 +34,7 @@ import java.util.List;
 
 public class DashboardFragment extends Fragment {
 
-    private ImageButton profileImage;
+    private ImageButton profileImage, takeReading;
     private LineChart lineChart;
     private BottomNavigationView dashboardNavBar;
 
@@ -67,6 +68,7 @@ public class DashboardFragment extends Fragment {
         profileImage = requireView().findViewById(R.id.profile_button_dashboard);
         lineChart = requireView().findViewById(R.id.line_chart);
         dashboardNavBar = requireView().findViewById(R.id.dashboard_bottom_nav_bar);
+        takeReading = requireView().findViewById(R.id.take_reading_button);
 
         ColorStateList iconColorStates = new ColorStateList(
                 new int[][]{
@@ -112,21 +114,21 @@ public class DashboardFragment extends Fragment {
     private void setListeners() {
 
         profileImage.setOnClickListener(view -> startActivity(ProfileActivity.newInstance(requireContext())));
-        dashboardNavBar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.health_item) {
-                    setGraph("Health Status");
-                }
-                if (item.getItemId() == R.id.sleep_item) {
-                    setGraph("Sleep Status");
-                }
-                if (item.getItemId() == R.id.metabolism_item) {
-                    setGraph("Metabolism Status");
-                }
-                return true;
+
+        dashboardNavBar.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.health_item) {
+                setGraph("Health Status");
             }
+            if (item.getItemId() == R.id.sleep_item) {
+                setGraph("Sleep Status");
+            }
+            if (item.getItemId() == R.id.metabolism_item) {
+                setGraph("Metabolism Status");
+            }
+            return true;
         });
+
+        takeReading.setOnClickListener(view -> startActivity(SearchingActivity.newInstance(requireContext())));
 
     }
 

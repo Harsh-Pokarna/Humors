@@ -3,7 +3,247 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/screenBackground"
     android:layout_height="match_parent"
     tools:context=".others.PreTestInfoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/homeToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/screenBackground"
+        android:elevation="0dp"
+        android:padding="10dp"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/pre_test_info_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_back_button" />
+
+            <TextView
+                style="@style/MontserratBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="ENTER YOUR DATA"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </FrameLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:scrollbars="none"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/last_night_sleep"
+                        style="@style/PoppinsRegular"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/data_input_bg"
+                        android:hint="How many hours did you sleep last night"
+                        android:inputType="number"
+                        android:paddingHorizontal="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/data_input_bg"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/PoppinsRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="6dp"
+                            android:text="Did you drink last night"
+                            android:textColor="@color/lightTextColor"
+                            android:textSize="14sp" />
+
+                        <RadioGroup
+                            android:id="@+id/last_night_drink_radio_grp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/yes_last_night_drink"
+                                style="@style/PoppinsBold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:buttonTint="@color/gradientDarkColor"
+                                android:gravity="center"
+                                android:text="Yes" />
+
+                            <RadioButton
+                                android:id="@+id/no_last_night_drink"
+                                android:layout_marginStart="20dp"
+                                style="@style/PoppinsBold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:buttonTint="@color/gradientDarkColor"
+                                android:gravity="center"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/data_input_bg"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/PoppinsRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="6dp"
+                            android:text="Did you smoke in last 1 hr"
+                            android:textColor="@color/lightTextColor"
+                            android:textSize="14sp" />
+
+                        <RadioGroup
+                            android:id="@+id/last_night_smoke_radio_grp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/yes_last_night_smoke"
+                                style="@style/PoppinsBold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:buttonTint="@color/gradientDarkColor"
+                                android:gravity="center"
+                                android:text="Yes" />
+
+                            <RadioButton
+                                android:id="@+id/no_last_night_smoke"
+                                android:layout_marginStart="20dp"
+                                style="@style/PoppinsBold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:buttonTint="@color/gradientDarkColor"
+                                android:gravity="center"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/data_input_bg"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/PoppinsRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="6dp"
+                            android:text="Did you take meal in last 1 hr"
+                            android:textColor="@color/lightTextColor"
+                            android:textSize="14sp" />
+
+                        <RadioGroup
+                            android:id="@+id/last_night_meal_radio_grp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/yes_last_night_meal"
+                                style="@style/PoppinsBold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:buttonTint="@color/gradientDarkColor"
+                                android:gravity="center"
+                                android:text="Yes" />
+
+                            <RadioButton
+                                android:id="@+id/no_last_night_meal"
+                                android:layout_marginStart="20dp"
+                                style="@style/PoppinsBold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:buttonTint="@color/gradientDarkColor"
+                                android:gravity="center"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/pre_test_info_next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:backgroundTint="@color/colorPrimary"
+        app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

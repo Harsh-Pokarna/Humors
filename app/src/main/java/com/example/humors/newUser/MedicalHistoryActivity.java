@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.RadioGroup;
 
 import com.example.humors.R;
+import com.example.humors.home.HomeActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MedicalHistoryActivity extends AppCompatActivity {
@@ -66,7 +67,7 @@ public class MedicalHistoryActivity extends AppCompatActivity {
         });
 
         backButton.setOnClickListener(view -> onBackPressed());
-        nextButton.setOnClickListener(view -> startActivity(NewUserHomeActivity.newInstance(this)));
+        nextButton.setOnClickListener(view -> startActivity(HomeActivity.newInstance(this)));
 
     }
 

@@ -164,65 +164,66 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_height="100dp"
-                android:gravity="center_vertical"
-                android:background="@drawable/selected_dashboard_button_bg"
-                android:orientation="horizontal">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_marginHorizontal="20dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:background="@drawable/selected_dashboard_button_bg"-->
+<!--                android:orientation="horizontal">-->
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="80dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginBottom="2dp"
-                    android:src="@drawable/ic_connect_icon"/>
+<!--                <ImageView-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:layout_marginStart="5dp"-->
+<!--                    android:layout_marginBottom="2dp"-->
+<!--                    android:src="@drawable/ic_connect_icon"/>-->
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="Connect your device"
-                        style="@style/PoppinsMedium"
-                        android:textSize="14sp"/>
-                    <TextView
-                        android:textColor="#ADC2EA"
-                        android:text="To record your health with ease"
-                        android:textSize="12sp"
-                        style="@style/PoppinsRegular"
-                        android:layout_width="160dp"
-                        android:layout_height="wrap_content"/>
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="15dp"-->
+<!--                    android:orientation="vertical">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:text="Connect your device"-->
+<!--                        style="@style/PoppinsMedium"-->
+<!--                        android:textSize="14sp"/>-->
+<!--                    <TextView-->
+<!--                        android:textColor="#ADC2EA"-->
+<!--                        android:text="To record your health with ease"-->
+<!--                        android:textSize="12sp"-->
+<!--                        style="@style/PoppinsRegular"-->
+<!--                        android:layout_width="160dp"-->
+<!--                        android:layout_height="wrap_content"/>-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/connect_device"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    style="@style/PoppinsMedium"
-                    android:textColor="@color/white"
-                    android:text="Connect"
-                    android:stateListAnimator="@null"
-                    android:background="@drawable/connect_button_bg"/>
+<!--                <androidx.appcompat.widget.AppCompatButton-->
+<!--                    android:id="@+id/connect_device"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    style="@style/PoppinsMedium"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:text="Connect"-->
+<!--                    android:stateListAnimator="@null"-->
+<!--                    android:background="@drawable/connect_button_bg"/>-->
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
+
         </LinearLayout>
     </ScrollView>
 

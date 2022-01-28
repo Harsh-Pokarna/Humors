@@ -18,8 +18,6 @@ public class NewUserHomeActivity extends AppCompatActivity {
 
     CardView addDetailsCardView, shareHabitsCardView, medicalHistoryCardView;
     ImageButton bt1, bt3, bt4;
-    AppCompatButton connectButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +38,6 @@ public class NewUserHomeActivity extends AppCompatActivity {
         addDetailsCardView = findViewById(R.id.add_details_card_view);
         shareHabitsCardView = findViewById(R.id.share_habits_card_view);
         medicalHistoryCardView = findViewById(R.id.medical_history_card_view);
-        connectButton = findViewById(R.id.connect_device);
 
         bt1 = findViewById(R.id.bt1);
         bt3 = findViewById(R.id.bt3);
@@ -60,8 +57,6 @@ public class NewUserHomeActivity extends AppCompatActivity {
         addDetailsCardView.setOnClickListener(view -> startActivity(AddDataActivity.newInstance(this)));
         shareHabitsCardView.setOnClickListener(view -> startActivity(SleepScheduleActivity.newInstance(this)));
         medicalHistoryCardView.setOnClickListener(view -> startActivity(MedicalHistoryActivity.newInstance(this)));
-//        connectButton.setOnClickListener(view -> startActivity(SearchingActivity.newInstance(this)));
-        connectButton.setOnClickListener(view -> startActivity(HomeActivity.newInstance(this)));
 
 
         bt1.setOnClickListener(view -> addDetailsCardView.callOnClick());
