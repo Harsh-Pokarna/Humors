@@ -23,7 +23,7 @@
                 app:donut_bgLineColor="@color/white"
                 app:donut_cap="100"
                 app:donut_gapWidth="0"
-                app:donut_strokeWidth="14dp" />
+                app:donut_strokeWidth="12dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

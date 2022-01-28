@@ -64,10 +64,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:scrollbars="none"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="90dp"
         app:layout_constraintTop_toBottomOf="@id/homeToolBar">
 
         <LinearLayout
@@ -79,6 +77,30 @@
                 layout="@layout/main_widget"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@drawable/data_input_bg"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical"/>
+            
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/dashboard_bottom_nav_bar"
+                android:layout_width="match_parent"
+                app:elevation="0dp"
+                app:itemBackground="@drawable/item_background_dashbaord"
+                android:layout_height="36dp"
+                android:paddingBottom="4dp"
+                app:menu="@menu/dashboard_menu"
+                android:background="@drawable/data_input_bg"/>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line_chart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

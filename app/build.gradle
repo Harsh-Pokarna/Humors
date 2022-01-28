@@ -62,4 +62,7 @@ dependencies {
     // LoopJ
     implementation 'com.loopj.android:android-async-http:1.4.9'
 
+    // MPChart Library
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 }

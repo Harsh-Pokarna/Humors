@@ -20,6 +20,7 @@
         <entry key="app/src/main/res/drawable/ic_user_guide_24.xml" value="0.18888888888888888" />
         <entry key="app/src/main/res/drawable/ic_welcom_illustration_1.xml" value="0.21875" />
         <entry key="app/src/main/res/drawable/image_button_bg.xml" value="0.37864583333333335" />
+        <entry key="app/src/main/res/drawable/item_background_dashbaord.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/login_gradient.xml" value="0.378125" />
         <entry key="app/src/main/res/drawable/mail_signin_button_bg.xml" value="0.378125" />
         <entry key="app/src/main/res/drawable/navbar_item_bg.xml" value="0.37864583333333335" />
@@ -29,6 +30,7 @@
         <entry key="app/src/main/res/drawable/selecte_navbar_item_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/selected_dashboard_button_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/square_box.xml" value="0.378125" />
+        <entry key="app/src/main/res/drawable/text_color_bottom_nav_bar.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/top_rounded_28.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/unselected_dashbaord_button_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/white_circle.xml" value="0.37864583333333335" />
@@ -43,6 +45,7 @@
         <entry key="app/src/main/res/layout/activity_medical_history.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/activity_new_user.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_new_user_home.xml" value="0.34791666666666665" />
+        <entry key="app/src/main/res/layout/activity_pre_test_info.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_results.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_searching.xml" value="0.33" />
@@ -74,6 +77,7 @@
         <entry key="app/src/main/res/layout/slider_image.xml" value="0.3625" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.3625" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3625" />
+        <entry key="app/src/main/res/menu/dashboard_menu.xml" value="0.3625" />
       </map>
     </option>
   </component>
