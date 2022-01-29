@@ -104,7 +104,7 @@ public class TestHistoryFragment extends Fragment {
             });
 
         } catch (Exception e) {
-            Log.e("TAG", e.getMessage() );
+            Log.e("TAG", e.getMessage());
         }
     }
 
