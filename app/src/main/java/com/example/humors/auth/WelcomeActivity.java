@@ -22,7 +22,6 @@ import java.io.IOException;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    private TextView registerNowButton;
     private Button mailSignInButton, googleSignInButton;
     private View bgOverlay;
     private VideoView mVideoView;
@@ -46,7 +45,6 @@ public class WelcomeActivity extends AppCompatActivity {
     private void initialiseVariables() {
         mVideoView = findViewById(R.id.bgVideo);
         bgOverlay = findViewById(R.id.bgOverlay);
-        registerNowButton = findViewById(R.id.register_now_button_welcome);
         mailSignInButton = findViewById(R.id.mail_signin_button);
         googleSignInButton = findViewById(R.id.google_signin_button);
 
@@ -121,13 +119,11 @@ public class WelcomeActivity extends AppCompatActivity {
 //            videoView.start();
 //        });
 
-        ExtFunctions.underlineText(registerNowButton);
     }
 
     private void setListeners() {
 
         mailSignInButton.setOnClickListener(view -> startActivity(LoginActivity.newInstance(getApplicationContext())));
-        registerNowButton.setOnClickListener(view -> startActivity(LoginActivity.newInstance(getApplicationContext())));
         googleSignInButton.setOnClickListener(view -> Toast.makeText(this, "Press mail sign in button for complete experience", Toast.LENGTH_SHORT).show());
 
 

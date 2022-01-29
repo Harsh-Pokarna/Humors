@@ -96,30 +96,6 @@
                 android:paddingStart="11dp"
                 android:id="@+id/mail_signin_button"
                 android:paddingEnd="105dp"/>
-
-            <LinearLayout
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/PoppinsRegular"
-                    android:text="New to Humors? "
-                    android:textColor="@color/white"
-                    android:textSize="13sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="Register Now!"
-                    android:id="@+id/register_now_button_welcome"
-                    style="@style/PoppinsBold"
-                    android:textSize="13sp"/>
-            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout

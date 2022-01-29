@@ -113,7 +113,7 @@ public class LoginFragment extends Fragment {
         String url = "user_login.php?user_email=" + email + "&user_password=" + password;
 
         try {
-            ApiClient.loginUser(url, null, new TextHttpResponseHandler() {
+            ApiClient.getRequest(url, null, new TextHttpResponseHandler() {
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {

@@ -67,7 +67,7 @@ public class TestHistoryFragment extends Fragment {
 
         try {
 
-            ApiClient.getTests("test_data.php", null, new JsonHttpResponseHandler() {
+            ApiClient.getRequest("test_data.php", null, new JsonHttpResponseHandler() {
 
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
