@@ -15,7 +15,10 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.humors.R;
+import com.example.humors.home.HomeActivity;
+import com.example.humors.newUser.NewUserHomeActivity;
 import com.example.humors.utils.ExtFunctions;
+import com.example.humors.utils.SharedPrefs;
 import com.yqritc.scalablevideoview.ScalableVideoView;
 
 import java.io.IOException;
@@ -25,6 +28,8 @@ public class WelcomeActivity extends AppCompatActivity {
     private Button mailSignInButton, googleSignInButton;
     private View bgOverlay;
     private VideoView mVideoView;
+
+    private SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,8 @@ public class WelcomeActivity extends AppCompatActivity {
         bgOverlay = findViewById(R.id.bgOverlay);
         mailSignInButton = findViewById(R.id.mail_signin_button);
         googleSignInButton = findViewById(R.id.google_signin_button);
+
+        sharedPrefs = new SharedPrefs(this);
 
 
     }
@@ -123,7 +130,14 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void setListeners() {
 
-        mailSignInButton.setOnClickListener(view -> startActivity(LoginActivity.newInstance(getApplicationContext())));
+        mailSignInButton.setOnClickListener(view -> {
+            if (sharedPrefs.getUserStatus() == 1) {
+                startActivity(NewUserHomeActivity.newInstance(this));
+            } else {
+                startActivity(LoginActivity.newInstance(getApplicationContext()));
+            }
+
+        });
         googleSignInButton.setOnClickListener(view -> Toast.makeText(this, "Press mail sign in button for complete experience", Toast.LENGTH_SHORT).show());
 
 

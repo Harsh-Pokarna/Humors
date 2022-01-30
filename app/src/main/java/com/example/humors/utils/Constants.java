@@ -6,6 +6,7 @@ public class Constants {
     public static String USER_NAME = "user_name";
     public static String USER_EMAIL = "user_email";
     public static String USER_ID = "user_id";
+    public static String USER_STATUS = "user_status";
 
     // Error Logs
     public static String NO_INTERNET_STRING = "UnknownHostException exception: Unable to resolve host \"humorstech.com\": No address associated with hostname";

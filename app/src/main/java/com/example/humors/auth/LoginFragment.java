@@ -22,6 +22,7 @@ import com.example.humors.newUser.NewUserHomeActivity;
 import com.example.humors.pojos.Test;
 import com.example.humors.utils.Constants;
 import com.example.humors.utils.ExtFunctions;
+import com.example.humors.utils.SharedPrefs;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.TextHttpResponseHandler;
 
@@ -39,6 +40,8 @@ public class LoginFragment extends Fragment {
     private Button loginButton;
 
     private String userEmail, userPassword;
+
+    private SharedPrefs sharedPrefs;
 
     private int userId, userStatus;
     private String userName;
@@ -81,6 +84,8 @@ public class LoginFragment extends Fragment {
         userEmailTextView = requireView().findViewById(R.id.user_email_edittext_login);
         userPasswordTextView = requireView().findViewById(R.id.user_password_edittext_login);
         loginButton = requireView().findViewById(R.id.login_button);
+
+        sharedPrefs = new SharedPrefs(requireContext());
     }
 
     private void fetchData() {
@@ -155,6 +160,7 @@ public class LoginFragment extends Fragment {
         if (userStatus == 0) {
             setCurrentFragment(new EmailVerificationFragment());
         } else if (userStatus == 1) {
+            sharedPrefs.setUserStatus(1);
             startActivity(NewUserHomeActivity.newInstance(requireContext()));
             requireActivity().finish();
         }

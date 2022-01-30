@@ -90,6 +90,7 @@ public class DashboardFragment extends Fragment {
     }
 
     private void setGraph(String text) {
+
         entries.clear();
         entries.add(new Entry(1, 65));
         entries.add(new Entry(2, 75));

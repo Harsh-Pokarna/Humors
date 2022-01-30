@@ -28,6 +28,14 @@ public class SharedPrefs {
         sharedPreferences.edit().putString(Constants.USER_NAME, userName).apply();
     }
 
+    public int getUserStatus() {
+        return sharedPreferences.getInt(Constants.USER_STATUS, -1);
+    }
+
+    public void setUserStatus(int userStatus) {
+        sharedPreferences.edit().putInt(Constants.USER_STATUS, userStatus).apply();
+    }
+
     public String getUserEmail() {
         return sharedPreferences.getString(Constants.USER_EMAIL, "");
     }
