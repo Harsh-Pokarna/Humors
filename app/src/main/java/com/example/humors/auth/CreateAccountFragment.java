@@ -112,7 +112,6 @@ public class CreateAccountFragment extends Fragment {
 
                         if (responseString.equals(Constants.EMAIL_EXIST)) {
                             userEmailEditText.setError("Email already exists");
-                            Toast.makeText(requireContext(), "Email already exists, Please Login", Toast.LENGTH_SHORT).show();
                             setCurrentFragment(new LoginFragment());
 //                            sendOtp();
                         } else if (responseString.equals(Constants.SUCCESS)) {
@@ -130,7 +129,6 @@ public class CreateAccountFragment extends Fragment {
             }
         } else {
             confirmPasswordEditText.setError("Passwords don't match");
-            Toast.makeText(requireContext(), "Please check your passwords", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -152,7 +150,6 @@ public class CreateAccountFragment extends Fragment {
                     return;
                 } else if (throwable.getMessage().equals(Constants.NOT_FOUND)) {
                     userEmailEditText.setError("Enter valid email");
-                    Toast.makeText(requireContext(), "Please enter a valid email", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(requireContext(), "There is a error in interacting with API", Toast.LENGTH_SHORT).show();
                 }

@@ -112,6 +112,7 @@ public class EmailVerificationFragment extends Fragment {
                     Toast.makeText(requireContext(), "Invalid OTP Entered", Toast.LENGTH_SHORT).show();
                 } else if(responseString.equals(Constants.SUCCESS_OTP)){
                     startActivity(NewUserHomeActivity.newInstance(requireContext()));
+                    requireActivity().finish();
                 } else {
                     Toast.makeText(requireContext(), Constants.TRY_LATER, Toast.LENGTH_SHORT).show();
                 }

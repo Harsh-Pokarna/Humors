@@ -129,10 +129,8 @@ public class LoginFragment extends Fragment {
                 public void onSuccess(int statusCode, Header[] headers, String responseString) {
                     if (responseString.equals(Constants.EMAIL_NOT_EXIST)) {
                         userEmailTextView.setError("Invalid email");
-                        Toast.makeText(requireContext(), "Please register", Toast.LENGTH_SHORT).show();
                     } else if (responseString.equals(Constants.INVALID_PASSWORD)) {
                         userPasswordTextView.setError("Invalid Password");
-                        Toast.makeText(requireContext(), "Please enter correct password", Toast.LENGTH_SHORT).show();
                     } else {
                         checkUser(responseString);
                     }
@@ -158,6 +156,7 @@ public class LoginFragment extends Fragment {
             setCurrentFragment(new EmailVerificationFragment());
         } else if (userStatus == 1) {
             startActivity(NewUserHomeActivity.newInstance(requireContext()));
+            requireActivity().finish();
         }
     }
 
