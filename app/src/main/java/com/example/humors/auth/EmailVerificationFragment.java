@@ -88,6 +88,35 @@ public class EmailVerificationFragment extends Fragment {
 
     private void verifyOtp(String otp) {
 
+        String url = "confirm_email_match_otp.php?email=" + userEmail +  "&otp=" + otp;
+        Log.e("TAG", "the hitted url is: " + url);
+//        String url = "confirm_email_match_otp.php?email=sagarhosur814@gmail.com&otp=109002";
+
+        ApiClient.getRequest(url, null, new TextHttpResponseHandler() {
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Log.e("TAG", "There is a error: " + throwable.getMessage());
+                if (throwable.getMessage().equals(Constants.NO_INTERNET_STRING)) {
+                    Toast.makeText(requireContext(), "Please connect with wifi/data", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Toast.makeText(requireContext(), "There is a error in interacting with API", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                Log.e("TAG", "the response from otp api is: " + responseString);
+                if (responseString.equals(Constants.WRONG_OTP)) {
+                    otpView.setText(null);
+                    Toast.makeText(requireContext(), "Invalid OTP Entered", Toast.LENGTH_SHORT).show();
+                } else if(responseString.equals(Constants.SUCCESS_OTP)){
+                    startActivity(NewUserHomeActivity.newInstance(requireContext()));
+                } else {
+                    Toast.makeText(requireContext(), Constants.TRY_LATER, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void setObservers() {

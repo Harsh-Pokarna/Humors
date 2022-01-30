@@ -14,6 +14,10 @@ public class Constants {
     public static String EMAIL_EXIST = "email_exist\n";
     public static String SUCCESS = "sucess\n";
     public static String NOT_FOUND = "Not Found";
-    public static String MAIL_SUCCESS  = "mail_sucess\n";
-    public static String ALREADY_VERIFIED = "already_verified\n";
+    public static String MAIL_SUCCESS  = "mail_sucess\n\n\n\n";
+    public static String ALREADY_VERIFIED = "already_verified\n\n\n\n";
+    public static String WRONG_OTP = "wrong_otp";
+    public static String SUCCESS_OTP = "sucess";
+    public static String TRY_LATER = "Please try later";
+
 }

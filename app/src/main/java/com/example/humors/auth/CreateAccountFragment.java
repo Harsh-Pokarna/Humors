@@ -113,12 +113,12 @@ public class CreateAccountFragment extends Fragment {
                         if (responseString.equals(Constants.EMAIL_EXIST)) {
                             userEmailEditText.setError("Email already exists");
                             Toast.makeText(requireContext(), "Email already exists, Please Login", Toast.LENGTH_SHORT).show();
-//                            setCurrentFragment(new LoginFragment());
-                            sendOtp();
+                            setCurrentFragment(new LoginFragment());
+//                            sendOtp();
                         } else if (responseString.equals(Constants.SUCCESS)) {
                             sendOtp();
                         } else {
-                            Log.e("TAG", "There is a third response");
+                            Toast.makeText(requireContext(), Constants.TRY_LATER, Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -141,6 +141,7 @@ public class CreateAccountFragment extends Fragment {
         Log.e("TAG", "hitted url: " + url);
 
         ApiClient.getRequest(url, null, new TextHttpResponseHandler() {
+
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
 
@@ -152,9 +153,11 @@ public class CreateAccountFragment extends Fragment {
                 } else if (throwable.getMessage().equals(Constants.NOT_FOUND)) {
                     userEmailEditText.setError("Enter valid email");
                     Toast.makeText(requireContext(), "Please enter a valid email", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(requireContext(), "There is a error in interacting with API", Toast.LENGTH_SHORT).show();
                 }
 
-                Toast.makeText(requireContext(), "There is a error in interacting with API", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -162,12 +165,14 @@ public class CreateAccountFragment extends Fragment {
 
                 sharedPrefs.setUserEmail(userEmail);
                 Log.e("TAG", "email verify response is: " + responseString);
-
+                Log.e("TAG", "size of string is:" + responseString.length());
                 if (responseString.equals(Constants.ALREADY_VERIFIED)) {
                     Toast.makeText(requireContext(), "Your email is already verified", Toast.LENGTH_SHORT).show();
                     startActivity(NewUserHomeActivity.newInstance(requireContext()));
                 } else if (responseString.equals(Constants.MAIL_SUCCESS)) {
                     setCurrentFragment(new EmailVerificationFragment());
+                } else {
+                    Log.e("TAG", "A third case is running in create fragment");
                 }
             }
 
