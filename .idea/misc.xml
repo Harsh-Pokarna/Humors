@@ -6,12 +6,14 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.3776041666666667" />
         <entry key="app/src/main/res/drawable/all_rounded_4.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/button_bg.xml" value="0.37864583333333335" />
+        <entry key="app/src/main/res/drawable/circle_white.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/circular_ring.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/connect_button_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/dashboard_button_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/data_input_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/editext_bg.xml" value="0.378125" />
         <entry key="app/src/main/res/drawable/google_signin_button_bg.xml" value="0.378125" />
+        <entry key="app/src/main/res/drawable/home_icon_selector.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/ic_add_data_icon.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/ic_card_view_bg1.xml" value="0.37864583333333335" />
@@ -26,11 +28,14 @@
         <entry key="app/src/main/res/drawable/mail_signin_button_bg.xml" value="0.378125" />
         <entry key="app/src/main/res/drawable/navbar_item_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/profile_bg.xml" value="0.37864583333333335" />
+        <entry key="app/src/main/res/drawable/round_red_15.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/rounded_green_15.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/rounded_primary_15.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/selecte_navbar_item_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/selected_dashboard_button_bg.xml" value="0.37864583333333335" />
+        <entry key="app/src/main/res/drawable/settings_icon_selector.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/square_box.xml" value="0.378125" />
+        <entry key="app/src/main/res/drawable/test_history_selector.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/text_color_bottom_nav_bar.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/top_rounded_28.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/unselected_dashbaord_button_bg.xml" value="0.37864583333333335" />

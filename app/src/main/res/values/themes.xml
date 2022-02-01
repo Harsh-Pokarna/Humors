@@ -41,4 +41,8 @@
     <style name="InactiveText">
         <item name="android:textColor">@color/black</item>
     </style>
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#1B55EC</item>
+    </style>
+
 </resources>

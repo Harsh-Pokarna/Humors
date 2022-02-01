@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:paddingHorizontal="30dp"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary">
+    android:background="#1B55EC">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -15,15 +15,25 @@
             android:layout_width="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/outerRing"
+                android:layout_width="165dp"
+                android:layout_height="165dp"
+                android:background="@drawable/circle_white"
+                android:layout_gravity="center"
+                android:orientation="horizontal" />
+
             <app.futured.donut.DonutProgressView
                 android:id="@+id/health_status_graph"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="152dp"
+                android:layout_gravity="center"
+                android:layout_height="152dp"
                 app:donut_animationDuration="2000"
-                app:donut_bgLineColor="@color/white"
+                app:donut_bgLineColor="#1B55EC"
                 app:donut_cap="100"
                 app:donut_gapWidth="0"
-                app:donut_strokeWidth="12dp" />
+                app:donut_strokeWidth="6dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -53,7 +63,7 @@
                 android:text="Health Status"
                 android:textSize="12sp"
                 style="@style/PoppinsRegular"
-                android:layout_marginTop="155dp"
+                android:layout_marginTop="190dp"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -73,15 +83,25 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:id="@+id/outerRing2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/circle_white"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal" />
+
+
                 <app.futured.donut.DonutProgressView
                     android:id="@+id/sleep_statistics_graph"
                     android:layout_width="88dp"
                     android:layout_height="88dp"
                     app:donut_animationDuration="2000"
-                    app:donut_bgLineColor="@color/white"
+                    android:layout_gravity="center"
+                    app:donut_bgLineColor="#1B55EC"
                     app:donut_cap="100"
                     app:donut_gapWidth="0"
-                    app:donut_strokeWidth="8dp" />
+                    app:donut_strokeWidth="4dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -116,15 +136,24 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:id="@+id/outerRing3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/circle_white"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal" />
+
                 <app.futured.donut.DonutProgressView
                     android:id="@+id/metabolism_statistics_graph"
                     android:layout_width="88dp"
                     android:layout_height="88dp"
                     app:donut_animationDuration="2000"
-                    app:donut_bgLineColor="@color/white"
+                    android:layout_gravity="center"
+                    app:donut_bgLineColor="#1B55EC"
                     app:donut_cap="100"
                     app:donut_gapWidth="0"
-                    app:donut_strokeWidth="8dp" />
+                    app:donut_strokeWidth="4dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"

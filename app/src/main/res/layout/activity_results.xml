@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="#1B55EC"
     tools:context=".connect.ResultsActivity">
 
     <FrameLayout
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@color/colorPrimary"
+            android:background="#1B55EC"
             android:elevation="0dp"
             android:padding="10dp"
             app:elevation="0dp">

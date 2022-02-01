@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
 
@@ -17,8 +18,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MedicalHistoryActivity extends AppCompatActivity {
 
-    private CheckBox diabetesCheckbox;
-    private RadioGroup diabetesRadioGroup;
+    private CheckBox diabetesCheckbox, respiratoryCheckbox, heartCheckbox, liverCheckbox, appendixCheckbox, otherCheckbox;
+    private RadioGroup diabetesRadioGroup, respiratoryRadioGroup, heartRadioGroup, liverRadioGroup, appendixRadioGroup;
+    private EditText otherDiseaseEditText;
 
     private ImageButton backButton;
     private FloatingActionButton nextButton;
@@ -46,6 +48,16 @@ public class MedicalHistoryActivity extends AppCompatActivity {
 
         diabetesCheckbox = findViewById(R.id.diabetes_checkbox);
         diabetesRadioGroup = findViewById(R.id.diabetes_radio_grp);
+        respiratoryCheckbox = findViewById(R.id.respiratory_checkbox);
+        respiratoryRadioGroup = findViewById(R.id.respiratory_radio_grp);
+        heartCheckbox = findViewById(R.id.heart_checkbox);
+        heartRadioGroup = findViewById(R.id.heart_radio_grp);
+        liverCheckbox = findViewById(R.id.liver_checkbox);
+        liverRadioGroup = findViewById(R.id.liver_radio_grp);
+        appendixCheckbox = findViewById(R.id.appendix_checkbox);
+        appendixRadioGroup = findViewById(R.id.appendix_radio_grp);
+        otherCheckbox = findViewById(R.id.other_checkbox);
+        otherDiseaseEditText = findViewById(R.id.other_disease_edit_text);
     }
 
     private void fetchData() {
@@ -53,16 +65,33 @@ public class MedicalHistoryActivity extends AppCompatActivity {
     }
 
     private void setViews() {
+
+    }
+
+    private void setCheckboxListener(CheckBox checkBox, RadioGroup radioGroup) {
+        checkBox.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                radioGroup.setVisibility(View.VISIBLE);
+            } else {
+                radioGroup.clearCheck();
+                radioGroup.setVisibility(View.GONE);
+            }
+        });
     }
 
     private void setListeners() {
 
-        diabetesCheckbox.setOnCheckedChangeListener((compoundButton, b) -> {
+        setCheckboxListener(diabetesCheckbox, diabetesRadioGroup);
+        setCheckboxListener(respiratoryCheckbox, respiratoryRadioGroup);
+        setCheckboxListener(appendixCheckbox, appendixRadioGroup);
+        setCheckboxListener(heartCheckbox, heartRadioGroup);
+        setCheckboxListener(liverCheckbox, liverRadioGroup);
+        otherCheckbox.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b) {
-                diabetesRadioGroup.setVisibility(View.VISIBLE);
+                otherDiseaseEditText.setVisibility(View.VISIBLE);
             } else {
-                diabetesRadioGroup.clearCheck();
-                diabetesRadioGroup.setVisibility(View.GONE);
+                otherDiseaseEditText.setText("");
+                otherDiseaseEditText.setVisibility(View.GONE);
             }
         });
 

@@ -16,11 +16,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import com.example.humors.R;
 import com.example.humors.connect.ResultsActivity;
 import com.example.humors.connect.SearchingActivity;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -32,11 +34,22 @@ import com.google.android.material.navigation.NavigationBarView;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.futured.donut.DonutProgressView;
+import app.futured.donut.DonutSection;
+
 public class DashboardFragment extends Fragment {
 
-    private ImageButton profileImage, takeReading;
+    private ImageButton profileImage;
+    private LinearLayout takeReading;
     private LineChart lineChart;
     private BottomNavigationView dashboardNavBar;
+
+    private List<DonutSection> healthStatus = new ArrayList<>();
+    private List<DonutSection> sleepStatus = new ArrayList<>();
+    private List<DonutSection> metabolismStatus = new ArrayList<>();
+
+    private DonutProgressView healthProgressView, sleepProgressView, metabolismProgressView;
+    private LinearLayout outerRing1, outerRing2, outerRing3;
 
     private List<Entry> entries = new ArrayList<>();
 
@@ -69,6 +82,13 @@ public class DashboardFragment extends Fragment {
         lineChart = requireView().findViewById(R.id.line_chart);
         dashboardNavBar = requireView().findViewById(R.id.dashboard_bottom_nav_bar);
         takeReading = requireView().findViewById(R.id.take_reading_button);
+        healthProgressView = requireView().findViewById(R.id.health_status_graph);
+        sleepProgressView = requireView().findViewById(R.id.sleep_statistics_graph);
+        metabolismProgressView = requireView().findViewById(R.id.metabolism_statistics_graph);
+        outerRing1 = requireView().findViewById(R.id.outerRing);
+        outerRing2 = requireView().findViewById(R.id.outerRing2);
+        outerRing3 = requireView().findViewById(R.id.outerRing3);
+
 
         ColorStateList iconColorStates = new ColorStateList(
                 new int[][]{
@@ -85,7 +105,26 @@ public class DashboardFragment extends Fragment {
         dashboardNavBar.setSelectedItemId(R.id.health_item);
 
         setGraph("Health Status");
+        setProgressViews();
+    }
 
+
+    private void setProgressViews() {
+
+        healthStatus.add(new DonutSection("user_health", Color.parseColor("#FAFF00"), 75.0F));
+        healthProgressView.setCap(100);
+        healthProgressView.submitData(healthStatus);
+        outerRing1.getBackground().setAlpha(70);
+
+        sleepStatus.add(new DonutSection("user_sleep", Color.parseColor("#FAFF00"), 50.0F));
+        sleepProgressView.setCap(100);
+        sleepProgressView.submitData(sleepStatus);
+        outerRing2.getBackground().setAlpha(70);
+
+        metabolismStatus.add(new DonutSection("user_metabolism", Color.parseColor("#FAFF00"), 50.0F));
+        metabolismProgressView.setCap(100);
+        metabolismProgressView.submitData(metabolismStatus);
+        outerRing3.getBackground().setAlpha(70);
 
     }
 
@@ -100,7 +139,11 @@ public class DashboardFragment extends Fragment {
         LineDataSet lineDataSet = new LineDataSet(entries, text);
         lineChart.setData(new LineData(lineDataSet));
         lineChart.setDescription(null);
-        lineChart.setDrawGridBackground(false);
+        lineChart.getAxisLeft().setDrawGridLines(false);
+        lineChart.getAxisRight().setDrawGridLines(false);
+        lineChart.getAxisRight().setDrawAxisLine(false);
+        lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        lineChart.getXAxis().setDrawGridLines(false);
         lineChart.invalidate();
     }
 

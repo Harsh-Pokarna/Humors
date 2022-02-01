@@ -63,7 +63,7 @@ public class AddDataActivity extends AppCompatActivity {
         backButton.setOnClickListener(view -> onBackPressed());
         nextButton.setOnClickListener(view -> startActivity(NewUserHomeActivity.newInstance(this)));
 
-        DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
                 myCalendar.set(Calendar.YEAR, year);
@@ -73,7 +73,7 @@ public class AddDataActivity extends AppCompatActivity {
                 userDOB.setText(dateFormat.format(myCalendar.getTime()));
             }
         };
-        userDOB.setOnClickListener(view -> new DatePickerDialog(AddDataActivity.this,date,myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show());
+        userDOB.setOnClickListener(view -> new DatePickerDialog(AddDataActivity.this, R.style.DialogTheme, date,myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show());
     }
 
     private void setObservers() {
