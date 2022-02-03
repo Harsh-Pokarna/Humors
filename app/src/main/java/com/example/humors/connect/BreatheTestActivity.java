@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.humors.R;
 
 public class BreatheTestActivity extends AppCompatActivity {
@@ -16,6 +17,8 @@ public class BreatheTestActivity extends AppCompatActivity {
     int counter = 0;
 
     private TextView breatheTimerTextView;
+
+    private LottieAnimationView blowAnimation;
 
     public static Intent newInstance(Context context) {
         return new Intent(context, BreatheTestActivity.class);
@@ -40,6 +43,7 @@ public class BreatheTestActivity extends AppCompatActivity {
     private void initialiseVariables() {
 
         breatheTimerTextView = findViewById(R.id.timer_breathe_test);
+        blowAnimation = findViewById(R.id.blow_animation);
 
         Handler handler = new Handler();
 
@@ -63,7 +67,6 @@ public class BreatheTestActivity extends AppCompatActivity {
     }
 
     private void setViews() {
-
     }
 
     private void setListeners() {

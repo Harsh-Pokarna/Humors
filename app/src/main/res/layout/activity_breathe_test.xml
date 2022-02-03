@@ -65,23 +65,37 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center_horizontal"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/custom_animation"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:src="@drawable/ic_iphone_11_pro_side_man"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:id="@+id/blow_animation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Custom Animation"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
-                <TextView
-                    android:id="@+id/breathing_steps"
-                    android:textColor="@color/black"
-                    android:text="Breathe In"
-                    android:textSize="14sp"
+                    android:scaleType="fitXY"
                     android:layout_marginTop="30dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    app:lottie_scale="0.3"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/blow_animation"/>
             </LinearLayout>
+
+            <TextView
+                android:textColor="@color/colorPrimary"
+                android:text="Blow Out"
+                android:textSize="12sp"
+                style="@style/PoppinsMedium"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
         </FrameLayout>
 
