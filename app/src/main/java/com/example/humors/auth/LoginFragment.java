@@ -161,6 +161,9 @@ public class LoginFragment extends Fragment {
             setCurrentFragment(new EmailVerificationFragment());
         } else if (userStatus == 1) {
             sharedPrefs.setUserStatus(1);
+            sharedPrefs.setUserEmail(userEmail);
+            sharedPrefs.setUserId(userId);
+            sharedPrefs.setUserName(userName);
             startActivity(NewUserHomeActivity.newInstance(requireContext()));
             requireActivity().finish();
         }

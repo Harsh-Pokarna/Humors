@@ -131,11 +131,12 @@ public class WelcomeActivity extends AppCompatActivity {
     private void setListeners() {
 
         mailSignInButton.setOnClickListener(view -> {
-            if (sharedPrefs.getUserStatus() == 1) {
-                startActivity(NewUserHomeActivity.newInstance(this));
-            } else {
-                startActivity(LoginActivity.newInstance(getApplicationContext()));
-            }
+//            if (sharedPrefs.getUserStatus() == 1) {
+//                startActivity(NewUserHomeActivity.newInstance(this));
+//            } else {
+//                startActivity(LoginActivity.newInstance(getApplicationContext()));
+//            }
+            startActivity(LoginActivity.newInstance(getApplicationContext()));
 
         });
         googleSignInButton.setOnClickListener(view -> Toast.makeText(this, "Press mail sign in button for complete experience", Toast.LENGTH_SHORT).show());

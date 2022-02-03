@@ -106,6 +106,15 @@
                             style="@style/PoppinsBold"
                             android:buttonTint="@color/gradientDarkColor"/>
                         <RadioButton
+                            android:id="@+id/weekly_alcohol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Weely"
+                            android:gravity="center"
+                            android:layout_marginEnd="10dp"
+                            style="@style/PoppinsBold"
+                            android:buttonTint="@color/gradientDarkColor"/>
+                        <RadioButton
                             android:id="@+id/monthly_alcohol"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

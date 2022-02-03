@@ -7,15 +7,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.RadioGroup;
 
 import com.example.humors.R;
+import com.example.humors.utils.SharedPrefs;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class FoodHabitsActivity extends AppCompatActivity {
 
     private ImageButton backButton;
     private FloatingActionButton nextButton;
+    private RadioGroup vegRg, foodRg, waterRg;
 
+    private SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +38,14 @@ public class FoodHabitsActivity extends AppCompatActivity {
         setObservers();
     }
 
-    private void setCurrentFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.new_user_fragment_container, fragment)
-                .disallowAddToBackStack().commit();
-    }
-
     private void initialiseVariables() {
         backButton = findViewById(R.id.food_habits_back_button);
         nextButton = findViewById(R.id.food_habits_next_button);
+        vegRg = findViewById(R.id.non_veg_radio_grp);
+        foodRg = findViewById(R.id.junk_food_radio_grp);
+        waterRg = findViewById(R.id.water_radio_grp);
+
+        sharedPrefs = new SharedPrefs(this);
     }
 
     private void fetchData() {
@@ -53,9 +56,13 @@ public class FoodHabitsActivity extends AppCompatActivity {
 
     }
 
+    private void saveUserDetails() {
+
+    }
+
     private void setListeners() {
         backButton.setOnClickListener(view -> onBackPressed());
-        nextButton.setOnClickListener(view -> startActivity(NewUserHomeActivity.newInstance(this)));
+        nextButton.setOnClickListener(view -> saveUserDetails());
 
     }
 

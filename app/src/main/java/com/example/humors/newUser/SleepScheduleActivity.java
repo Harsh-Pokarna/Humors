@@ -10,8 +10,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.humors.R;
+import com.example.humors.utils.Constants;
+import com.example.humors.utils.SharedPrefs;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import nl.joery.timerangepicker.TimeRangePicker;
@@ -23,6 +26,8 @@ public class SleepScheduleActivity extends AppCompatActivity {
     private TextView sleepTime, wakeTime, sleepDuration;
 
     private TimeRangePicker timeRangePicker;
+
+    private SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,8 @@ public class SleepScheduleActivity extends AppCompatActivity {
         sleepDuration = findViewById(R.id.user_sleep_duration);
 
         timeRangePicker = findViewById(R.id.time_range_picker);
+
+        sharedPrefs = new SharedPrefs(this);
     }
 
     private void fetchData() {
@@ -55,13 +62,26 @@ public class SleepScheduleActivity extends AppCompatActivity {
     }
 
     private void setViews() {
+        sleepDuration.setText(sharedPrefs.getUerSleepDuration());
 
+    }
+
+    public void saveUserDetails() {
+        if (sleepDuration.getText().equals("") ||
+                sleepTime.getText().equals("--") || wakeTime.getText().equals("--")) {
+            Toast.makeText(this, Constants.ALL_DETAILS, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        sharedPrefs.setUserSleepDuration(sleepDuration.getText().toString());
+
+        startActivity(ShareHabitsActivity.newInstance(this));
     }
 
     private void setListeners() {
 
         backButton.setOnClickListener(view -> onBackPressed());
-        nextButton.setOnClickListener(view -> startActivity(ShareHabitsActivity.newInstance(this)));
+        nextButton.setOnClickListener(view -> saveUserDetails());
 
         timeRangePicker.setOnTimeChangeListener(new TimeRangePicker.OnTimeChangeListener() {
             @Override
