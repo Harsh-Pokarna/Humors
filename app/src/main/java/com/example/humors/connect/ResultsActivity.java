@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -18,6 +20,7 @@ import android.widget.TextView;
 import com.example.humors.R;
 import com.example.humors.home.HomeActivity;
 import com.example.humors.home.ProfileActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.ArrayList;
@@ -35,12 +38,10 @@ public class ResultsActivity extends AppCompatActivity {
     private DonutProgressView healthProgressView, sleepProgressView, metabolismProgressView;
     private LinearLayout outerRing1, outerRing2, outerRing3;
 
-    private FrameLayout bottomSheet;
     private ImageButton profileButton;
-    private RecyclerView suggestionsRecyclerView;
-    private TextView dashboardButton;
+    private TextView dashboardButton, lastTested;
 
-    private final SuggestionsAdapter suggestionsAdapter = new SuggestionsAdapter();
+    private BottomNavigationView resultsNavBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,21 +66,15 @@ public class ResultsActivity extends AppCompatActivity {
         outerRing1 = findViewById(R.id.outerRing);
         outerRing2 = findViewById(R.id.outerRing2);
         outerRing3 = findViewById(R.id.outerRing3);
-        bottomSheet = findViewById(R.id.bottom_sheet_your_results);
         profileButton = findViewById(R.id.profile_button);
-        suggestionsRecyclerView = findViewById(R.id.suggestions_recycler_view);
         dashboardButton = findViewById(R.id.dashboard_button);
-
-        BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
-        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        Log.e("TAG", String.valueOf(Resources.getSystem().getDisplayMetrics().heightPixels));
-        bottomSheetBehavior.setPeekHeight(Resources.getSystem().getDisplayMetrics().heightPixels - 750);
-
-        setProgressViews();
-
+        resultsNavBar = findViewById(R.id.results_bottom_nav_bar);
+        lastTested = findViewById(R.id.last_tested_test_view);
     }
 
     private void setProgressViews() {
+
+        lastTested.setVisibility(View.GONE);
 
         healthStatus.add(new DonutSection("user_health", Color.parseColor("#FAFF00"), 75.0F));
         healthProgressView.setCap(100);
@@ -104,8 +99,21 @@ public class ResultsActivity extends AppCompatActivity {
 
     private void setViews() {
 
-        suggestionsRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        suggestionsRecyclerView.setAdapter(suggestionsAdapter);
+        ColorStateList iconColorStates = new ColorStateList(
+                new int[][]{
+                        new int[]{-android.R.attr.state_checked},
+                        new int[]{android.R.attr.state_checked}
+                },
+                new int[]{
+                        Color.parseColor("#000000"),
+                        Color.parseColor("#FFFFFF")
+                });
+
+        resultsNavBar.setItemIconTintList(iconColorStates);
+        resultsNavBar.setItemTextColor(iconColorStates);
+        resultsNavBar.setSelectedItemId(R.id.health_item);
+
+        setProgressViews();
 
     }
 

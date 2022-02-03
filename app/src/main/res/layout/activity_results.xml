@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,7 @@
     android:background="#1B55EC"
     tools:context=".connect.ResultsActivity">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -48,8 +48,8 @@
 
                 <ImageButton
                     android:id="@+id/profile_button"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_profile_avatar"
                     android:background="@color/transparentColor"
@@ -60,68 +60,270 @@
         </com.google.android.material.appbar.AppBarLayout>
 
 
-        <include layout="@layout/main_widget"
-            android:layout_marginTop="100dp"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/dashboard_button"
-            android:textColor="@color/white"
-            android:text="Go to dashboard ->"
-            android:textSize="12sp"
-            android:layout_gravity="end"
-            android:layout_marginTop="370dp"
-            android:layout_marginEnd="40dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </FrameLayout>
-
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="80dp">
-        <FrameLayout
-            android:id="@+id/bottom_sheet_your_results"
-            android:layout_width="match_parent"
-            android:background="@drawable/top_rounded_28"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scrollbars="none"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="50dp"
-                android:layout_marginTop="5dp"
-                android:layout_height="2dp"
-                android:background="@color/lightTextColor"
-                android:layout_gravity="center_horizontal"
-                android:orientation="vertical">
-            </LinearLayout>
-
-            <TextView
-                android:textColor="@color/black"
-                android:text="Suggestions"
-                android:textSize="14sp"
-                style="@style/PoppinsMedium"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/suggestions_recycler_view"
-                android:layout_marginHorizontal="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                tools:itemCount="20"
-                tools:listitem="@layout/item_suggestion"
-                android:paddingBottom="20dp"/>
+                android:orientation="vertical">
 
-        </FrameLayout>
+                <include layout="@layout/main_widget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/data_input_bg"
+                    android:orientation="vertical"/>
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/results_bottom_nav_bar"
+                    android:layout_width="match_parent"
+                    app:elevation="0dp"
+                    app:itemBackground="@drawable/item_background_dashbaord"
+                    android:layout_height="36dp"
+                    android:paddingBottom="4dp"
+                    app:menu="@menu/results_menu"
+                    android:background="@drawable/data_input_bg"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="25dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                    	<LinearLayout
+                    	    android:layout_width="0dp"
+                            android:layout_weight="1"
+                    	    android:layout_height="200dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="6dp"
+                    	    android:background="@drawable/data_input_bg"
+                    	    android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:src="@drawable/ic_food_icon"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+                                <TextView
+                                    android:layout_marginStart="6dp"
+                                    android:textColor="@color/colorPrimary"
+                                    android:text="Food and Drinks"
+                                    android:textSize="12sp"
+                                    android:layout_gravity="center_vertical"
+                                    style="@style/PoppinsMedium"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                            
+                            <TextView
+                                android:textColor="@color/black"
+                                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod dignissim in rhoncus sit. Hendrerit in fermentum lorem."
+                                android:textSize="10sp"
+                                style="@style/PoppinsRegular"
+                                android:layout_marginHorizontal="25dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            
+                            <TextView
+                                android:textColor="@color/colorPrimary"
+                                android:text="View Details"
+                                android:textSize="12sp"
+                                style="@style/PoppinsMedium"
+                                android:layout_gravity="center_horizontal|bottom"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                    	</LinearLayout>
+                        <View
+                            android:layout_width="20dp"
+                            android:layout_height="0dp" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="200dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="6dp"
+                            android:background="@drawable/data_input_bg"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:src="@drawable/ic_food_icon"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+                                <TextView
+                                    android:layout_marginStart="6dp"
+                                    android:textColor="@color/colorPrimary"
+                                    android:text="Food and Drinks"
+                                    android:textSize="12sp"
+                                    android:layout_gravity="center_vertical"
+                                    style="@style/PoppinsMedium"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:textColor="@color/black"
+                                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod dignissim in rhoncus sit. Hendrerit in fermentum lorem."
+                                android:textSize="10sp"
+                                style="@style/PoppinsRegular"
+                                android:layout_marginHorizontal="25dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textColor="@color/colorPrimary"
+                                android:text="View Details"
+                                android:textSize="12sp"
+                                style="@style/PoppinsMedium"
+                                android:layout_gravity="center_horizontal|bottom"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="20dp"
+                        android:orientation="horizontal">
+                    	<LinearLayout
+                    	    android:layout_width="0dp"
+                            android:layout_weight="1"
+                    	    android:layout_height="200dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="6dp"
+                    	    android:background="@drawable/data_input_bg"
+                    	    android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:src="@drawable/ic_food_icon"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+                                <TextView
+                                    android:layout_marginStart="6dp"
+                                    android:textColor="@color/colorPrimary"
+                                    android:text="Food and Drinks"
+                                    android:textSize="12sp"
+                                    android:layout_gravity="center_vertical"
+                                    style="@style/PoppinsMedium"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:textColor="@color/black"
+                                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod dignissim in rhoncus sit. Hendrerit in fermentum lorem."
+                                android:textSize="10sp"
+                                style="@style/PoppinsRegular"
+                                android:layout_marginHorizontal="25dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textColor="@color/colorPrimary"
+                                android:text="View Details"
+                                android:textSize="12sp"
+                                style="@style/PoppinsMedium"
+                                android:layout_gravity="center_horizontal|bottom"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                    	</LinearLayout>
+                        <View
+                            android:layout_width="20dp"
+                            android:layout_height="0dp" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="200dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="6dp"
+                            android:background="@drawable/data_input_bg"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:src="@drawable/ic_food_icon"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+                                <TextView
+                                    android:layout_marginStart="6dp"
+                                    android:textColor="@color/colorPrimary"
+                                    android:text="Food and Drinks"
+                                    android:textSize="12sp"
+                                    android:layout_gravity="center_vertical"
+                                    style="@style/PoppinsMedium"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:textColor="@color/black"
+                                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod dignissim in rhoncus sit. Hendrerit in fermentum lorem."
+                                android:textSize="10sp"
+                                style="@style/PoppinsRegular"
+                                android:layout_marginHorizontal="25dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textColor="@color/colorPrimary"
+                                android:text="View Details"
+                                android:textSize="12sp"
+                                style="@style/PoppinsMedium"
+                                android:layout_gravity="center_horizontal|bottom"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

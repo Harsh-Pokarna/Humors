@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.humors.R;
 import com.example.humors.connect.ResultsActivity;
@@ -43,6 +44,7 @@ public class DashboardFragment extends Fragment {
     private LinearLayout takeReading;
     private LineChart lineChart;
     private BottomNavigationView dashboardNavBar;
+    private TextView dashboardButton;
 
     private List<DonutSection> healthStatus = new ArrayList<>();
     private List<DonutSection> sleepStatus = new ArrayList<>();
@@ -85,27 +87,11 @@ public class DashboardFragment extends Fragment {
         healthProgressView = requireView().findViewById(R.id.health_status_graph);
         sleepProgressView = requireView().findViewById(R.id.sleep_statistics_graph);
         metabolismProgressView = requireView().findViewById(R.id.metabolism_statistics_graph);
+        dashboardButton = requireView().findViewById(R.id.dashboard_button);
         outerRing1 = requireView().findViewById(R.id.outerRing);
         outerRing2 = requireView().findViewById(R.id.outerRing2);
         outerRing3 = requireView().findViewById(R.id.outerRing3);
 
-
-        ColorStateList iconColorStates = new ColorStateList(
-                new int[][]{
-                        new int[]{-android.R.attr.state_checked},
-                        new int[]{android.R.attr.state_checked}
-                },
-                new int[]{
-                        Color.parseColor("#000000"),
-                        Color.parseColor("#FFFFFF")
-                });
-
-        dashboardNavBar.setItemIconTintList(iconColorStates);
-        dashboardNavBar.setItemTextColor(iconColorStates);
-        dashboardNavBar.setSelectedItemId(R.id.health_item);
-
-        setGraph("Health Status");
-        setProgressViews();
     }
 
 
@@ -153,6 +139,24 @@ public class DashboardFragment extends Fragment {
 
     private void setViews() {
 
+        dashboardButton.setVisibility(View.GONE);
+
+        ColorStateList iconColorStates = new ColorStateList(
+                new int[][]{
+                        new int[]{-android.R.attr.state_checked},
+                        new int[]{android.R.attr.state_checked}
+                },
+                new int[]{
+                        Color.parseColor("#000000"),
+                        Color.parseColor("#FFFFFF")
+                });
+
+        dashboardNavBar.setItemIconTintList(iconColorStates);
+        dashboardNavBar.setItemTextColor(iconColorStates);
+        dashboardNavBar.setSelectedItemId(R.id.health_item);
+
+        setGraph("Health Status");
+        setProgressViews();
     }
 
     private void setListeners() {

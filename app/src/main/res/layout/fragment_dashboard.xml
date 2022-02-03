@@ -47,8 +47,8 @@
 
                 <ImageButton
                     android:id="@+id/profile_button_dashboard"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
                     android:layout_gravity="end"
                     android:layout_marginTop="4dp"
                     android:background="@color/transparentColor"
