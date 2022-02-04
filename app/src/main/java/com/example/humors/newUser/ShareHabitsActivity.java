@@ -87,7 +87,7 @@ public class ShareHabitsActivity extends AppCompatActivity {
             exerciseRg.check(R.id.never_exercise);
         } else if (exerciseStatus.equalsIgnoreCase("daily")) {
             exerciseRg.check(R.id.daily_exercise);
-        } else if (exerciseStatus.equalsIgnoreCase("thriceaweek")) {
+        } else if (exerciseStatus.equalsIgnoreCase("thrice_a_week")) {
             exerciseRg.check(R.id.thrice_exercise);
         }
 
@@ -103,10 +103,9 @@ public class ShareHabitsActivity extends AppCompatActivity {
 
         sharedPrefs.setUserAlcoholStatus(((RadioButton)findViewById(alcoholRg.getCheckedRadioButtonId())).getText().toString());
         sharedPrefs.setUserSmokingStatus(((RadioButton)findViewById(smokingRg.getCheckedRadioButtonId())).getText().toString());
-        sharedPrefs.setUserExerciseStatus(((RadioButton)findViewById(exerciseRg.getCheckedRadioButtonId())).getText().toString().trim());
+        sharedPrefs.setUserExerciseStatus(((RadioButton)findViewById(exerciseRg.getCheckedRadioButtonId())).getText().toString().replace(" ", "_"));
 
         startActivity(FoodHabitsActivity.newInstance(this));
-
     }
 
     private void setListeners() {

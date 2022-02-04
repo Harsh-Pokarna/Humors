@@ -141,7 +141,6 @@ public class WelcomeActivity extends AppCompatActivity {
         });
         googleSignInButton.setOnClickListener(view -> Toast.makeText(this, "Press mail sign in button for complete experience", Toast.LENGTH_SHORT).show());
 
-
     }
 
     private void setObservers() {

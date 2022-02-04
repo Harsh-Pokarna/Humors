@@ -92,51 +92,51 @@ public class SharedPrefs {
         sharedPreferences.edit().putString(Constants.USER_EXERCISE_STATUS, userExerciseStatus).apply();
     }
 
-    public String userVegStatus() {
+    public String getUserVegStatus() {
         return sharedPreferences.getString(Constants.USER_VEG_STATUS, "");
     }
 
-    public void userVegStatus(String userVegStatus) {
+    public void setUserVegStatus(String userVegStatus) {
         sharedPreferences.edit().putString(Constants.USER_VEG_STATUS, userVegStatus).apply();
     }
 
-    public String userJunkFoodStatus() {
+    public String getUserJunkFoodStatus() {
         return sharedPreferences.getString(Constants.USER_JUNK_FOOD_STATUS, "");
     }
 
-    public void userJunkFoodStatus(String userJunkFoodStatus) {
+    public void setUserJunkFoodStatus(String userJunkFoodStatus) {
         sharedPreferences.edit().putString(Constants.USER_JUNK_FOOD_STATUS, userJunkFoodStatus).apply();
     }
 
-    public String userWaterStatus() {
+    public String getUserWaterStatus() {
         return sharedPreferences.getString(Constants.USER_WATER_STATUS, "");
     }
 
-    public void userWaterStatus(String userWaterStatus) {
+    public void setUserWaterStatus(String userWaterStatus) {
         sharedPreferences.edit().putString(Constants.USER_WATER_STATUS, userWaterStatus).apply();
     }
 
-    public String userDisease() {
+    public String getUserDisease() {
         return sharedPreferences.getString(Constants.USER_DISEASE, "");
     }
 
-    public void userDisease(String userDisease) {
+    public void setUserDisease(String userDisease) {
         sharedPreferences.edit().putString(Constants.USER_DISEASE, userDisease).apply();
     }
 
-    public String userOtherDisease() {
+    public String getUserOtherDisease() {
         return sharedPreferences.getString(Constants.USER_OTHER_DISEASE, "");
     }
 
-    public void userOtherDisease(String userOtherDisease) {
+    public void setUserOtherDisease(String userOtherDisease) {
         sharedPreferences.edit().putString(Constants.USER_OTHER_DISEASE, userOtherDisease).apply();
     }
 
-    public String userDiseaseLevel() {
+    public String getUserDiseaseLevel() {
         return sharedPreferences.getString(Constants.USER_DISEASE_LEVEL, "");
     }
 
-    public void userDiseaseLevel(String userDiseaseLevel) {
+    public void setUserDiseaseLevel(String userDiseaseLevel) {
         sharedPreferences.edit().putString(Constants.USER_DISEASE_LEVEL, userDiseaseLevel).apply();
     }
 
