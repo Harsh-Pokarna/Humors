@@ -75,6 +75,18 @@
                     android:paddingHorizontal="15dp" />
 
                 <EditText
+                    android:id="@+id/user_age_edittext_add_data"
+                    style="@style/PoppinsRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/data_input_bg"
+                    android:hint="Enter your age"
+                    android:inputType="number"
+                    android:paddingHorizontal="15dp" />
+
+                <EditText
                     android:id="@+id/user_dob"
                     style="@style/PoppinsRegular"
                     android:layout_width="match_parent"

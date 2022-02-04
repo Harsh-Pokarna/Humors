@@ -118,19 +118,10 @@
                                 style="@style/PoppinsMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="10dp"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Male" />
-
-                            <RadioButton
-                                style="@style/PoppinsMedium"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
                                 android:layout_marginEnd="10dp"
-                                android:buttonTint="@color/gradientDarkColor"
-                                android:gravity="center"
-                                android:text="Female" />
+                                android:text="1st" />
 
                             <RadioButton
                                 style="@style/PoppinsMedium"
@@ -138,7 +129,16 @@
                                 android:layout_height="wrap_content"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Other" />
+                                android:layout_marginEnd="10dp"
+                                android:text="2nd" />
+
+                            <RadioButton
+                                style="@style/PoppinsMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/gradientDarkColor"
+                                android:gravity="center"
+                                android:text="3rd" />
 
                         </RadioGroup>
                     </LinearLayout>
@@ -188,7 +188,7 @@
                                 android:layout_marginEnd="10dp"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Male" />
+                                android:text="1st" />
 
                             <RadioButton
                                 style="@style/PoppinsMedium"
@@ -197,7 +197,7 @@
                                 android:layout_marginEnd="10dp"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Female" />
+                                android:text="2nd" />
 
                             <RadioButton
                                 style="@style/PoppinsMedium"
@@ -205,7 +205,7 @@
                                 android:layout_height="wrap_content"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Other" />
+                                android:text="3rd" />
 
                         </RadioGroup>
                     </LinearLayout>
@@ -255,7 +255,7 @@
                                 android:layout_marginEnd="10dp"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Male" />
+                                android:text="1st" />
 
                             <RadioButton
                                 style="@style/PoppinsMedium"
@@ -264,7 +264,7 @@
                                 android:layout_marginEnd="10dp"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Female" />
+                                android:text="2nd" />
 
                             <RadioButton
                                 style="@style/PoppinsMedium"
@@ -272,7 +272,7 @@
                                 android:layout_height="wrap_content"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Other" />
+                                android:text="3rd" />
 
                         </RadioGroup>
                     </LinearLayout>
@@ -322,7 +322,7 @@
                                 android:layout_marginEnd="10dp"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Male" />
+                                android:text="1st" />
 
                             <RadioButton
                                 style="@style/PoppinsMedium"
@@ -331,7 +331,7 @@
                                 android:layout_marginEnd="10dp"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Female" />
+                                android:text="2nd" />
 
                             <RadioButton
                                 style="@style/PoppinsMedium"
@@ -339,7 +339,7 @@
                                 android:layout_height="wrap_content"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Other" />
+                                android:text="3rd" />
 
                         </RadioGroup>
                     </LinearLayout>
@@ -389,7 +389,7 @@
                                 android:layout_marginEnd="10dp"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Male" />
+                                android:text="1st" />
 
                             <RadioButton
                                 style="@style/PoppinsMedium"
@@ -398,7 +398,7 @@
                                 android:layout_marginEnd="10dp"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Female" />
+                                android:text="2nd" />
 
                             <RadioButton
                                 style="@style/PoppinsMedium"
@@ -406,7 +406,7 @@
                                 android:layout_height="wrap_content"
                                 android:buttonTint="@color/gradientDarkColor"
                                 android:gravity="center"
-                                android:text="Other" />
+                                android:text="3d" />
 
                         </RadioGroup>
                     </LinearLayout>

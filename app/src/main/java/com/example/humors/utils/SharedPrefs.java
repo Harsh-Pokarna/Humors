@@ -148,12 +148,12 @@ public class SharedPrefs {
         sharedPreferences.edit().putInt(Constants.USER_ID, userId).apply();
     }
 
-    public int getUserAge() {
-        return sharedPreferences.getInt(Constants.USER_AGE, -1);
+    public String getUserAge() {
+        return sharedPreferences.getString(Constants.USER_AGE, "");
     }
 
-    public void setUserAge(int userAge) {
-        sharedPreferences.edit().putInt(Constants.USER_AGE, userAge).apply();
+    public void setUserAge(String userAge) {
+        sharedPreferences.edit().putString(Constants.USER_AGE, userAge).apply();
     }
 
     public String getUserHeight() {

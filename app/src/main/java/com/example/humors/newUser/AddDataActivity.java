@@ -29,7 +29,7 @@ import java.util.PrimitiveIterator;
 public class AddDataActivity extends AppCompatActivity {
 
     private ImageButton backButton;
-    private EditText userNameEditText, userDOB, userHeightEditText, userWeightEditText;
+    private EditText userNameEditText, userDOB, userHeightEditText, userWeightEditText, userAgeEditText;
     private FloatingActionButton nextButton;
     private RadioGroup genderRadioGroup;
     private RadioButton male, female, other;
@@ -67,6 +67,7 @@ public class AddDataActivity extends AppCompatActivity {
         other = findViewById(R.id.other_gender_radio_button);
         userHeightEditText = findViewById(R.id.user_height);
         userWeightEditText = findViewById(R.id.user_weight);
+        userAgeEditText = findViewById(R.id.user_age_edittext_add_data);
 
         sharedPrefs = new SharedPrefs(this);
         userGender = sharedPrefs.getUserGender();
@@ -81,6 +82,7 @@ public class AddDataActivity extends AppCompatActivity {
         userDOB.setText(sharedPrefs.getUserDob());
         userHeightEditText.setText(sharedPrefs.getUserHeight());
         userWeightEditText.setText(sharedPrefs.getUserWeight());
+        userAgeEditText.setText(sharedPrefs.getUserAge());
 
         if (userGender.equalsIgnoreCase("male")) {
             male.setChecked(true);
@@ -95,13 +97,14 @@ public class AddDataActivity extends AppCompatActivity {
 
         if (userNameEditText.getText().toString().equals("") || userDOB.getText().toString().equals("") ||
             userHeightEditText.getText().toString().equals("") || userWeightEditText.getText().toString().equals("")
-            || genderRadioGroup.getCheckedRadioButtonId() == -1) {
+            || genderRadioGroup.getCheckedRadioButtonId() == -1 || userAgeEditText.getText().toString().equals("")) {
             Toast.makeText(this, Constants.ALL_DETAILS, Toast.LENGTH_SHORT).show();
             return;
         }
 
         sharedPrefs.setUserName(userNameEditText.getText().toString());
         sharedPrefs.setUserDob(userDOB.getText().toString());
+        sharedPrefs.setUserAge(userAgeEditText.getText().toString());
         sharedPrefs.setUserGender(((RadioButton)findViewById(genderRadioGroup.getCheckedRadioButtonId())).getText().toString());
         sharedPrefs.setUserHeight(userHeightEditText.getText().toString());
         sharedPrefs.setUserWeight(userWeightEditText.getText().toString());

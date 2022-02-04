@@ -35,6 +35,9 @@ public class Constants {
     public static String WRONG_OTP = "wrong_otp";
     public static String SUCCESS_OTP = "sucess";
     public static String TRY_LATER = "Please try later";
+    public static String EXIST = "exist";
+    public static String MAIN_SUCCESS = "sucess";
+    public static String MAIN_ERROR = "error";
 
     // Used in toasts
     public static String ALL_DETAILS = "Please enter all details";
