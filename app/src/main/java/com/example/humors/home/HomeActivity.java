@@ -69,6 +69,10 @@ public class HomeActivity extends AppCompatActivity {
                 setCurrentFragment(new DashboardFragment());
             }
 
+            if (item.getItemId() == R.id.step_item) {
+                setCurrentFragment(new StepCounterFragment());
+            }
+
             return true;
         });
     }

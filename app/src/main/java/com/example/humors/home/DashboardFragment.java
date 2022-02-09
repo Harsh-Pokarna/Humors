@@ -139,6 +139,9 @@ public class DashboardFragment extends Fragment {
 
     private void setViews() {
 
+        lineChart.setPinchZoom(false);
+        lineChart.setScaleEnabled(false);
+
         dashboardButton.setVisibility(View.GONE);
 
         ColorStateList iconColorStates = new ColorStateList(

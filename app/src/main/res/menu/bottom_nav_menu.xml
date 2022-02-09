@@ -10,5 +10,8 @@
     <item android:id="@+id/test_history_item"
         android:title="Test History"
         android:icon="@drawable/test_history_icon_selector"/>
+    <item android:id="@+id/step_item"
+        android:title="Step counter"
+        android:icon="@drawable/walk_icon_selector"/>
 
 </menu>

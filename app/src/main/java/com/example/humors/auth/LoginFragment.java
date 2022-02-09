@@ -164,7 +164,12 @@ public class LoginFragment extends Fragment {
             sharedPrefs.setUserEmail(userEmail);
             sharedPrefs.setUserId(userId);
             sharedPrefs.setUserName(userName);
-            startActivity(NewUserHomeActivity.newInstance(requireContext()));
+
+            if (sharedPrefs.getUserHeight().equals("")) {
+                startActivity(NewUserHomeActivity.newInstance(requireContext()));
+            } else {
+                startActivity(HomeActivity.newInstance(requireContext()));
+            }
             requireActivity().finish();
         }
     }
