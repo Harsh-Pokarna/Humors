@@ -1,16 +1,24 @@
 package com.example.humors.home;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.humors.R;
 import com.github.mikephil.charting.charts.BarChart;
@@ -24,18 +32,24 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StepCounterFragment extends Fragment {
+public class StepCounterFragment extends Fragment implements SensorEventListener {
 
     private BarChart stepsChart, caloriesChart;
     private FrameLayout fl;
+    private TextView stepCountTextView;
 
     private List<BarEntry> stepsEntries = new ArrayList<>();
     private List<String> xAxisLabels = new ArrayList<>();
+
+    private SensorManager sensorManager;
+    private float totalSteps = 0f;
+    private float previousTotalSteps = 0f;
+
+    private Sensor stepSensor = null;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -56,12 +70,26 @@ public class StepCounterFragment extends Fragment {
     private void initialiseVariables() {
         stepsChart = requireView().findViewById(R.id.steps_chart);
         caloriesChart = requireView().findViewById(R.id.calories_chart);
+        stepCountTextView = requireView().findViewById(R.id.step_count);
         fl = requireView().findViewById(R.id.fl);
 
+        sensorManager = (SensorManager) requireActivity().getSystemService(Context.SENSOR_SERVICE);
+        stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+
+        if (stepSensor == null) {
+            Toast.makeText(requireContext(), "No sensor detected", Toast.LENGTH_SHORT).show();
+        } else {
+            Log.e("TAG", "" + sensorManager);
+            sensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_FASTEST);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     private void setCommonChartAttributes(BarChart barChart) {
-
         barChart.setPinchZoom(false);
         barChart.setDragEnabled(false);
         barChart.getAxisLeft().setDrawGridLines(false);
@@ -138,6 +166,18 @@ public class StepCounterFragment extends Fragment {
 
     private void setObservers() {
 
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        totalSteps = sensorEvent.values[0];
+        Log.e("TAG", "The total steps are: " + totalSteps);
+        stepCountTextView.setText("" + totalSteps);
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+        Log.e("TAG", "The new accuracy is: " + sensor + " " + i);
     }
 
     @Override
