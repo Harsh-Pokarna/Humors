@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -16,9 +17,9 @@ public class BreatheTestActivity extends AppCompatActivity {
     int maxTime = 5;
     int counter = 0;
 
-    private TextView breatheTimerTextView;
+    private TextView breatheTimerTextView, mainText, titleText;
 
-    private LottieAnimationView blowAnimation;
+    private LottieAnimationView blowAnimation, ringAnimation;
 
     public static Intent newInstance(Context context) {
         return new Intent(context, BreatheTestActivity.class);
@@ -44,6 +45,9 @@ public class BreatheTestActivity extends AppCompatActivity {
 
         breatheTimerTextView = findViewById(R.id.timer_breathe_test);
         blowAnimation = findViewById(R.id.blow_animation);
+        mainText = findViewById(R.id.blow_text);
+        ringAnimation = findViewById(R.id.ring_animation);
+        titleText = findViewById(R.id.breath_test_title);
 
         Handler handler = new Handler();
 
@@ -51,11 +55,25 @@ public class BreatheTestActivity extends AppCompatActivity {
             @Override
             public void run() {
                 counter++;
-                if (counter == 6) {
-                    startActivity(ResultsActivity.newInstance(BreatheTestActivity.this));
-                    return;
+                if (counter == 5) {
+                    mainText.setText("Blow out");
+                    ringAnimation.reverseAnimationSpeed();
+                    blowAnimation.reverseAnimationSpeed();
+                    maxTime = 20;
+                } if (counter == 20) {
+                    blowAnimation.setVisibility(View.INVISIBLE);
+                    mainText.setVisibility(View.INVISIBLE);
+                    titleText.setText("Please wait 30 seconds while we are analysing your results");
                 }
-                breatheTimerTextView.setText("00:0" + (maxTime - counter));
+                if ((maxTime - counter) > 9) {
+                    breatheTimerTextView.setText("00:" + (maxTime - counter));
+                }
+                if ((maxTime - counter) >=0 && (maxTime - counter) <= 9) {
+                    breatheTimerTextView.setText("00:0" + (maxTime - counter));
+                }
+                if (counter == 30) {
+                    startActivity(ResultsActivity.newInstance(BreatheTestActivity.this));
+                }
                 handler.postDelayed(this, 1000);
             }
         }, 1000);
@@ -67,6 +85,8 @@ public class BreatheTestActivity extends AppCompatActivity {
     }
 
     private void setViews() {
+        ringAnimation.reverseAnimationSpeed();
+        blowAnimation.reverseAnimationSpeed();
     }
 
     private void setListeners() {

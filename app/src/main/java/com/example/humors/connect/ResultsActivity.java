@@ -38,7 +38,7 @@ public class ResultsActivity extends AppCompatActivity {
     private DonutProgressView healthProgressView, sleepProgressView, metabolismProgressView;
     private LinearLayout outerRing1, outerRing2, outerRing3;
 
-    private ImageButton profileButton;
+    private ImageButton profileButton, backButton;
     private TextView dashboardButton, lastTested;
 
     private BottomNavigationView resultsNavBar;
@@ -70,6 +70,7 @@ public class ResultsActivity extends AppCompatActivity {
         dashboardButton = findViewById(R.id.dashboard_button);
         resultsNavBar = findViewById(R.id.results_bottom_nav_bar);
         lastTested = findViewById(R.id.last_tested_test_view);
+        backButton = findViewById(R.id.your_results_back_button);
     }
 
     private void setProgressViews() {
@@ -120,6 +121,7 @@ public class ResultsActivity extends AppCompatActivity {
     private void setListeners() {
         profileButton.setOnClickListener(view -> startActivity(ProfileActivity.newInstance(this)));
         dashboardButton.setOnClickListener(view -> startActivity(HomeActivity.newInstance(this)));
+        backButton.setOnClickListener(view -> startActivity(HomeActivity.newInstance(this)));
     }
 
     private void setObservers() {

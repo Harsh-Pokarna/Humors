@@ -22,6 +22,7 @@ public class Constants {
     public static String USER_DISEASE = "USER_DISEASE";
     public static String USER_OTHER_DISEASE = "USER_OTHER_DISEASE";
     public static String USER_DISEASE_LEVEL = "USER_DISEASE_LEVEL";
+    public static String CONNECTED_STATUS = "CONNECTED_STATUS";
 
     // API Returned logs
     public static String NO_INTERNET_STRING = "UnknownHostException exception: Unable to resolve host \"humorstech.com\": No address associated with hostname";

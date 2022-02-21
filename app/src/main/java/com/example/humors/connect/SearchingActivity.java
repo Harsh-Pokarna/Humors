@@ -10,12 +10,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.humors.R;
+import com.example.humors.home.HomeActivity;
+import com.example.humors.utils.GlobalVariables;
+import com.example.humors.utils.SharedPrefs;
 
 public class SearchingActivity extends AppCompatActivity {
 
@@ -28,12 +33,16 @@ public class SearchingActivity extends AppCompatActivity {
     private AppCompatButton buyHumors;
     private LottieAnimationView searchingAnimation;
 
+    private GlobalVariables globalVariables = new GlobalVariables();
+
     private Runnable run = new Runnable() {
         @Override
         public void run() {
             if(!isConnected.getValue()) {
                 if (num == 5) {
                     isConnected.setValue(true);
+                    GlobalVariables.connectedStatus = 1;
+                    Log.e("TAG", "run: Connected value set");
                     return;
                 }
                 num++;
@@ -83,6 +92,7 @@ public class SearchingActivity extends AppCompatActivity {
         ownHumors = findViewById(R.id.dont_own_humors);
         buyHumors = findViewById(R.id.buy_humors);
         startCounting();
+
     }
 
     private void fetchData() {
@@ -97,7 +107,7 @@ public class SearchingActivity extends AppCompatActivity {
 
         buyHumors.setOnClickListener(view -> {
             if (isConnected.getValue()) {
-                startActivity(BreatheTestActivity.newInstance(this));
+                startActivity(HomeActivity.newInstance(this));
             } else {
                 Toast.makeText(this, "Please wait for 5 sec", Toast.LENGTH_SHORT).show();
             }

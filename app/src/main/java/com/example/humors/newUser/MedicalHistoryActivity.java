@@ -128,7 +128,7 @@ public class MedicalHistoryActivity extends AppCompatActivity {
                 "&alcohol=" + sharedPrefs.getUserAlcoholStatus() + "&smoking=" + sharedPrefs.getUserSmokingStatus() + "&height=" + sharedPrefs.getUserHeight() +
                 "&weight=" + sharedPrefs.getUserWeight() + "&excercise=" + sharedPrefs.getUserExerciseStatus() + "&non_veg=" + sharedPrefs.getUserVegStatus() +
                 "&junk_food=" + sharedPrefs.getUserJunkFoodStatus() + "&water=" + sharedPrefs.getUserWaterStatus() + "&existing_disease=" + sharedPrefs.getUserDisease() +
-                "&existing_disease_level=" + sharedPrefs.getUserDiseaseLevel() + "&existing_disease_other=" + sharedPrefs.getUserOtherDisease();
+                "&existing_disease_level=" + sharedPrefs.getUserDiseaseLevel() + "&existing_disease_other=";
 
         Log.e("TAG", "The hitted main url is:" + url);
 

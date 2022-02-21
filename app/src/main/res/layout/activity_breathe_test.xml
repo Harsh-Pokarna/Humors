@@ -44,6 +44,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <TextView
+            android:id="@+id/breath_test_title"
             style="@style/PoppinsMedium"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
@@ -57,8 +58,18 @@
             android:layout_width="216dp"
             android:layout_height="216dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="35dp"
-            android:background="@drawable/circular_ring">
+            android:layout_marginTop="35dp">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/ring_animation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:lottie_rawRes="@raw/ring_rotate"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_scale="2.2"
+                app:lottie_loop="true"
+                android:scaleType="fitXY"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -88,8 +99,10 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/blow_text"
+                android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
-                android:text="Blow Out"
+                android:text="Take a deep breath"
                 android:textSize="12sp"
                 style="@style/PoppinsMedium"
                 android:layout_gravity="center_horizontal|bottom"
