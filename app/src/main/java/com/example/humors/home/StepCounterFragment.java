@@ -1,6 +1,9 @@
 package com.example.humors.home;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -21,6 +24,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.humors.R;
+import com.example.humors.services.StepCounterService;
+import com.example.humors.utils.GlobalVariables;
+import com.example.humors.utils.SharedPrefs;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -29,8 +35,12 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class StepCounterFragment extends Fragment implements SensorEventListener {
 
@@ -42,10 +52,14 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
     private List<String> xAxisLabels = new ArrayList<>();
 
     private SensorManager sensorManager;
-    private float totalSteps = 0f;
-    private float previousTotalSteps = 0f;
-
+    private float totalSteps = 0f, previousSteps;
     private Sensor stepSensor = null;
+
+    private SharedPrefs sharedPrefs;
+
+    private AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
+    private Intent intent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,6 +96,25 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
             Log.e("TAG", "" + sensorManager);
             sensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_FASTEST);
         }
+
+        sharedPrefs = new SharedPrefs(requireContext());
+        previousSteps = sharedPrefs.getPreviousSteps();
+        Log.e("TAG", "Your previous steps were: " + previousSteps);
+
+        setService();
+    }
+
+    private void setService() {
+        alarmManager = (AlarmManager) requireContext().getSystemService(Context.ALARM_SERVICE);
+        intent = new Intent(requireContext(), StepCounterService.class);
+        pendingIntent = PendingIntent.getBroadcast(requireContext(), 0, intent, 0);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 58);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, pendingIntent);
     }
 
     @Override
@@ -157,7 +190,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
 
     private void setViews() {
         setCharts();
-
+        stepCountTextView.setText("" + (sharedPrefs.getNewSteps() - previousSteps));
     }
 
     private void setListeners() {
@@ -169,15 +202,22 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        sharedPrefs.setNewSteps(GlobalVariables.totalSteps);
+        sharedPrefs.getNewSteps();
+
+    }
+
+    @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         totalSteps = sensorEvent.values[0];
-        Log.e("TAG", "The total steps are: " + totalSteps);
-        stepCountTextView.setText("" + totalSteps);
+        GlobalVariables.totalSteps = totalSteps;
+        stepCountTextView.setText("" + (totalSteps - previousSteps));
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
-        Log.e("TAG", "The new accuracy is: " + sensor + " " + i);
     }
 
     @Override

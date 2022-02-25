@@ -3,6 +3,7 @@ package com.example.humors.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -17,7 +18,8 @@ public class SharedPrefs {
 
     public SharedPrefs(@NonNull Context context) {
         this.context = context;
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+//        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        sharedPreferences = context.getSharedPreferences("Preferences", Context.MODE_MULTI_PROCESS);
     }
 
     public String getUserName() {
@@ -170,6 +172,24 @@ public class SharedPrefs {
 
     public void setUserWeight(String userWeight) {
         sharedPreferences.edit().putString(Constants.USER_WEIGHT, userWeight).apply();
+    }
+
+    public float getPreviousSteps() {
+        return sharedPreferences.getFloat(Constants.PREVIOUS_STEPS, 0f);
+    }
+
+    public void setPreviousSteps(float previousSteps) {
+        Log.e("TAG", "Previous steps are set to: " + previousSteps);
+        sharedPreferences.edit().putFloat(Constants.PREVIOUS_STEPS, previousSteps).apply();
+    }
+
+    public float getNewSteps() {
+        Log.e("TAG", "getNewSteps");
+        return sharedPreferences.getFloat(Constants.NEW_STEPS, 0f);
+    }
+
+    public void setNewSteps(float newSteps) {
+        sharedPreferences.edit().putFloat(Constants.NEW_STEPS, newSteps).apply();
     }
 
 }

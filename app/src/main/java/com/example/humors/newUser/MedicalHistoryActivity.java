@@ -151,13 +151,11 @@ public class MedicalHistoryActivity extends AppCompatActivity {
                 Log.e("TAG", "main response is: " + responseString);
                 Log.e("TAG", "size of main string is:" + responseString.length());
                 if (responseString.equals(Constants.EXIST)) {
-                    Log.e("TAG", "into the exist block");
                     Toast.makeText(MedicalHistoryActivity.this, "Data already exists", Toast.LENGTH_SHORT).show();
+                    startActivity(HomeActivity.newInstance(MedicalHistoryActivity.this));
                 } else if (responseString.equals(Constants.MAIN_SUCCESS)) {
-                    Log.e("TAG", "into the sucess block");
                     startActivity(HomeActivity.newInstance(MedicalHistoryActivity.this));
                 } else if (responseString.equals(Constants.MAIN_ERROR)) {
-                    Log.e("TAG", "into the error block");
                     Toast.makeText(MedicalHistoryActivity.this, "There is a error", Toast.LENGTH_SHORT).show();
                     Log.e("TAG", "The error in main success is:" + responseString);
                 }
