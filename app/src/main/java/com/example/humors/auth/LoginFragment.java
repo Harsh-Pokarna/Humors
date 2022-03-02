@@ -132,6 +132,7 @@ public class LoginFragment extends Fragment {
 
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                    Log.e("TAG", "The response string in login user is: " + responseString);
                     if (responseString.equals(Constants.EMAIL_NOT_EXIST)) {
                         userEmailTextView.setError("Invalid email");
                     } else if (responseString.equals(Constants.INVALID_PASSWORD)) {

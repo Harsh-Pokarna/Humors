@@ -12,11 +12,12 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.example.humors.R;
+import com.example.humors.others.AboutActivity;
 import com.example.humors.others.ChangePasswordActivity;
 
 public class SettingsFragment extends Fragment {
 
-    private FrameLayout changePassword;
+    private FrameLayout changePassword, aboutButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class SettingsFragment extends Fragment {
 
     private void initialiseVariables() {
         changePassword = requireView().findViewById(R.id.change_password);
+        aboutButton = requireView().findViewById(R.id.about_button);
 
     }
 
@@ -53,6 +55,7 @@ public class SettingsFragment extends Fragment {
 
     private void setListeners() {
         changePassword.setOnClickListener(view -> startActivity(ChangePasswordActivity.newInstance(requireContext())));
+        aboutButton.setOnClickListener(view -> startActivity(AboutActivity.newInstance(requireContext())));
     }
 
     private void setObservers() {
