@@ -16,7 +16,7 @@
             android:id="@+id/homeToolBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#1B55EC"
+            android:background="@drawable/primary_color"
             android:elevation="0dp"
             android:padding="10dp"
             app:elevation="0dp">
@@ -64,7 +64,7 @@
                     android:id="@+id/fl"
                     android:paddingTop="20dp"
                     android:layout_width="match_parent"
-                    android:background="#1B55EC"
+                    android:background="@drawable/primary_color"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal">
 
@@ -82,7 +82,7 @@
                         android:layout_height="152dp"
                         android:layout_gravity="center"
                         app:donut_animationDuration="2000"
-                        app:donut_bgLineColor="#1B55EC"
+                        app:donut_bgLineColor="@color/colorPrimary"
                         app:donut_cap="100"
                         app:donut_gapWidth="0"
                         app:donut_strokeWidth="6dp" />
@@ -108,7 +108,7 @@
                 </FrameLayout>
 
                 <LinearLayout
-                    android:background="#1B55EC"
+                    android:background="@drawable/primary_color"
                     android:paddingVertical="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#1B55EC">
+    android:background="@drawable/primary_color">
 
     <TextView
         android:id="@+id/last_tested_test_view"
@@ -42,7 +42,7 @@
                 android:layout_gravity="center"
                 android:layout_height="152dp"
                 app:donut_animationDuration="2000"
-                app:donut_bgLineColor="#1B55EC"
+                app:donut_bgLineColor="@color/colorPrimary"
                 app:donut_cap="100"
                 app:donut_gapWidth="0"
                 app:donut_strokeWidth="6dp" />
@@ -110,7 +110,7 @@
                     android:layout_height="88dp"
                     app:donut_animationDuration="2000"
                     android:layout_gravity="center"
-                    app:donut_bgLineColor="#1B55EC"
+                    app:donut_bgLineColor="@color/colorPrimary"
                     app:donut_cap="100"
                     app:donut_gapWidth="0"
                     app:donut_strokeWidth="4dp" />
@@ -162,7 +162,7 @@
                     android:layout_height="88dp"
                     app:donut_animationDuration="2000"
                     android:layout_gravity="center"
-                    app:donut_bgLineColor="#1B55EC"
+                    app:donut_bgLineColor="@color/colorPrimary"
                     app:donut_cap="100"
                     app:donut_gapWidth="0"
                     app:donut_strokeWidth="4dp" />

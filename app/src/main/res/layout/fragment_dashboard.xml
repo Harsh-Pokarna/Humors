@@ -16,7 +16,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#1B55EC"
+            android:background="@drawable/primary_color"
             android:elevation="0dp"
             android:paddingHorizontal="10dp"
             android:paddingTop="20dp"

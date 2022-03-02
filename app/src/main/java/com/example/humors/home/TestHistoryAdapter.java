@@ -69,7 +69,7 @@ public class TestHistoryAdapter extends RecyclerView.Adapter<TestHistoryAdapter.
         }
 
         public void bind(Test test) {
-            DonutSection donutSection = new DonutSection(test.getTestId(), Color.parseColor("#1550E8"), Integer.parseInt(test.getHealthStatus()));
+            DonutSection donutSection = new DonutSection(test.getTestId(), Color.parseColor("#0984e3"), Integer.parseInt(test.getHealthStatus()));
             donutProgressView.setCap(100);
             donutProgressView.submitData(Collections.singletonList(donutSection));
             healthStatus.setText(test.getHealthStatus() + "%");

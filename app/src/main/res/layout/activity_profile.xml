@@ -78,6 +78,7 @@
                     android:textSize="24sp" />
 
                 <FrameLayout
+                    android:id="@+id/add_details_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -115,6 +116,7 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/my_habits_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -152,6 +154,7 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/medical_history_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -189,6 +192,7 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/test_histry_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -267,6 +271,7 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/settings_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -306,6 +311,7 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/about_button_profile_page"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -345,6 +351,7 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/help_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
