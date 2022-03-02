@@ -45,5 +45,6 @@ public class Constants {
 
     // Used in toasts
     public static String ALL_DETAILS = "Please enter all details";
+    public static String SELECT_DISEASE_LEVEL = "Please select your disease level";
 
 }

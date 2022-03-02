@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
@@ -28,7 +29,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class MedicalHistoryActivity extends AppCompatActivity {
 
-    private CheckBox diabetesCheckbox, respiratoryCheckbox, heartCheckbox, liverCheckbox, appendixCheckbox, otherCheckbox;
+    private CheckBox diabetesCheckbox, respiratoryCheckbox, heartCheckbox, liverCheckbox, appendixCheckbox, otherCheckbox, noneCheckbox;
     private RadioGroup diabetesRadioGroup, respiratoryRadioGroup, heartRadioGroup, liverRadioGroup, appendixRadioGroup;
     private EditText otherDiseaseEditText;
 
@@ -99,19 +100,39 @@ public class MedicalHistoryActivity extends AppCompatActivity {
 
         if (diabetesCheckbox.isChecked()) {
             userDisease = userDisease + "diabetes";
-            userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(diabetesRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+            if (diabetesRadioGroup.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
+            } else {
+                userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(diabetesRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+            }
         } if (respiratoryCheckbox.isChecked()) {
             userDisease = userDisease + "respiratory";
-            userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(respiratoryRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+            if (respiratoryRadioGroup.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
+            } else {
+                userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(respiratoryRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+            }
         }if (heartCheckbox.isChecked()) {
             userDisease = userDisease + "heart";
-            userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(heartRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+            if (heartRadioGroup.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
+            } else {
+                userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(heartRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+            }
         } if (liverCheckbox.isChecked()) {
             userDisease = userDisease + "liver";
-            userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(liverRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+            if (liverRadioGroup.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
+            } else {
+                userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(liverRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+            }
         } if (appendixCheckbox.isChecked()) {
             userDisease = userDisease + "appendix";
-            userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(appendixRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+            if (appendixRadioGroup.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
+            } else {
+                userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(appendixRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+            }
         }
 
         sharedPrefs.setUserDisease(userDisease);
@@ -128,7 +149,7 @@ public class MedicalHistoryActivity extends AppCompatActivity {
                 "&alcohol=" + sharedPrefs.getUserAlcoholStatus() + "&smoking=" + sharedPrefs.getUserSmokingStatus() + "&height=" + sharedPrefs.getUserHeight() +
                 "&weight=" + sharedPrefs.getUserWeight() + "&excercise=" + sharedPrefs.getUserExerciseStatus() + "&non_veg=" + sharedPrefs.getUserVegStatus() +
                 "&junk_food=" + sharedPrefs.getUserJunkFoodStatus() + "&water=" + sharedPrefs.getUserWaterStatus() + "&existing_disease=" + sharedPrefs.getUserDisease() +
-                "&existing_disease_level=" + sharedPrefs.getUserDiseaseLevel() + "&existing_disease_other=";
+                "&existing_disease_level=" + sharedPrefs.getUserDiseaseLevel() + "&existing_disease_other=" + sharedPrefs.getUserOtherDisease();
 
         Log.e("TAG", "The hitted main url is:" + url);
 
@@ -170,6 +191,23 @@ public class MedicalHistoryActivity extends AppCompatActivity {
         setCheckboxListener(appendixCheckbox, appendixRadioGroup);
         setCheckboxListener(heartCheckbox, heartRadioGroup);
         setCheckboxListener(liverCheckbox, liverRadioGroup);
+
+        noneCheckbox.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                diabetesCheckbox.setChecked(false);
+                diabetesRadioGroup.clearCheck();
+                respiratoryCheckbox.setChecked(false);
+                respiratoryRadioGroup.clearCheck();
+                liverCheckbox.setChecked(false);
+                liverRadioGroup.clearCheck();
+                heartCheckbox.setChecked(false);
+                heartRadioGroup.clearCheck();
+                appendixCheckbox.setChecked(false);
+                appendixRadioGroup.clearCheck();
+                otherCheckbox.setChecked(false);
+            }
+
+        });
 
         otherCheckbox.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b) {

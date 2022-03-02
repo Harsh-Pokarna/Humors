@@ -84,6 +84,40 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/none_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/gradientDarkColor" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/data_input_bg"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/PoppinsBold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginVertical="7dp"
+                            android:text="None"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
                         android:id="@+id/diabetes_checkbox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
