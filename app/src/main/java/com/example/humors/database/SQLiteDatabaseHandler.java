@@ -15,7 +15,6 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
     private static final String ID_COL = "step_id";
     private static final String DATE_COL = "date";
     private static final String STEP_COL = "step_count";
-    private static final Boolean PUSHED_COL = false; // Sees if data is uploaded on backend
 
     public SQLiteDatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -26,8 +25,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DATE_COL + " TEXT,"
-                + STEP_COL + " TEXT,"
-                + PUSHED_COL + " TEXT)";
+                + STEP_COL + " TEXT";
 
         sqLiteDatabase.execSQL(query);
 
