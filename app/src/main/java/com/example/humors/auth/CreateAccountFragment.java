@@ -21,6 +21,8 @@ import com.example.humors.utils.Constants;
 import com.example.humors.utils.SharedPrefs;
 import com.loopj.android.http.TextHttpResponseHandler;
 
+import java.net.UnknownHostException;
+
 import cz.msebera.android.httpclient.Header;
 
 public class CreateAccountFragment extends Fragment {
@@ -53,7 +55,7 @@ public class CreateAccountFragment extends Fragment {
     }
 
     private void setCurrentFragment(Fragment fragment) {
-            getActivity().getSupportFragmentManager().beginTransaction()
+            requireActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.login_fragment_container, fragment).addToBackStack(null).commit();
         }
 

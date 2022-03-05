@@ -15,7 +15,7 @@ public class ExtFunctions {
 
     public static void hideKeyboard(Activity activity) {
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        View view = activity.getCurrentFocus();  //himanshi qt3.14
+        View view = activity.getCurrentFocus();
         if (view == null) {
             view = new View(activity);
         }

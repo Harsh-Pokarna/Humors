@@ -112,7 +112,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 58);
+        calendar.set(Calendar.MINUTE, 15);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, pendingIntent);
     }
@@ -205,7 +205,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
     public void onDestroy() {
         super.onDestroy();
         sharedPrefs.setNewSteps(GlobalVariables.totalSteps);
-        sharedPrefs.getNewSteps();
+        Log.e("TAG", "get new steps in on destroy: " + sharedPrefs.getNewSteps());
 
     }
 

@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.example.humors.utils.Constants;
 import com.example.humors.utils.ExtFunctions;
 import com.example.humors.utils.SharedPrefs;
 import com.loopj.android.http.TextHttpResponseHandler;
+import com.mukesh.OnOtpCompletionListener;
 import com.mukesh.OtpView;
 
 import cz.msebera.android.httpclient.Header;
@@ -36,6 +38,9 @@ public class EmailVerificationFragment extends Fragment {
     private String userEmail;
 
     private String otp;
+
+    private Handler handler = new Handler();
+    private int maxTime = 60;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +80,13 @@ public class EmailVerificationFragment extends Fragment {
     private void setViews() {
         ExtFunctions.underlineText(resendOtpButton);
 
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        }, 1000);
+
     }
 
     private void setListeners() {
@@ -83,6 +95,8 @@ public class EmailVerificationFragment extends Fragment {
             otp = otpView.getText().toString();
             verifyOtp(otp);
         });
+
+        otpView.setOtpCompletionListener(otp -> ExtFunctions.hideKeyboard(requireActivity()));
 
     }
 
@@ -122,6 +136,8 @@ public class EmailVerificationFragment extends Fragment {
     }
 
     private void setObservers() {
+
+
 
     }
 

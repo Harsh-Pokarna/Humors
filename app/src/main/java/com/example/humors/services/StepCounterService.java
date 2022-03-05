@@ -10,7 +10,6 @@ import com.example.humors.utils.SharedPrefs;
 
 public class StepCounterService extends BroadcastReceiver {
 
-    private SQLiteDatabaseHandler databaseHandler;
 
     private SharedPrefs sharedPrefs;
     private float newSteps = 1f;
@@ -18,7 +17,6 @@ public class StepCounterService extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        databaseHandler = new SQLiteDatabaseHandler(context);
         sharedPrefs = new SharedPrefs(context);
         newSteps = sharedPrefs.getNewSteps();
         Log.e("TAG", "new steps in services are: " + newSteps);
