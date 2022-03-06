@@ -57,11 +57,9 @@ public class StepCounterService extends BroadcastReceiver {
 
             c.add(Calendar.DATE, -1);
             inputDate = format.format(c.getTime());
-            Log.d("asd", "selected date : "+inputDate);
 
             System.out.println(date);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             inputDate ="";
         }

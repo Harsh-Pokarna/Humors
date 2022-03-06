@@ -25,7 +25,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DATE_COL + " TEXT,"
-                + STEP_COL + " TEXT";
+                + STEP_COL + " TEXT)";
 
         sqLiteDatabase.execSQL(query);
 

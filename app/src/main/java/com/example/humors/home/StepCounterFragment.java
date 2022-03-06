@@ -9,6 +9,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.opengl.Visibility;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +49,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
     private BarChart stepsChart, caloriesChart;
     private FrameLayout fl;
     private TextView stepCountTextView;
+    private LinearLayout dataLayout;
 
     private List<BarEntry> stepsEntries = new ArrayList<>();
     private List<String> xAxisLabels = new ArrayList<>();
@@ -85,6 +88,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
         stepsChart = requireView().findViewById(R.id.steps_chart);
         caloriesChart = requireView().findViewById(R.id.calories_chart);
         stepCountTextView = requireView().findViewById(R.id.step_count);
+        dataLayout = requireView().findViewById(R.id.data_layout);
         fl = requireView().findViewById(R.id.fl);
 
         sensorManager = (SensorManager) requireActivity().getSystemService(Context.SENSOR_SERVICE);
@@ -92,6 +96,8 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
 
         if (stepSensor == null) {
             Toast.makeText(requireContext(), "No sensor detected", Toast.LENGTH_SHORT).show();
+            dataLayout.setVisibility(View.GONE);
+            stepCountTextView.setText("--");
         } else {
             Log.e("TAG", "" + sensorManager);
             sensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_FASTEST);
@@ -111,8 +117,8 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 2);
+        calendar.set(Calendar.HOUR_OF_DAY, 13);
+        calendar.set(Calendar.MINUTE, 52);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, pendingIntent);
     }

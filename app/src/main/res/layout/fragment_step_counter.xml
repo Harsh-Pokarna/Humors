@@ -108,6 +108,7 @@
                 </FrameLayout>
 
                 <LinearLayout
+                    android:id="@+id/data_layout"
                     android:background="@drawable/primary_color"
                     android:paddingVertical="20dp"
                     android:layout_width="match_parent"
