@@ -1,17 +1,6 @@
 package com.example.humors.auth;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.humors.R;
@@ -23,9 +12,17 @@ import com.example.humors.utils.ExtFunctions;
 import com.example.humors.utils.SharedPrefs;
 import com.loopj.android.http.TextHttpResponseHandler;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import cz.msebera.android.httpclient.Header;
 
-public class LoginFragment extends Fragment {
+
+public class UserLoginActivity extends AppCompatActivity {
 
     private TextView registerNowButton;
     private TextView forgotPasswordButton;
@@ -39,21 +36,10 @@ public class LoginFragment extends Fragment {
     private int userId, userStatus;
     private String userName;
 
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_login, container, false);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        setContentView(R.layout.activity_user_login);
 
         init();
     }
@@ -66,19 +52,14 @@ public class LoginFragment extends Fragment {
         setObservers();
     }
 
-    private void setCurrentFragment(Fragment fragment) {
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.login_fragment_container, fragment).addToBackStack(null).commit();
-        }
-
     private void initialiseVariables() {
-        registerNowButton = getView().findViewById(R.id.register_now_button_login);
-        forgotPasswordButton = requireView().findViewById(R.id.forgot_password_button);
-        userEmailTextView = requireView().findViewById(R.id.user_email_edittext_login);
-        userPasswordTextView = requireView().findViewById(R.id.user_password_edittext_login);
-        loginButton = requireView().findViewById(R.id.login_button);
+        registerNowButton = findViewById(R.id.register_now_button_login);
+        forgotPasswordButton = findViewById(R.id.forgot_password_button);
+        userEmailTextView = findViewById(R.id.user_email_edittext_login);
+        userPasswordTextView = findViewById(R.id.user_password_edittext_login);
+        loginButton = findViewById(R.id.login_button);
 
-        sharedPrefs = new SharedPrefs(requireContext());
+        sharedPrefs = new SharedPrefs(this);
     }
 
     private void fetchData() {
@@ -117,10 +98,10 @@ public class LoginFragment extends Fragment {
                 public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                     Log.e("TAG", "There is a error: " + throwable.getMessage());
                     if (throwable.getMessage().equals(Constants.NO_INTERNET_STRING)) {
-                        Toast.makeText(requireContext(), "Please connect with wifi/data", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UserLoginActivity.this, "Please connect with wifi/data", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    Toast.makeText(requireContext(), "There is a error in interacting with API", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UserLoginActivity.this, "There is a error in interacting with API", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -160,11 +141,11 @@ public class LoginFragment extends Fragment {
             sharedPrefs.setUserName(userName);
 
             if (sharedPrefs.getUserHeight().equals("")) {
-                startActivity(NewUserHomeActivity.newInstance(requireContext()));
+                startActivity(NewUserHomeActivity.newInstance(this));
             } else {
-                startActivity(HomeActivity.newInstance(requireContext()));
+                startActivity(HomeActivity.newInstance(this));
             }
-            requireActivity().finish();
+            this.finish();
         }
     }
 

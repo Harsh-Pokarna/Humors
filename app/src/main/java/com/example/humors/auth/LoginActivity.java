@@ -45,8 +45,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initialiseVariables() {
         termsText = findViewById(R.id.terms_text);
-
-
     }
 
     private void setViews() {
