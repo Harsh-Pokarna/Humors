@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "11866106477",
+    "project_id": "humors-4e60d",
+    "storage_bucket": "humors-4e60d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11866106477:android:ecbe468fdd33d267a9ad64",
+        "android_client_info": {
+          "package_name": "com.example.humors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "11866106477-dufi01fs2sdg9nv2clim8mn90jblsask.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.humors",
+            "certificate_hash": "c993685cf0858be5eacbb96a12fc3b75cd4acd32"
+          }
+        },
+        {
+          "client_id": "11866106477-be1onu2ufp7gcg1qp3gqamntd2n8emcg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlgLaZz4XvcEyP1DyJnq2hpHQhG5lhUeg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "11866106477-be1onu2ufp7gcg1qp3gqamntd2n8emcg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -16,6 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
+            android:name=".auth.CreateAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.EmailVerificationActivity"
+            android:exported="false" />
+        <activity
             android:name=".auth.ForgotPassVerifActivity"
             android:exported="false" />
         <activity

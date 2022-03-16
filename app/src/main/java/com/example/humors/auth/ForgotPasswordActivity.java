@@ -2,6 +2,8 @@ package com.example.humors.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.widget.Button;
@@ -49,12 +51,16 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         receiveOtpButton.setOnClickListener(view -> {
             userEmail = userEmailEditText.getText().toString();
             // TODO: CHECK USER AND GIVE OTP
-            setCurrentFragment(new ForgotPassVerificationFragment());
+            startActivity(ForgotPassVerifActivity.newInstance(this));
         });
 
     }
 
     private void setObservers() {
 
+    }
+
+    public static Intent newInstance(Context context) {
+        return new Intent(context, ForgotPasswordActivity.class);
     }
 }

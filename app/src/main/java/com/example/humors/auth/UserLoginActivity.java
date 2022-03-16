@@ -12,6 +12,8 @@ import com.example.humors.utils.ExtFunctions;
 import com.example.humors.utils.SharedPrefs;
 import com.loopj.android.http.TextHttpResponseHandler;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -73,7 +75,7 @@ public class UserLoginActivity extends AppCompatActivity {
     private void setListeners() {
 
         registerNowButton.setOnClickListener(view -> {
-            setCurrentFragment(new CreateAccountFragment());
+            startActivity(CreateAccountActivity.newInstance(this));
         });
 
         loginButton.setOnClickListener(view -> {
@@ -83,7 +85,7 @@ public class UserLoginActivity extends AppCompatActivity {
             // TODO: LOGIN USER
         });
 
-        forgotPasswordButton.setOnClickListener(view -> setCurrentFragment(new ForgotPasswordFragment()));
+        forgotPasswordButton.setOnClickListener(view -> startActivity(ForgotPasswordActivity.newInstance(this)));
 
     }
 
@@ -133,7 +135,7 @@ public class UserLoginActivity extends AppCompatActivity {
         Log.e("TAG", "userStatus:" + userStatus);
 
         if (userStatus == 0) {
-            setCurrentFragment(new EmailVerificationFragment());
+            startActivity(EmailVerificationActivity.newInstance(this));
         } else if (userStatus == 1) {
             sharedPrefs.setUserStatus(1);
             sharedPrefs.setUserEmail(userEmail);
@@ -151,5 +153,9 @@ public class UserLoginActivity extends AppCompatActivity {
 
     private void setObservers() {
 
+    }
+
+    public static Intent newInstance(Context context) {
+        return new Intent(context, UserLoginActivity.class);
     }
 }

@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -72,5 +73,8 @@ dependencies {
 
     // Google Sign In
     implementation 'com.google.android.gms:play-services-auth:20.1.0'
+
+    implementation platform('com.google.firebase:firebase-bom:29.2.0')
+    implementation 'com.google.firebase:firebase-analytics'
 
 }
