@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.humors.auth.LoginActivity;
 import com.example.humors.auth.WelcomeActivity;
 
 public class SplashActivity extends AppCompatActivity {

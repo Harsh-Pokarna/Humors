@@ -1,7 +1,6 @@
 package com.example.humors.newUser;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
@@ -18,7 +16,6 @@ import android.widget.Toast;
 
 import com.example.humors.R;
 import com.example.humors.api.ApiClient;
-import com.example.humors.auth.EmailVerificationFragment;
 import com.example.humors.home.HomeActivity;
 import com.example.humors.utils.Constants;
 import com.example.humors.utils.SharedPrefs;
@@ -61,6 +58,7 @@ public class MedicalHistoryActivity extends AppCompatActivity {
         backButton = findViewById(R.id.medical_history_back_button);
         nextButton = findViewById(R.id.med_history_next_button);
 
+        noneCheckbox = findViewById(R.id.none_checkbox);
         diabetesCheckbox = findViewById(R.id.diabetes_checkbox);
         diabetesRadioGroup = findViewById(R.id.diabetes_radio_grp);
         respiratoryCheckbox = findViewById(R.id.respiratory_checkbox);
@@ -179,6 +177,9 @@ public class MedicalHistoryActivity extends AppCompatActivity {
                 } else if (responseString.equals(Constants.MAIN_ERROR)) {
                     Toast.makeText(MedicalHistoryActivity.this, "There is a error", Toast.LENGTH_SHORT).show();
                     Log.e("TAG", "The error in main success is:" + responseString);
+                } else if (responseString.equals(Constants.UPDATED)) {
+                    Toast.makeText(MedicalHistoryActivity.this, "Data updated", Toast.LENGTH_SHORT).show();
+                    startActivity(HomeActivity.newInstance(MedicalHistoryActivity.this));
                 }
             }
         });

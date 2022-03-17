@@ -75,9 +75,9 @@ public class WelcomeActivity extends AppCompatActivity {
         googleSignInClient = GoogleSignIn.getClient(this, gso);
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
-        if (account != null) {
-            startActivity(HomeActivity.newInstance(this));
-        }
+//        if (account != null) {
+//            startActivity(HomeActivity.newInstance(this));
+//        }
 
     }
 
@@ -167,8 +167,12 @@ public class WelcomeActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            Log.e("TAG", "the account is: " + account.toString());
             startActivity(NewUserHomeActivity.newInstance(this));
         } catch (ApiException e) {
+            if (e.getStatusCode() == 7) {
+                Toast.makeText(this, "Please connect to internet", Toast.LENGTH_SHORT).show();
+            }
             Log.e("TAG", "signInResult:failed code=" + e.getStatusCode());
             Log.e("TAG", "The error in sign in is: " + e.getMessage());
             Toast.makeText(this, "Failed to Sign In, Please try again later", Toast.LENGTH_SHORT).show();

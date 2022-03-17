@@ -42,6 +42,7 @@ public class Constants {
     public static String MAIN_SUCCESS = "sucess";
     public static String MAIN_ERROR = "error";
     public static String WRONG_PASSWORD = "current_password_wrong";
+    public static String UPDATED = "updated";
 
     // Used in toasts
     public static String ALL_DETAILS = "Please enter all details";

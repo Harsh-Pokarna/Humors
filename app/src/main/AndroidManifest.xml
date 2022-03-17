@@ -82,10 +82,6 @@
             android:name=".auth.WelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.LoginActivity"
-            android:exported="false"
-            android:noHistory="true" />
-        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
