@@ -113,7 +113,17 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
     private void setService() {
         alarmManager = (AlarmManager) requireContext().getSystemService(Context.ALARM_SERVICE);
         intent = new Intent(requireContext(), StepCounterService.class);
-        pendingIntent = PendingIntent.getBroadcast(requireContext(), 0, intent, 0);
+//        pendingIntent = PendingIntent.getBroadcast(requireContext(), 0, intent, 0);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            pendingIntent = PendingIntent.getActivity
+                    (requireActivity(), 0, intent, PendingIntent.FLAG_MUTABLE);
+        }
+        else
+        {
+            pendingIntent = PendingIntent.getActivity
+                    (requireContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+        }
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
