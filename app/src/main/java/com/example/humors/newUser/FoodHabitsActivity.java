@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -28,6 +29,8 @@ public class FoodHabitsActivity extends AppCompatActivity {
 
     private SharedPrefs sharedPrefs;
 
+    private String extras;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +41,16 @@ public class FoodHabitsActivity extends AppCompatActivity {
 
 
     private void init() {
+        getExtras();
         initialiseVariables();
         fetchData();
         setViews();
         setListeners();
         setObservers();
+    }
+
+    private void getExtras() {
+        extras = getIntent().getStringExtra(Constants.FOOD_HABITS);
     }
 
     private void initialiseVariables() {
@@ -63,6 +71,10 @@ public class FoodHabitsActivity extends AppCompatActivity {
     }
 
     private void setViews() {
+
+        Log.e("TAG", "vegStatus: " + vegStatus.toLowerCase() );
+        Log.e("TAG", "foodStatus: " + foodStatus.toLowerCase() );
+        Log.e("TAG", "waterStatus: " + waterStatus.toLowerCase() );
 
         switch (vegStatus.toLowerCase()) {
             case "never":
@@ -119,7 +131,7 @@ public class FoodHabitsActivity extends AppCompatActivity {
         sharedPrefs.setUserJunkFoodStatus(((RadioButton)findViewById(foodRg.getCheckedRadioButtonId())).getText().toString().replace(" ", "_"));
         sharedPrefs.setUserWaterStatus(((RadioButton)findViewById(waterRg.getCheckedRadioButtonId())).getText().toString().replace(" ", "_"));
 
-        startActivity(NewUserHomeActivity.newInstance(this));
+        startActivity(ShareHabitsActivity.newInstance(this, extras));
     }
 
     private void setListeners() {
@@ -132,8 +144,10 @@ public class FoodHabitsActivity extends AppCompatActivity {
 
     }
 
-    public static Intent newInstance(Context context) {
-        return new Intent(context, FoodHabitsActivity.class);
+    public static Intent newInstance(Context context, String extras) {
+        Intent intent = new Intent(context, FoodHabitsActivity.class);
+        intent.putExtra(Constants.FOOD_HABITS, extras);
+        return intent;
     }
 
 }

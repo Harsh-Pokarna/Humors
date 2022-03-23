@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.humors.R;
 import com.example.humors.api.ApiClient;
 import com.example.humors.home.HomeActivity;
+import com.example.humors.home.ProfileActivity;
 import com.example.humors.utils.Constants;
 import com.example.humors.utils.SharedPrefs;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -37,6 +38,8 @@ public class MedicalHistoryActivity extends AppCompatActivity {
 
     private SharedPrefs sharedPrefs;
 
+    private String extras;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +50,16 @@ public class MedicalHistoryActivity extends AppCompatActivity {
 
 
     private void init() {
+        getExtras();
         initialiseVariables();
         fetchData();
         setViews();
         setListeners();
         setObservers();
+    }
+
+    private void getExtras() {
+        extras = getIntent().getStringExtra(Constants.MEDICAL_HISTORY);
     }
 
     private void initialiseVariables() {
@@ -183,7 +191,7 @@ public class MedicalHistoryActivity extends AppCompatActivity {
                     Log.e("TAG", "The error in main success is:" + responseString);
                 } else if (responseString.equals(Constants.UPDATED)) {
                     Toast.makeText(MedicalHistoryActivity.this, "Data updated", Toast.LENGTH_SHORT).show();
-                    startActivity(HomeActivity.newInstance(MedicalHistoryActivity.this));
+                    startActivity(ProfileActivity.newInstance(MedicalHistoryActivity.this));
                 }
             }
         });
@@ -232,8 +240,10 @@ public class MedicalHistoryActivity extends AppCompatActivity {
 
     }
 
-    public static Intent newInstance(Context context) {
-        return new Intent(context, MedicalHistoryActivity.class);
+    public static Intent newInstance(Context context, String extras) {
+        Intent intent = new Intent(context, MedicalHistoryActivity.class);
+        intent.putExtra(Constants.MEDICAL_HISTORY, extras);
+        return intent;
     }
 
 }

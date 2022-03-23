@@ -48,4 +48,12 @@ public class Constants {
     public static String ALL_DETAILS = "Please enter all details";
     public static String SELECT_DISEASE_LEVEL = "Please select your disease level";
 
+    // Used in Intents
+    public static String ADD_DATA = "ADD_DATA";
+    public static String SHARE_HABITS = "SHARE_HABITS";
+    public static String SLEEP_SCHEDULE = "SLEEP_SCHEDULE";
+    public static String FOOD_HABITS = "FOOD_HABITS";
+    public static String MEDICAL_HISTORY = "MEDICAL_HISTORY";
+    public static String UPDATE_DATA = "update_data";
+
 }

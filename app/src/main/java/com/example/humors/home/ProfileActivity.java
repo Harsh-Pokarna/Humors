@@ -2,6 +2,7 @@ package com.example.humors.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.usage.ConfigurationStats;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +13,9 @@ import com.example.humors.R;
 import com.example.humors.newUser.AddDataActivity;
 import com.example.humors.newUser.MedicalHistoryActivity;
 import com.example.humors.newUser.ShareHabitsActivity;
+import com.example.humors.newUser.SleepScheduleActivity;
 import com.example.humors.others.AboutActivity;
+import com.example.humors.utils.Constants;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -56,9 +59,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void setListeners() {
         backButton.setOnClickListener(view -> onBackPressed());
-        myDetailsButton.setOnClickListener(view -> startActivity(AddDataActivity.newInstance(this)));
-        myHabitsButton.setOnClickListener(view -> startActivity(ShareHabitsActivity.newInstance(this)));
-        myMedicalHistoryButton.setOnClickListener(view -> startActivity(MedicalHistoryActivity.newInstance(this)));
+        myDetailsButton.setOnClickListener(view -> startActivity(AddDataActivity.newInstance(this, Constants.UPDATE_DATA)));
+        myHabitsButton.setOnClickListener(view -> startActivity(SleepScheduleActivity.newInstance(this, Constants.UPDATE_DATA)));
+        myMedicalHistoryButton.setOnClickListener(view -> startActivity(MedicalHistoryActivity.newInstance(this, Constants.UPDATE_DATA)));
         testHistoryButton.setOnClickListener(view -> HomeActivity.newInstance(this));
         aboutButton.setOnClickListener(view -> AboutActivity.newInstance(this));
 

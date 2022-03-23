@@ -29,6 +29,8 @@ public class SleepScheduleActivity extends AppCompatActivity {
 
     private SharedPrefs sharedPrefs;
 
+    private String extras;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +40,16 @@ public class SleepScheduleActivity extends AppCompatActivity {
     }
 
     private void init() {
+        getExtras();
         initialiseVariables();
         fetchData();
         setViews();
         setListeners();
         setObservers();
+    }
+
+    private void getExtras() {
+        extras = getIntent().getStringExtra(Constants.SLEEP_SCHEDULE );
     }
 
     private void initialiseVariables() {
@@ -75,7 +82,7 @@ public class SleepScheduleActivity extends AppCompatActivity {
 
         sharedPrefs.setUserSleepDuration(sleepDuration.getText().toString());
 
-        startActivity(ShareHabitsActivity.newInstance(this));
+        startActivity(FoodHabitsActivity.newInstance(this, extras));
     }
 
     private void setListeners() {
@@ -105,8 +112,10 @@ public class SleepScheduleActivity extends AppCompatActivity {
 
     }
 
-    public static Intent newInstance(Context context) {
-        return new Intent(context, SleepScheduleActivity.class);
+    public static Intent newInstance(Context context, String extras) {
+        Intent intent = new Intent(context, SleepScheduleActivity.class);
+        intent.putExtra(Constants.SLEEP_SCHEDULE, extras);
+        return intent;
     }
 
 }

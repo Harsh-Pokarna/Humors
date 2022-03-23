@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -14,13 +15,17 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.example.humors.R;
+import com.example.humors.api.ApiClient;
+import com.example.humors.home.ProfileActivity;
 import com.example.humors.utils.Constants;
 import com.example.humors.utils.SharedPrefs;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.loopj.android.http.TextHttpResponseHandler;
 
+import cz.msebera.android.httpclient.Header;
 import nl.joery.timerangepicker.TimeRangePicker;
 
-public class ShareHabitsActivity extends AppCompatActivity {
+public class    ShareHabitsActivity extends AppCompatActivity {
 
     private ImageButton backButton;
     private FloatingActionButton nextButton;
@@ -29,6 +34,8 @@ public class ShareHabitsActivity extends AppCompatActivity {
     private String alcoholStatus, smokingStatus, exerciseStatus;
 
     private SharedPrefs sharedPrefs;
+
+    private String extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +46,16 @@ public class ShareHabitsActivity extends AppCompatActivity {
     }
 
     private void init() {
+        getExtras();
         initialiseVariables();
         fetchData();
         setViews();
         setListeners();
         setObservers();
+    }
+
+    private void getExtras() {
+        extras = getIntent().getStringExtra(Constants.SHARE_HABITS);
     }
 
     private void initialiseVariables() {
@@ -105,7 +117,43 @@ public class ShareHabitsActivity extends AppCompatActivity {
         sharedPrefs.setUserSmokingStatus(((RadioButton)findViewById(smokingRg.getCheckedRadioButtonId())).getText().toString());
         sharedPrefs.setUserExerciseStatus(((RadioButton)findViewById(exerciseRg.getCheckedRadioButtonId())).getText().toString().replace(" ", "_"));
 
-        startActivity(FoodHabitsActivity.newInstance(this));
+        if (extras.equals(Constants.UPDATE_DATA)) {
+            callApi();
+        } else {
+            startActivity(NewUserHomeActivity.newInstance(this));
+        }
+    }
+
+    private void callApi() {
+        String url = "insert_new_user_data.php?user_id=" + sharedPrefs.getUserId()+ "&email="  + sharedPrefs.getUserEmail() + "&gender=" + sharedPrefs.getUserGender() +
+                "&dob=" + sharedPrefs.getUserDob() + "&age=" + sharedPrefs.getUserAge() + "&sleep_time=" + sharedPrefs.getUerSleepDuration() +
+                "&alcohol=" + sharedPrefs.getUserAlcoholStatus() + "&smoking=" + sharedPrefs.getUserSmokingStatus() + "&height=" + sharedPrefs.getUserHeight() +
+                "&weight=" + sharedPrefs.getUserWeight() + "&excercise=" + sharedPrefs.getUserExerciseStatus() + "&non_veg=" + sharedPrefs.getUserVegStatus() +
+                "&junk_food=" + sharedPrefs.getUserJunkFoodStatus() + "&water=" + sharedPrefs.getUserWaterStatus() + "&existing_disease=" + sharedPrefs.getUserDisease() +
+                "&existing_disease_level=" + sharedPrefs.getUserDiseaseLevel() + "&existing_disease_other=" + sharedPrefs.getUserOtherDisease();
+
+        ApiClient.getRequest(url, null, new TextHttpResponseHandler() {
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                if (throwable.getMessage().equals(Constants.NO_INTERNET_STRING)) {
+                    Toast.makeText(ShareHabitsActivity.this, "Please connect to wifi", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(ShareHabitsActivity.this, "There is a error in interacting with API", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                if (responseString.equals(Constants.MAIN_ERROR)) {
+                    Toast.makeText(ShareHabitsActivity.this, "There is a error, Please try again later", Toast.LENGTH_LONG).show();
+                    Log.e("TAG", "The error in main success is:" + responseString);
+                } else if (responseString.equals(Constants.UPDATED)) {
+                    Toast.makeText(ShareHabitsActivity.this, "Data updated", Toast.LENGTH_SHORT).show();
+                    startActivity(ProfileActivity.newInstance(ShareHabitsActivity.this));
+                }
+            }
+        });
     }
 
     private void setListeners() {
@@ -117,10 +165,10 @@ public class ShareHabitsActivity extends AppCompatActivity {
 
     }
 
-
-
-    public static Intent newInstance(Context context) {
-        return new Intent(context, ShareHabitsActivity.class);
+    public static Intent newInstance(Context context, String extras) {
+        Intent intent = new Intent(context, ShareHabitsActivity.class);
+        intent.putExtra(Constants.SHARE_HABITS, extras);
+        return intent;
     }
 
 }

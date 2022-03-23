@@ -54,9 +54,9 @@ public class NewUserHomeActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-        addDetailsCardView.setOnClickListener(view -> startActivity(AddDataActivity.newInstance(this)));
-        shareHabitsCardView.setOnClickListener(view -> startActivity(SleepScheduleActivity.newInstance(this)));
-        medicalHistoryCardView.setOnClickListener(view -> startActivity(MedicalHistoryActivity.newInstance(this)));
+        addDetailsCardView.setOnClickListener(view -> startActivity(AddDataActivity.newInstance(this, "")));
+        shareHabitsCardView.setOnClickListener(view -> startActivity(SleepScheduleActivity.newInstance(this, "")));
+        medicalHistoryCardView.setOnClickListener(view -> startActivity(MedicalHistoryActivity.newInstance(this, "")));
 
 
         bt1.setOnClickListener(view -> addDetailsCardView.callOnClick());
