@@ -188,6 +188,7 @@ public class WelcomeActivity extends AppCompatActivity {
 //                startActivity(LoginActivity.newInstance(getApplicationContext()));
 //            }
             startActivity(UserLoginActivity.newInstance(getApplicationContext()));
+//            startActivity(HomeActivity.newInstance(getApplicationContext()));
 
         });
         googleSignInButton.setOnClickListener(view -> signIn());
