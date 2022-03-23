@@ -142,7 +142,7 @@ public class UserLoginActivity extends AppCompatActivity {
             sharedPrefs.setUserId(userId);
             sharedPrefs.setUserName(userName);
 
-            if (sharedPrefs.getUserHeight().equals("")) {
+            if (sharedPrefs.getUserDisease().equals("")) {
                 startActivity(NewUserHomeActivity.newInstance(this));
             } else {
                 startActivity(HomeActivity.newInstance(this));

@@ -96,40 +96,44 @@ public class MedicalHistoryActivity extends AppCompatActivity {
 
     private void saveUserDetails() {
 
-        if (diabetesCheckbox.isChecked()) {
-            userDisease = userDisease + "diabetes";
-            if (diabetesRadioGroup.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
-            } else {
-                userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(diabetesRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
-            }
-        } if (respiratoryCheckbox.isChecked()) {
-            userDisease = userDisease + "respiratory";
-            if (respiratoryRadioGroup.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
-            } else {
-                userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(respiratoryRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
-            }
-        }if (heartCheckbox.isChecked()) {
-            userDisease = userDisease + "heart";
-            if (heartRadioGroup.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
-            } else {
-                userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(heartRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
-            }
-        } if (liverCheckbox.isChecked()) {
-            userDisease = userDisease + "liver";
-            if (liverRadioGroup.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
-            } else {
-                userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(liverRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
-            }
-        } if (appendixCheckbox.isChecked()) {
-            userDisease = userDisease + "appendix";
-            if (appendixRadioGroup.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
-            } else {
-                userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(appendixRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+        if (noneCheckbox.isChecked()) {
+            userDisease = userDisease + "none";
+        } else {
+            if (diabetesCheckbox.isChecked()) {
+                userDisease = userDisease + "diabetes";
+                if (diabetesRadioGroup.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
+                } else {
+                    userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(diabetesRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+                }
+            } if (respiratoryCheckbox.isChecked()) {
+                userDisease = userDisease + "respiratory";
+                if (respiratoryRadioGroup.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
+                } else {
+                    userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(respiratoryRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+                }
+            }if (heartCheckbox.isChecked()) {
+                userDisease = userDisease + "heart";
+                if (heartRadioGroup.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
+                } else {
+                    userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(heartRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+                }
+            } if (liverCheckbox.isChecked()) {
+                userDisease = userDisease + "liver";
+                if (liverRadioGroup.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
+                } else {
+                    userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(liverRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+                }
+            } if (appendixCheckbox.isChecked()) {
+                userDisease = userDisease + "appendix";
+                if (appendixRadioGroup.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, Constants.SELECT_DISEASE_LEVEL, Toast.LENGTH_SHORT).show();
+                } else {
+                    userDiseaseLevel = userDiseaseLevel + ((RadioButton)findViewById(appendixRadioGroup.getCheckedRadioButtonId())).getText().toString().replace(" ", "_");
+                }
             }
         }
 

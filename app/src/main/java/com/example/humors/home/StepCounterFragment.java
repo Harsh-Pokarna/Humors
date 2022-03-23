@@ -150,6 +150,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
         barChart.getLegend().setEnabled(false);
         barChart.getDescription().setEnabled(false);
         barChart.setPinchZoom(false);
+        barChart.setScaleEnabled(false);
         barChart.setDrawGridBackground(true);
         barChart.getAxisRight().setEnabled(false);
         barChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
