@@ -184,7 +184,6 @@ public class SharedPrefs {
     }
 
     public float getNewSteps() {
-        Log.e("TAG", "getNewSteps");
         return sharedPreferences.getFloat(Constants.NEW_STEPS, 0f);
     }
 

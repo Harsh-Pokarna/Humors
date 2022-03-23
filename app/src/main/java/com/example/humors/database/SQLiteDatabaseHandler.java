@@ -2,10 +2,16 @@ package com.example.humors.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
+
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
 
@@ -39,7 +45,63 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
 
         db.insert(TABLE_NAME, null, contentValues);
 
+        Log.e("TAG", "added steps entry is: " + date + " " + steps);
+
         db.close();
+    }
+
+    public ArrayList<String> getSteps() {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+//        ArrayList<String> id = new ArrayList<>();
+//        ArrayList<String> date = new ArrayList<>();
+        ArrayList<String> steps = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do {
+//                id.add(cursor.getString(0));
+//                date.add(cursor.getString(1));
+                steps.add(cursor.getString(2));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return steps;
+    }
+
+    public ArrayList<String> getIds() {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        ArrayList<String> id = new ArrayList<>();
+//        ArrayList<String> date = new ArrayList<>();
+//        ArrayList<String> steps = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do {
+                id.add(cursor.getString(0));
+//                date.add(cursor.getString(1));
+//                steps.add(cursor.getString(2));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return id;
+    }
+
+    public ArrayList<String> getDate() {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+//        ArrayList<String> id = new ArrayList<>();
+        ArrayList<String> date = new ArrayList<>();
+//        ArrayList<String> steps = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do {
+//                id.add(cursor.getString(0));
+                date.add(cursor.getString(1));
+//                steps.add(cursor.getString(2));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return date;
     }
 
     @Override

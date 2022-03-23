@@ -10,14 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.example.humors.R;
+import com.example.humors.database.SQLiteDatabaseHandler;
 import com.example.humors.others.AboutActivity;
 import com.example.humors.others.ChangePasswordActivity;
+
+import java.util.ArrayList;
 
 public class SettingsFragment extends Fragment {
 
     private FrameLayout changePassword, aboutButton;
+    private TextView fakeText;
+
+    private SQLiteDatabaseHandler sqLiteDatabaseHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,11 +44,32 @@ public class SettingsFragment extends Fragment {
         setViews();
         setListeners();
         setObservers();
+        setTextView();
     }
 
     private void initialiseVariables() {
         changePassword = requireView().findViewById(R.id.change_password);
         aboutButton = requireView().findViewById(R.id.about_button);
+        fakeText = requireView().findViewById(R.id.fake_text);
+
+        sqLiteDatabaseHandler = new SQLiteDatabaseHandler(requireContext());
+
+    }
+
+    private void setTextView() {
+        ArrayList<String> steps = sqLiteDatabaseHandler.getSteps();
+        ArrayList<String> date = sqLiteDatabaseHandler.getDate();
+        ArrayList<String> id = sqLiteDatabaseHandler.getIds();
+
+        ArrayList<String> entry = new ArrayList<>();
+
+        for (int i = 0; i < steps.size(); i++) {
+            entry.add("Id: " + id.get(i) + " Date: " + date.get(i) + " Steps: " + steps.get(i) + "\n");
+        }
+
+        for (int i = 0; i < entry.size(); i++) {
+            fakeText.append(entry.get(i));
+        }
 
     }
 

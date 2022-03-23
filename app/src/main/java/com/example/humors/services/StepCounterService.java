@@ -23,24 +23,24 @@ public class StepCounterService extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
+        Log.e("TAG", "Background service is started");
+
         SQLiteDatabaseHandler sqLiteDatabaseHandler = new SQLiteDatabaseHandler(context);
 
         sharedPrefs = new SharedPrefs(context);
 
-        Float previousDaySteps = sharedPrefs.getPreviousSteps();
+        float previousDaySteps = sharedPrefs.getPreviousSteps();
         sharedPrefs.setPreviousSteps(sharedPrefs.getNewSteps());
-        Float todaySteps = sharedPrefs.getPreviousSteps() - previousDaySteps;
+        float todaySteps = sharedPrefs.getPreviousSteps() - previousDaySteps;
 
-        String date = getPreviousDate(getTodayDate());
+        String date = getTodayDate();
         sqLiteDatabaseHandler.addSteps(date, todaySteps);
 
-        Log.e("TAG", "Steps are added" );
 
     }
 
     private String getTodayDate() {
         Date c = Calendar.getInstance().getTime();
-        System.out.println("Current time => " + c);
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
         String formattedDate = df.format(c);
         return formattedDate;

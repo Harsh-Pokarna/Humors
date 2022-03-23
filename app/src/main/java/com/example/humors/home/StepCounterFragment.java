@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -26,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.humors.R;
+import com.example.humors.database.SQLiteDatabaseHandler;
 import com.example.humors.services.StepCounterService;
 import com.example.humors.utils.GlobalVariables;
 import com.example.humors.utils.SharedPrefs;
@@ -37,6 +39,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -64,6 +67,8 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
     private PendingIntent pendingIntent;
     private Intent intent;
 
+    private SQLiteDatabaseHandler sqLiteDatabaseHandler;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +84,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
     private void init() {
         initialiseVariables();
         fetchData();
+        setService();
         setViews();
         setListeners();
         setObservers();
@@ -90,6 +96,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
         stepCountTextView = requireView().findViewById(R.id.step_count);
         dataLayout = requireView().findViewById(R.id.data_layout);
         fl = requireView().findViewById(R.id.fl);
+        sqLiteDatabaseHandler = new SQLiteDatabaseHandler(requireContext());
 
         sensorManager = (SensorManager) requireActivity().getSystemService(Context.SENSOR_SERVICE);
         stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
@@ -99,15 +106,12 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
             dataLayout.setVisibility(View.GONE);
             stepCountTextView.setText("--");
         } else {
-            Log.e("TAG", "" + sensorManager);
             sensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_FASTEST);
         }
 
         sharedPrefs = new SharedPrefs(requireContext());
         previousSteps = sharedPrefs.getPreviousSteps();
-        Log.e("TAG", "Your previous steps were: " + previousSteps);
-
-        setService();
+        Log.e("TAG", "Your previous day steps were: " + previousSteps);
     }
 
     private void setService() {
@@ -116,18 +120,16 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
 //        pendingIntent = PendingIntent.getBroadcast(requireContext(), 0, intent, 0);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
-            pendingIntent = PendingIntent.getActivity
-                    (requireActivity(), 0, intent, PendingIntent.FLAG_MUTABLE);
-        }
-        else
-        {
-            pendingIntent = PendingIntent.getActivity
+            pendingIntent = PendingIntent.getBroadcast
+                    (requireContext(), 0, intent, PendingIntent.FLAG_MUTABLE);
+        } else {
+            pendingIntent = PendingIntent.getBroadcast
                     (requireContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
         }
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 13);
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
         calendar.set(Calendar.MINUTE, 52);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, pendingIntent);
