@@ -38,6 +38,8 @@ public class UserLoginActivity extends AppCompatActivity {
     private int userId, userStatus;
     private String userName;
 
+    private String myMainResponse;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,12 +116,44 @@ public class UserLoginActivity extends AppCompatActivity {
                     } else if (responseString.equals(Constants.INVALID_PASSWORD)) {
                         userPasswordTextView.setError("Invalid Password");
                     } else {
-                        checkUser(responseString);
+                        myMainResponse = responseString;
+                        checkExistingStatus();
                     }
                 }
 
             });
 
+        } catch (Exception e) {
+            Log.e("TAG", "couldn't login user");
+        }
+    }
+
+    private void checkExistingStatus() {
+        String url = "check_user_exist.php?user_email=" + userEmail;
+
+        try {
+            ApiClient.getRequest(url, null, new TextHttpResponseHandler() {
+                @Override
+                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                    Log.e("TAG", "There is a error: " + throwable.getMessage());
+                    if (throwable.getMessage().equals(Constants.NO_INTERNET_STRING)) {
+                        Toast.makeText(UserLoginActivity.this, "Please connect with wifi/data", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    Toast.makeText(UserLoginActivity.this, "There is a error in interacting with API", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                    if (responseString.equals("1")) { // Existing User
+                        // Fetch data for existing user
+                        startActivity(HomeActivity.newInstance(UserLoginActivity.this));
+                    } else {
+                        checkUser(myMainResponse);
+                    }
+
+                }
+            });
         } catch (Exception e) {
             Log.e("TAG", "couldn't login user");
         }
