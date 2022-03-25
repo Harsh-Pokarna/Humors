@@ -120,7 +120,7 @@ public class    ShareHabitsActivity extends AppCompatActivity {
         if (extras.equals(Constants.UPDATE_DATA)) {
             callApi();
         } else {
-            startActivity(NewUserHomeActivity.newInstance(this));
+            startActivity(NewUserHomeActivity.newInstance(this, Constants.MEDICAL_HISTORY));
         }
     }
 

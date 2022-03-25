@@ -128,7 +128,7 @@ public class AddDataActivity extends AppCompatActivity {
 //            Toast.makeText(this, "Data Updated", Toast.LENGTH_SHORT).show();
             callApi();
         } else {
-            startActivity(NewUserHomeActivity.newInstance(this));
+            startActivity(NewUserHomeActivity.newInstance(this, Constants.SLEEP_SCHEDULE));
         }
     }
 

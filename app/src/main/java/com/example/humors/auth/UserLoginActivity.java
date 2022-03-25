@@ -91,7 +91,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
     }
 
-    private void loginUser(String email, String password){
+    private void loginUser(String email, String password) {
 
         String url = "user_login.php?user_email=" + email + "&user_password=" + password;
 
@@ -177,7 +177,7 @@ public class UserLoginActivity extends AppCompatActivity {
             sharedPrefs.setUserName(userName);
 
             if (sharedPrefs.getUserDisease().equals("")) {
-                startActivity(NewUserHomeActivity.newInstance(this));
+                startActivity(NewUserHomeActivity.newInstance(this, Constants.ADD_DATA));
             } else {
                 startActivity(HomeActivity.newInstance(this));
             }

@@ -49,6 +49,7 @@ public class Constants {
     public static String SELECT_DISEASE_LEVEL = "Please select your disease level";
 
     // Used in Intents
+    public static String NEW_USER_HOME = "NEW_USER_HOME";
     public static String ADD_DATA = "ADD_DATA";
     public static String SHARE_HABITS = "SHARE_HABITS";
     public static String SLEEP_SCHEDULE = "SLEEP_SCHEDULE";
