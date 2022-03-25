@@ -163,7 +163,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 Log.e("TAG", "size of string is:" + responseString.length());
                 if (responseString.equals(Constants.ALREADY_VERIFIED)) {
                     Toast.makeText(CreateAccountActivity.this, "Your email is already verified", Toast.LENGTH_SHORT).show();
-                    startActivity(NewUserHomeActivity.newInstance(CreateAccountActivity.this));
+                    startActivity(NewUserHomeActivity.newInstance(CreateAccountActivity.this, Constants.ADD_DATA));
                 } else if (responseString.equals(Constants.MAIL_SUCCESS)) {
                     startActivity(EmailVerificationActivity.newInstance(CreateAccountActivity.this));
                 } else {

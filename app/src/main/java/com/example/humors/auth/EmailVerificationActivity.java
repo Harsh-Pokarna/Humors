@@ -117,7 +117,7 @@ public class EmailVerificationActivity extends AppCompatActivity {
                     Toast.makeText(EmailVerificationActivity.this, "Invalid OTP Entered", Toast.LENGTH_SHORT).show();
                 } else if(responseString.equals(Constants.SUCCESS_OTP)){
                     sharedPrefs.setUserStatus(1);
-                    startActivity(NewUserHomeActivity.newInstance(EmailVerificationActivity.this));
+                    startActivity(NewUserHomeActivity.newInstance(EmailVerificationActivity.this, Constants.ADD_DATA));
                     finish();
                 } else {
                     Toast.makeText(EmailVerificationActivity.this, Constants.TRY_LATER, Toast.LENGTH_SHORT).show();

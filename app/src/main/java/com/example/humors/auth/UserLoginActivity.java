@@ -145,9 +145,10 @@ public class UserLoginActivity extends AppCompatActivity {
 
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                    if (responseString.equals("1")) { // Existing User
+                    if (responseString.equals("1") && sharedPrefs.getUserDisease().equals("")) { // Existing User
                         // Fetch data for existing user
                         startActivity(HomeActivity.newInstance(UserLoginActivity.this));
+//                        startActivity(NewUserHomeActivity.newInstance(UserLoginActivity.this, Constants.ADD_DATA));
                     } else {
                         checkUser(myMainResponse);
                     }
@@ -179,7 +180,8 @@ public class UserLoginActivity extends AppCompatActivity {
             if (sharedPrefs.getUserDisease().equals("")) {
                 startActivity(NewUserHomeActivity.newInstance(this, Constants.ADD_DATA));
             } else {
-                startActivity(HomeActivity.newInstance(this));
+//                startActivity(HomeActivity.newInstance(this));
+                startActivity(NewUserHomeActivity.newInstance(this, Constants.ADD_DATA));
             }
             this.finish();
         }

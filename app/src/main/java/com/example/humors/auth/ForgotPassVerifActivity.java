@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.humors.R;
+import com.example.humors.home.HomeActivity;
 import com.example.humors.newUser.NewUserHomeActivity;
 import com.example.humors.utils.ExtFunctions;
 import com.mukesh.OtpView;
@@ -62,7 +63,7 @@ public class ForgotPassVerifActivity extends AppCompatActivity {
     private void setListeners() {
         confirmOtpButton.setOnClickListener(view -> {
             otp = otpView.getText().toString();
-            startActivity(NewUserHomeActivity.newInstance(this));
+            startActivity(HomeActivity.newInstance(this));
             // TODO: VERIFY OTP
         });
 

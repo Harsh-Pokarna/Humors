@@ -17,6 +17,7 @@ import android.widget.VideoView;
 import com.example.humors.R;
 import com.example.humors.home.HomeActivity;
 import com.example.humors.newUser.NewUserHomeActivity;
+import com.example.humors.utils.Constants;
 import com.example.humors.utils.ExtFunctions;
 import com.example.humors.utils.SharedPrefs;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -168,7 +169,7 @@ public class WelcomeActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             Log.e("TAG", "the account is: " + account.toString());
-            startActivity(NewUserHomeActivity.newInstance(this));
+            startActivity(NewUserHomeActivity.newInstance(this, Constants.ADD_DATA));
         } catch (ApiException e) {
             if (e.getStatusCode() == 7) {
                 Toast.makeText(this, "Please connect to internet", Toast.LENGTH_SHORT).show();
