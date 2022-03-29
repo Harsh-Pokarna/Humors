@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1B55EC"
+    android:background="@drawable/primary_color"
     tools:context=".connect.ResultsActivity">
 
     <LinearLayout
@@ -16,8 +16,8 @@
             android:id="@+id/homeToolBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="#1B55EC"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/primary_color"
             android:elevation="0dp"
             android:padding="10dp"
             app:elevation="0dp">

@@ -56,5 +56,6 @@ public class Constants {
     public static String FOOD_HABITS = "FOOD_HABITS";
     public static String MEDICAL_HISTORY = "MEDICAL_HISTORY";
     public static String UPDATE_DATA = "update_data";
+    public static String ADD_DEVICE = "ADD_DEVICE";
 
 }
