@@ -45,10 +45,10 @@ import app.futured.donut.DonutSection;
 public class DashboardFragment extends Fragment {
 
     private ImageButton profileImage;
-    private LinearLayout takeReading, connectButton;
+    private LinearLayout takeReading;
     private LineChart lineChart;
     private BottomNavigationView dashboardNavBar;
-    private TextView dashboardButton, connectText;
+    private TextView dashboardButton;
 
     private List<DonutSection> healthStatus = new ArrayList<>();
     private List<DonutSection> sleepStatus = new ArrayList<>();
@@ -87,7 +87,6 @@ public class DashboardFragment extends Fragment {
         lineChart = requireView().findViewById(R.id.line_chart);
         dashboardNavBar = requireView().findViewById(R.id.dashboard_bottom_nav_bar);
         takeReading = requireView().findViewById(R.id.take_reading_button);
-        connectButton = requireView().findViewById(R.id.connect_button);
         healthProgressView = requireView().findViewById(R.id.health_status_graph);
         sleepProgressView = requireView().findViewById(R.id.sleep_statistics_graph);
         metabolismProgressView = requireView().findViewById(R.id.metabolism_statistics_graph);
@@ -95,7 +94,6 @@ public class DashboardFragment extends Fragment {
         outerRing1 = requireView().findViewById(R.id.outerRing);
         outerRing2 = requireView().findViewById(R.id.outerRing2);
         outerRing3 = requireView().findViewById(R.id.outerRing3);
-        connectText = requireView().findViewById(R.id.connect_text);
 
     }
 
@@ -144,10 +142,6 @@ public class DashboardFragment extends Fragment {
     private void setViews() {
 
         Log.e("TAG", "The value of connected is: " + GlobalVariables.connectedStatus);
-        if (GlobalVariables.connectedStatus == 1) {
-           connectButton.setBackground(getResources().getDrawable(R.drawable.round_green_15));
-           connectText.setText("Connected");
-        }
 
         lineChart.setPinchZoom(false);
         lineChart.setScaleEnabled(false);
@@ -189,7 +183,6 @@ public class DashboardFragment extends Fragment {
             return true;
         });
 
-        connectButton.setOnClickListener(view -> startActivity(SearchingActivity.newInstance(requireContext())));
         takeReading.setOnClickListener(view -> {
             if (GlobalVariables.connectedStatus == 1) {
                 startActivity(BreatheTestActivity.newInstance(requireContext()));

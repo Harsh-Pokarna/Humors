@@ -10,6 +10,7 @@ import android.util.Log;
 import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.example.humors.R;
+import com.example.humors.utils.GlobalVariables;
 
 public class ScannerActivity extends AppCompatActivity {
 
@@ -55,6 +56,7 @@ public class ScannerActivity extends AppCompatActivity {
         codeScanner.setDecodeCallback(result -> {
             runOnUiThread(() -> {
                 // Your Code here
+                GlobalVariables.connectedStatus = 1;
                 startActivity(AddDeviceActivity.newInstance(this, result.toString()));
             });
             Log.e("TAG", "Decoded code is: " +  result);

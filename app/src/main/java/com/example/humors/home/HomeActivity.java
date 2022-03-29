@@ -8,14 +8,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.humors.R;
+import com.example.humors.connect.BreatheTestActivity;
+import com.example.humors.utils.GlobalVariables;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class HomeActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
+    private FloatingActionButton takeReadingButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void initialiseVariables() {
         bottomNavigationView = findViewById(R.id.bottom_nav_view);
+        takeReadingButton = findViewById(R.id.take_reading_fab);
     }
 
     private void fetchData() {
@@ -74,6 +80,14 @@ public class HomeActivity extends AppCompatActivity {
             }
 
             return true;
+        });
+
+        takeReadingButton.setOnClickListener(view -> {
+            if (GlobalVariables.connectedStatus == 1) {
+                startActivity(BreatheTestActivity.newInstance(this));
+            } else {
+                Toast.makeText(this, "Please connect a device first", Toast.LENGTH_LONG).show();
+            }
         });
     }
 

@@ -106,38 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/connect_button"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/round_red_15"
-                    android:orientation="horizontal"
-                    android:paddingVertical="20dp">
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:scaleType="fitXY"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="15dp"
-                        android:src="@drawable/ic_iphone_11_pro_breathe_icon" />
-
-                    <TextView
-                        android:id="@+id/connect_text"
-                        style="@style/PoppinsMedium"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="15dp"
-                        android:text="Connect"
-                        android:textColor="@color/white"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-                <View
-                    android:layout_width="20dp"
-                    android:layout_height="0dp"/>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"

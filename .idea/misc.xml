@@ -5,6 +5,7 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.3776041666666667" />
         <entry key="..\:/Users/pokar/AndroidStudioProjects/Humors/app/src/main/res/drawable/button_bg.xml" value="0.3255" />
+        <entry key="..\:/Users/pokar/AndroidStudioProjects/Humors/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.3545" />
         <entry key="..\:/Users/pokar/AndroidStudioProjects/Humors/app/src/main/res/drawable/ic_baseline_history_24_black.xml" value="0.1" />
         <entry key="..\:/Users/pokar/AndroidStudioProjects/Humors/app/src/main/res/drawable/primary_color.xml" value="0.3255" />
         <entry key="..\:/Users/pokar/AndroidStudioProjects/Humors/app/src/main/res/layout/activity_about.xml" value="0.33" />
@@ -35,6 +36,7 @@
         <entry key="..\:/Users/pokar/AndroidStudioProjects/Humors/app/src/main/res/layout/fragment_test_history.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/pokar/AndroidStudioProjects/Humors/app/src/main/res/layout/item_test_history.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/pokar/AndroidStudioProjects/Humors/app/src/main/res/layout/main_widget.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/pokar/AndroidStudioProjects/Humors/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/drawable/all_rounded_4.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/button_bg.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/drawable/calorie_chart_bg.xml" value="0.2833333333333333" />
