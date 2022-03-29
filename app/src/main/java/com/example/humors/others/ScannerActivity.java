@@ -55,6 +55,7 @@ public class ScannerActivity extends AppCompatActivity {
         codeScanner.setDecodeCallback(result -> {
             runOnUiThread(() -> {
                 // Your Code here
+                startActivity(AddDeviceActivity.newInstance(this, result.toString()));
             });
             Log.e("TAG", "Decoded code is: " +  result);
         });

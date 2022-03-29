@@ -47,6 +47,38 @@
             </FrameLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/activity_add_device_device_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No device connected"
+                android:textColor="@color/black"
+                style="@style/PoppinsMedium"
+                android:textSize="16dp"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/activity_add_device_change_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change Device"
+                android:textColor="@color/colorPrimary"
+                android:gravity="right"
+                android:layout_marginEnd="10dp"
+                android:textSize="12dp"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
     </LinearLayout>
 
 

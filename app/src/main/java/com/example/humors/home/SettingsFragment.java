@@ -15,13 +15,14 @@ import android.widget.TextView;
 import com.example.humors.R;
 import com.example.humors.database.SQLiteDatabaseHandler;
 import com.example.humors.others.AboutActivity;
+import com.example.humors.others.AddDeviceActivity;
 import com.example.humors.others.ChangePasswordActivity;
 
 import java.util.ArrayList;
 
 public class SettingsFragment extends Fragment {
 
-    private FrameLayout changePassword, aboutButton;
+    private FrameLayout changePassword, aboutButton, addDeviceBtn;
     private TextView fakeText;
 
     private SQLiteDatabaseHandler sqLiteDatabaseHandler;
@@ -50,6 +51,7 @@ public class SettingsFragment extends Fragment {
     private void initialiseVariables() {
         changePassword = requireView().findViewById(R.id.change_password);
         aboutButton = requireView().findViewById(R.id.about_button);
+        addDeviceBtn = requireView().findViewById(R.id.add_device_btn);
         fakeText = requireView().findViewById(R.id.fake_text);
 
         sqLiteDatabaseHandler = new SQLiteDatabaseHandler(requireContext());
@@ -84,6 +86,7 @@ public class SettingsFragment extends Fragment {
     private void setListeners() {
         changePassword.setOnClickListener(view -> startActivity(ChangePasswordActivity.newInstance(requireContext())));
         aboutButton.setOnClickListener(view -> startActivity(AboutActivity.newInstance(requireContext())));
+        addDeviceBtn.setOnClickListener(view -> startActivity(AddDeviceActivity.newInstance(requireContext(), "")));
     }
 
     private void setObservers() {
