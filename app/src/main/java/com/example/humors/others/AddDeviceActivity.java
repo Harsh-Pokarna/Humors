@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.humors.R;
+import com.example.humors.home.HomeActivity;
 import com.example.humors.utils.Constants;
 
 public class AddDeviceActivity extends AppCompatActivity {
@@ -33,6 +34,12 @@ public class AddDeviceActivity extends AppCompatActivity {
         initialiseVariables();
         setViews();
         setListeners();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(HomeActivity.newInstance(this));
     }
 
     private void getExtras() {
