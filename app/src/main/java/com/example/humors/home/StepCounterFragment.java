@@ -40,6 +40,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 
 import java.lang.reflect.Array;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -51,7 +52,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
 
     private BarChart stepsChart, caloriesChart;
     private FrameLayout fl;
-    private TextView stepCountTextView;
+    private TextView stepCountTextView, distanceCountTextView, caloriesCountTextView;
     private LinearLayout dataLayout;
 
     private List<BarEntry> stepsEntries = new ArrayList<>();
@@ -96,6 +97,8 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
         stepCountTextView = requireView().findViewById(R.id.step_count);
         dataLayout = requireView().findViewById(R.id.data_layout);
         fl = requireView().findViewById(R.id.fl);
+        distanceCountTextView = requireView().findViewById(R.id.distance_count);
+        caloriesCountTextView = requireView().findViewById(R.id.calorie_count);
         sqLiteDatabaseHandler = new SQLiteDatabaseHandler(requireContext());
 
         sensorManager = (SensorManager) requireActivity().getSystemService(Context.SENSOR_SERVICE);
@@ -233,6 +236,50 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
         totalSteps = sensorEvent.values[0];
         GlobalVariables.totalSteps = totalSteps;
         stepCountTextView.setText("" + (totalSteps - previousSteps));
+        changeDistanceAndCalories(totalSteps - previousSteps);
+    }
+
+    private void changeDistanceAndCalories(Float steps) {
+
+        double weight = Double.parseDouble(sharedPrefs.getUserWeight()); // kg
+
+        double height = Double.parseDouble(sharedPrefs.getUserHeight()); // cm
+
+        double stepsCount = steps;
+
+//Don't edit below this
+
+
+        final double walkingFactor = 0.57;
+
+        double CaloriesBurnedPerMile;
+
+        double strip;
+
+        double stepCountMile; // step/mile
+
+        double conversationFactor;
+
+        double CaloriesBurned;
+
+        double distance;
+
+        CaloriesBurnedPerMile = walkingFactor * (weight * 2.2);
+
+        strip = height * 0.415;
+
+        stepCountMile = 160934.4 / strip;
+
+        conversationFactor = CaloriesBurnedPerMile / stepCountMile;
+
+        CaloriesBurned = stepsCount * conversationFactor;
+
+        distance = (stepsCount * strip) / 100000;
+
+        caloriesCountTextView.setText(new DecimalFormat("#.00").format(CaloriesBurned));
+
+        distanceCountTextView.setText(new DecimalFormat("#.00").format(distance));
+
     }
 
     @Override
