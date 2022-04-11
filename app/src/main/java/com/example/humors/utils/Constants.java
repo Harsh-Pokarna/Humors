@@ -58,4 +58,7 @@ public class Constants {
     public static String UPDATE_DATA = "update_data";
     public static String ADD_DEVICE = "ADD_DEVICE";
 
+    // Used in Notifications
+    public static String CHANNEL_ID = "CHANNEL_ID";
+
 }
