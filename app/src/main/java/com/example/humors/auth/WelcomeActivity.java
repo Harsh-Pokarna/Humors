@@ -15,6 +15,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.humors.R;
+import com.example.humors.api.ApiClient;
 import com.example.humors.home.HomeActivity;
 import com.example.humors.newUser.NewUserHomeActivity;
 import com.example.humors.utils.Constants;
@@ -26,9 +27,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.loopj.android.http.TextHttpResponseHandler;
 import com.yqritc.scalablevideoview.ScalableVideoView;
 
 import java.io.IOException;
+
+import cz.msebera.android.httpclient.Header;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -76,9 +80,9 @@ public class WelcomeActivity extends AppCompatActivity {
         googleSignInClient = GoogleSignIn.getClient(this, gso);
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
-//        if (account != null) {
-//            startActivity(HomeActivity.newInstance(this));
-//        }
+        if (account != null) {
+            startActivity(HomeActivity.newInstance(this));
+        }
 
     }
 
@@ -156,7 +160,6 @@ public class WelcomeActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             // The Task returned from this call is always completed, no need to attach
             // a listener.
@@ -168,8 +171,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            Log.e("TAG", "the account is: " + account.toString());
-            startActivity(NewUserHomeActivity.newInstance(this, Constants.ADD_DATA));
+            checkExistingStatus(account.getEmail());
         } catch (ApiException e) {
             if (e.getStatusCode() == 7) {
                 Toast.makeText(this, "Please connect to internet", Toast.LENGTH_SHORT).show();
@@ -177,6 +179,39 @@ public class WelcomeActivity extends AppCompatActivity {
             Log.e("TAG", "signInResult:failed code=" + e.getStatusCode());
             Log.e("TAG", "The error in sign in is: " + e.getMessage());
             Toast.makeText(this, "Failed to Sign In, Please try again later", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void checkExistingStatus(String userEmail) {
+
+        String url = "check_user_exist.php?user_email=" + userEmail;
+
+        try {
+            ApiClient.getRequest(url, null, new TextHttpResponseHandler() {
+                @Override
+                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                    Log.e("TAG", "There is a error: " + throwable.getMessage());
+                    if (throwable.getMessage().equals(Constants.NO_INTERNET_STRING)) {
+                        Toast.makeText(WelcomeActivity.this, "Please connect with wifi/data", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    Toast.makeText(WelcomeActivity.this, "There is a error in interacting with API", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, String responseString) {
+
+                    if (responseString.equals("1") && sharedPrefs.getUserDisease().equals("")) {
+                        Toast.makeText(WelcomeActivity.this, "Your email is already registered", Toast.LENGTH_SHORT).show();
+                        startActivity(UserLoginActivity.newInstance(WelcomeActivity.this));
+                    } else {
+                        startActivity(NewUserHomeActivity.newInstance(WelcomeActivity.this, ""));
+                    }
+
+                }
+            });
+        } catch (Exception e) {
+            Log.e("TAG", "couldn't login user");
         }
     }
 
