@@ -2,6 +2,8 @@ package com.example.humors.home;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.app.job.JobInfo;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +13,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.opengl.Visibility;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,6 +32,7 @@ import android.widget.Toast;
 import com.example.humors.R;
 import com.example.humors.database.SQLiteDatabaseHandler;
 import com.example.humors.services.StepCounterService;
+import com.example.humors.services.StepsServiceJobScheduler;
 import com.example.humors.utils.GlobalVariables;
 import com.example.humors.utils.SharedPrefs;
 import com.github.mikephil.charting.charts.BarChart;
@@ -40,6 +44,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 
 import java.lang.reflect.Array;
+import java.sql.Time;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,6 +52,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import kotlinx.coroutines.Job;
 
 public class StepCounterFragment extends Fragment implements SensorEventListener {
 
@@ -69,6 +76,10 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
     private Intent intent;
 
     private SQLiteDatabaseHandler sqLiteDatabaseHandler;
+
+    private static long ONE_DAY_INTERVAL = 24 * 60 * 60 * 1000L;
+
+    private int JOB_ID = 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,6 +128,15 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
         Log.e("TAG", "Your previous day steps were: " + previousSteps);
     }
 
+
+
+//    private void backgroundUsingJobScheduler() {
+////        val jobInfo = new JobInfo.Builder(123, new ComponentName(requireContext(), StepCounterService.class));
+//        JobInfo jobInfo = new JobInfo.Builder(JOB_ID, new ComponentName(requireContext(), StepsServiceJobScheduler.class))
+//                .setPeriodic(ONE_DAY_INTERVAL).setPersisted(true).build();
+//
+//    }
+
     private void setService() {
         alarmManager = (AlarmManager) requireContext().getSystemService(Context.ALARM_SERVICE);
         intent = new Intent(requireContext(), StepCounterService.class);
@@ -132,10 +152,15 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 23);
-        calendar.set(Calendar.MINUTE, 55);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                AlarmManager.INTERVAL_DAY, pendingIntent);
+        calendar.set(Calendar.HOUR_OF_DAY, 10);
+        calendar.set(Calendar.MINUTE, 49);
+//        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+//                AlarmManager.INTERVAL_DAY, pendingIntent);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            alarmManager.setAlarmClock(new AlarmManager.AlarmClockInfo(calendar.getTimeInMillis(), pendingIntent), pendingIntent);
+        } else {
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        }
     }
 
     @Override
