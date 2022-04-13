@@ -70,6 +70,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
         if (newPassword.equals(confirmPassword)) {
             String url = "user_change_password.php?p?user_email=" + sharedPrefs.getUserEmail() + "&password=" + oldPassword + "&new_password=" + newPassword;
+            Log.e("TAG", "url hitted is :" + url);
 
             ApiClient.getRequest(url, null, new TextHttpResponseHandler() {
                 @Override
@@ -84,6 +85,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                    Log.e("TAG", "Response of change password is: " + responseString);
                     if (responseString.equals(Constants.MAIN_SUCCESS)) {
                         Toast.makeText(ChangePasswordActivity.this, "Password changed", Toast.LENGTH_SHORT).show();
                     } else if (responseString.equals(Constants.WRONG_PASSWORD)) {
