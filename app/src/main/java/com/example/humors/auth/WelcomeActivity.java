@@ -80,9 +80,9 @@ public class WelcomeActivity extends AppCompatActivity {
         googleSignInClient = GoogleSignIn.getClient(this, gso);
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
-        if (account != null) {
-            startActivity(HomeActivity.newInstance(this));
-        }
+//        if (account != null) {
+//            startActivity(HomeActivity.newInstance(this));
+//        }
 
     }
 
