@@ -58,7 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-        backButton.setOnClickListener(view -> onBackPressed());
+        backButton.setOnClickListener(view -> startActivity(HomeActivity.newInstance(this)));
         myDetailsButton.setOnClickListener(view -> startActivity(AddDataActivity.newInstance(this, Constants.UPDATE_DATA)));
         myHabitsButton.setOnClickListener(view -> startActivity(SleepScheduleActivity.newInstance(this, Constants.UPDATE_DATA)));
         myMedicalHistoryButton.setOnClickListener(view -> startActivity(MedicalHistoryActivity.newInstance(this, Constants.UPDATE_DATA)));

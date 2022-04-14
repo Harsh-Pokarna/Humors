@@ -227,12 +227,13 @@ public class UserLoginActivity extends AppCompatActivity {
             sharedPrefs.setUserId(userId);
             sharedPrefs.setUserName(userName);
 
-            if (sharedPrefs.getUserDisease().equals("")) {
-                startActivity(NewUserHomeActivity.newInstance(this, Constants.ADD_DATA));
-            } else {
-                startActivity(HomeActivity.newInstance(this));
+            startActivity(NewUserHomeActivity.newInstance(UserLoginActivity.this, ""));
+//            if (sharedPrefs.getUserDisease().equals("")) {
 //                startActivity(NewUserHomeActivity.newInstance(this, Constants.ADD_DATA));
-            }
+//            } else {
+//                startActivity(HomeActivity.newInstance(this));
+////                startActivity(NewUserHomeActivity.newInstance(this, Constants.ADD_DATA));
+//            }
             this.finish();
         }
     }
