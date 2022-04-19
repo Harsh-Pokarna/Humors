@@ -227,7 +227,7 @@ public class UserLoginActivity extends AppCompatActivity {
             sharedPrefs.setUserId(userId);
             sharedPrefs.setUserName(userName);
 
-            startActivity(NewUserHomeActivity.newInstance(UserLoginActivity.this, ""));
+            startActivity(NewUserHomeActivity.newInstance(UserLoginActivity.this, Constants.ADD_DATA));
 //            if (sharedPrefs.getUserDisease().equals("")) {
 //                startActivity(NewUserHomeActivity.newInstance(this, Constants.ADD_DATA));
 //            } else {

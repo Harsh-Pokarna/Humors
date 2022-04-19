@@ -205,7 +205,7 @@ public class WelcomeActivity extends AppCompatActivity {
                         Toast.makeText(WelcomeActivity.this, "Your email is already registered", Toast.LENGTH_SHORT).show();
                         startActivity(UserLoginActivity.newInstance(WelcomeActivity.this));
                     } else {
-                        startActivity(NewUserHomeActivity.newInstance(WelcomeActivity.this, ""));
+                        startActivity(NewUserHomeActivity.newInstance(WelcomeActivity.this, Constants.ADD_DATA));
                     }
 
                 }
