@@ -45,6 +45,7 @@
                     android:textColor="@color/white"
                     android:textSize="24sp" />
 
+
                 <ImageButton
                     android:id="@+id/profile_button_dashboard"
                     android:layout_width="36dp"

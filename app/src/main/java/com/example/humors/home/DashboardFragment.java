@@ -48,7 +48,7 @@ public class DashboardFragment extends Fragment {
     private LinearLayout takeReading;
     private LineChart lineChart;
     private BottomNavigationView dashboardNavBar;
-    private TextView dashboardButton;
+    private TextView dashboardButton, connectionStatusTv;
 
     private List<DonutSection> healthStatus = new ArrayList<>();
     private List<DonutSection> sleepStatus = new ArrayList<>();
@@ -94,6 +94,7 @@ public class DashboardFragment extends Fragment {
         outerRing1 = requireView().findViewById(R.id.outerRing);
         outerRing2 = requireView().findViewById(R.id.outerRing2);
         outerRing3 = requireView().findViewById(R.id.outerRing3);
+        connectionStatusTv = requireView().findViewById(R.id.connection_status_tv);
 
     }
 
@@ -141,6 +142,12 @@ public class DashboardFragment extends Fragment {
 
     private void setViews() {
 
+        if (GlobalVariables.connectedStatus == 0) {
+            connectionStatusTv.setText("Connection Status: Disconnected");
+        } else if (GlobalVariables.connectedStatus == 1) {
+            connectionStatusTv.setText("Connection Status: Connected");
+        }
+
         Log.e("TAG", "The value of connected is: " + GlobalVariables.connectedStatus);
 
         lineChart.setPinchZoom(false);
@@ -174,9 +181,9 @@ public class DashboardFragment extends Fragment {
             if (item.getItemId() == R.id.health_item) {
                 setGraph("Health Status");
             }
-            if (item.getItemId() == R.id.sleep_item) {
-                setGraph("Sleep Status");
-            }
+//            if (item.getItemId() == R.id.sleep_item) {
+//                setGraph("Sleep Status");
+//            }
             if (item.getItemId() == R.id.metabolism_item) {
                 setGraph("Metabolism Status");
             }
