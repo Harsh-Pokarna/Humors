@@ -26,11 +26,16 @@ import com.example.humors.connect.ResultsActivity;
 import com.example.humors.connect.SearchingActivity;
 import com.example.humors.utils.GlobalVariables;
 import com.example.humors.utils.SharedPrefs;
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -46,7 +51,7 @@ public class DashboardFragment extends Fragment {
 
     private ImageButton profileImage;
     private LinearLayout takeReading;
-    private LineChart lineChart;
+    private BarChart lineChart;
     private BottomNavigationView dashboardNavBar;
     private TextView dashboardButton, connectionStatusTv;
 
@@ -57,7 +62,7 @@ public class DashboardFragment extends Fragment {
     private DonutProgressView healthProgressView, sleepProgressView, metabolismProgressView;
     private LinearLayout outerRing1, outerRing2, outerRing3;
 
-    private List<Entry> entries = new ArrayList<>();
+    private List<BarEntry> entries = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -118,23 +123,55 @@ public class DashboardFragment extends Fragment {
 
     }
 
+    private void setBarChartAttributes(BarChart barChart) {
+        barChart.setPinchZoom(false);
+        barChart.setDragEnabled(false);
+        barChart.getAxisLeft().setDrawGridLines(false);
+        barChart.getXAxis().setDrawGridLines(false);
+        barChart.getAxisLeft().setEnabled(false);
+        barChart.getXAxis().setDrawAxisLine(false);
+        barChart.getLegend().setEnabled(false);
+        barChart.getDescription().setEnabled(false);
+        barChart.setPinchZoom(false);
+        barChart.setScaleEnabled(false);
+        barChart.setDrawGridBackground(true);
+        barChart.getAxisRight().setEnabled(false);
+        barChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        barChart.getDescription().setEnabled(false);
+        barChart.setDrawGridBackground(false);
+    }
+
     private void setGraph(String text) {
 
         entries.clear();
-        entries.add(new Entry(1, 65));
-        entries.add(new Entry(2, 75));
-        entries.add(new Entry(3, 90));
-        entries.add(new Entry(4, 85));
-        entries.add(new Entry(5, 95));
-        LineDataSet lineDataSet = new LineDataSet(entries, text);
-        lineChart.setData(new LineData(lineDataSet));
-        lineChart.setDescription(null);
-        lineChart.getAxisLeft().setDrawGridLines(false);
-        lineChart.getAxisRight().setDrawGridLines(false);
-        lineChart.getAxisRight().setDrawAxisLine(false);
-        lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-        lineChart.getXAxis().setDrawGridLines(false);
+        entries.add(new BarEntry(1, 65));
+        entries.add(new BarEntry(2, 75));
+        entries.add(new BarEntry(3, 90));
+        entries.add(new BarEntry(4, 85));
+        entries.add(new BarEntry(5, 95));
+
+        BarDataSet barDataSet = new BarDataSet(entries, "");
+        barDataSet.setColor(Color.parseColor("#1B55EC"));
+        barDataSet.setLabel(null);
+        BarData barData = new BarData(barDataSet);
+        barData.setBarWidth((float) 0.4);
+
+        setBarChartAttributes(lineChart);
+        lineChart.setData(barData);
+        lineChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(new ArrayList<>()));
+        lineChart.setBackground(getResources().getDrawable(R.drawable.data_input_bg));
         lineChart.invalidate();
+
+
+//        LineDataSet lineDataSet = new LineDataSet(entries, text);
+//        lineChart.setData(new LineData(lineDataSet));
+//        lineChart.setDescription(null);
+//        lineChart.getAxisLeft().setDrawGridLines(false);
+//        lineChart.getAxisRight().setDrawGridLines(false);
+//        lineChart.getAxisRight().setDrawAxisLine(false);
+//        lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+//        lineChart.getXAxis().setDrawGridLines(false);
+//        lineChart.invalidate();
     }
 
     private void fetchData() {

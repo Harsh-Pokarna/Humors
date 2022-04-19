@@ -95,7 +95,8 @@
                 app:menu="@menu/dashboard_menu"
                 android:background="@drawable/data_input_bg"/>
 
-            <com.github.mikephil.charting.charts.LineChart
+            <com.github.mikephil.charting.charts.BarChart
+                android:paddingTop="10dp"
                 android:id="@+id/line_chart"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
