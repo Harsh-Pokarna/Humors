@@ -56,6 +56,7 @@ import com.google.android.gms.fitness.request.DataReadRequest;
 
 import java.lang.reflect.Array;
 import java.sql.Time;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -97,6 +98,8 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
 
     private int JOB_ID = 1;
 
+    Date date = new Date(0);
+
     FitnessOptions
             fitnessOptions = FitnessOptions.builder()
             .addDataType(DataType.AGGREGATE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
@@ -104,7 +107,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
             .addDataType(DataType.AGGREGATE_DISTANCE_DELTA, FitnessOptions.ACCESS_READ).build();
 
     LocalDateTime end = LocalDateTime.now();
-    LocalDateTime start = end.minusMonths(1);
+    LocalDateTime start = end.minusDays(1);
     long endSeconds = end.atZone(ZoneId.systemDefault()).toEpochSecond();
     long startSeconds = start.atZone(ZoneId.systemDefault()).toEpochSecond();
 
@@ -303,15 +306,30 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
 
     private void dumpDataSet(DataSet dataSet) {
         List<DataPoint> dataPoints = dataSet.getDataPoints();
-        Log.e("TAG", "the size of datapoints is :" + dataPoints.size());
 
-        for (DataPoint dp : dataSet.getDataPoints()) {
-            Log.e("TAG","Data point:");
-            Log.e("TAG","Type: " + dp.getDataType().getName());
-            Log.e("TAG","Start: " + getStartTimeString(dp));
-            Log.e("TAG","End: " + getEndTimeString(dp));
-            for (Field field : dp.getDataType().getFields()) {
-                Log.e("TAG","Field: " + field.getName() + "Value: " + dp.getValue(field));
+        if (dataPoints.size() == 0) {
+            Toast.makeText(requireContext(), "Please login with the same account as google fit, if not then login to google fit", Toast.LENGTH_SHORT).show();
+            stepCountTextView.setText("--");
+            caloriesCountTextView.setText("--");
+            distanceCountTextView.setText("--");
+        } else {
+            for (DataPoint dp : dataSet.getDataPoints()) {
+                Log.e("TAG","Data point:");
+                Log.e("TAG","Type: " + dp.getDataType().getName());
+                for (Field field : dp.getDataType().getFields()) {
+                    Log.e("TAG","Field: " + field.getName() + "Value: " + dp.getValue(field));
+
+                    if (field.equals(Field.FIELD_STEPS)) {
+                        stepCountTextView.setText(dp.getValue(field).toString());
+                    } else if (field.equals(Field.FIELD_CALORIES)) {
+                        double value = Double.parseDouble(String.valueOf(dp.getValue(field)));
+                        caloriesCountTextView.setText(new DecimalFormat("#0.0").format(value));
+                    } else if (field.equals(Field.FIELD_DISTANCE)) {
+                        double value = Double.parseDouble(String.valueOf(dp.getValue(field)));
+                        distanceCountTextView.setText(new DecimalFormat("#0.00").format(value/1000));
+                    }
+
+                }
             }
         }
 
@@ -321,7 +339,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             return Instant.ofEpochSecond(dataPoint.getStartTime(TimeUnit.SECONDS))
                     .atZone(ZoneId.systemDefault())
-                    .toLocalDateTime().toString();
+                    .toLocalDate().toString();
         }
         return "";
     }
@@ -330,7 +348,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             return Instant.ofEpochSecond(dataPoint.getEndTime(TimeUnit.SECONDS))
                     .atZone(ZoneId.systemDefault())
-                    .toLocalDateTime().toString();
+                    .toLocalDate().toString();
         }
         return "";
     }
