@@ -71,8 +71,10 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     public void onBackPressed() {
+        startActivity(HomeActivity.newInstance(ProfileActivity.this));
         super.onBackPressed();
     }
 
