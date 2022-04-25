@@ -84,4 +84,7 @@ dependencies {
     // QR Code Reader
     implementation 'com.github.yuriy-budiyev:code-scanner:2.1.2'
 
+    implementation("com.google.android.gms:play-services-fitness:21.0.1")
+    implementation("com.google.android.gms:play-services-auth:20.1.0")
+
 }

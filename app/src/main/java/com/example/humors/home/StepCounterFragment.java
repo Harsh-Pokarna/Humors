@@ -18,6 +18,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -42,19 +43,34 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.fitness.Fitness;
+import com.google.android.gms.fitness.FitnessOptions;
+import com.google.android.gms.fitness.data.Bucket;
+import com.google.android.gms.fitness.data.DataPoint;
+import com.google.android.gms.fitness.data.DataSet;
+import com.google.android.gms.fitness.data.DataType;
+import com.google.android.gms.fitness.data.Field;
+import com.google.android.gms.fitness.request.DataReadRequest;
 
 import java.lang.reflect.Array;
 import java.sql.Time;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import kotlinx.coroutines.Job;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class StepCounterFragment extends Fragment implements SensorEventListener {
 
     private BarChart stepsChart, caloriesChart;
@@ -81,6 +97,17 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
 
     private int JOB_ID = 1;
 
+    FitnessOptions
+            fitnessOptions = FitnessOptions.builder()
+            .addDataType(DataType.AGGREGATE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
+            .addDataType(DataType.AGGREGATE_CALORIES_EXPENDED, FitnessOptions.ACCESS_READ)
+            .addDataType(DataType.AGGREGATE_DISTANCE_DELTA, FitnessOptions.ACCESS_READ).build();
+
+    LocalDateTime end = LocalDateTime.now();
+    LocalDateTime start = end.minusMonths(1);
+    long endSeconds = end.atZone(ZoneId.systemDefault()).toEpochSecond();
+    long startSeconds = start.atZone(ZoneId.systemDefault()).toEpochSecond();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,7 +123,7 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
     private void init() {
         initialiseVariables();
         fetchData();
-        setService();
+//        setService();
         setViews();
         setListeners();
         setObservers();
@@ -115,17 +142,17 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
         sensorManager = (SensorManager) requireActivity().getSystemService(Context.SENSOR_SERVICE);
         stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
-        if (stepSensor == null) {
-            Toast.makeText(requireContext(), "No sensor detected", Toast.LENGTH_SHORT).show();
-            dataLayout.setVisibility(View.GONE);
-            stepCountTextView.setText("--");
-        } else {
-            sensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_FASTEST);
-        }
+//        if (stepSensor == null) {
+//            Toast.makeText(requireContext(), "No sensor detected", Toast.LENGTH_SHORT).show();
+//            dataLayout.setVisibility(View.GONE);
+//            stepCountTextView.setText("--");
+//        } else {
+//            sensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_FASTEST);
+//        }
 
         sharedPrefs = new SharedPrefs(requireContext());
-        previousSteps = sharedPrefs.getPreviousSteps();
-        Log.e("TAG", "Your previous day steps were: " + previousSteps);
+//        previousSteps = sharedPrefs.getPreviousSteps();
+//        Log.e("TAG", "Your previous day steps were: " + previousSteps);
     }
 
 
@@ -237,7 +264,75 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
 
     private void setViews() {
         setCharts();
-        stepCountTextView.setText("" + (sharedPrefs.getNewSteps() - previousSteps));
+        getSteps();
+//        stepCountTextView.setText("" + (sharedPrefs.getNewSteps() - previousSteps));
+    }
+
+    private void getSteps() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            DataReadRequest readRequest = new DataReadRequest.Builder()
+                    .aggregate(DataType.AGGREGATE_STEP_COUNT_DELTA)
+                    .aggregate(DataType.AGGREGATE_CALORIES_EXPENDED)
+                    .aggregate(DataType.TYPE_DISTANCE_DELTA)
+                    .setTimeRange(startSeconds, endSeconds, TimeUnit.SECONDS)
+                    .bucketByTime(1, TimeUnit.DAYS)
+                    .build();
+
+            GoogleSignInAccount account = GoogleSignIn.getAccountForExtension(requireContext(), fitnessOptions);
+            Fitness.getHistoryClient(requireContext(), account).readData(readRequest)
+                    .addOnSuccessListener(dataReadResponse -> {
+                        Log.e("TAG", "response data was success");
+//                        responseDataTv.setText(dataReadResponse.getBuckets().toString());
+                        List<Bucket> buckets = dataReadResponse.getBuckets();
+                        for (int i = 0; i < buckets.size(); i++) {
+                            Bucket bucket = buckets.get(i);
+                            List<DataSet> dataSets = bucket.getDataSets();
+                            for (int j = 0; j < dataSets.size(); j++) {
+                                DataSet dataSet = dataSets.get(j);
+                                dumpDataSet(dataSet);
+                            }
+                        }
+
+                    }).addOnFailureListener(e -> {
+                Log.e("TAG", "Fetching Data failed: " + e.getMessage());
+//                responseDataTv.setText("Error: " + e.getMessage());
+            });
+
+        }
+    }
+
+    private void dumpDataSet(DataSet dataSet) {
+        List<DataPoint> dataPoints = dataSet.getDataPoints();
+        Log.e("TAG", "the size of datapoints is :" + dataPoints.size());
+
+        for (DataPoint dp : dataSet.getDataPoints()) {
+            Log.e("TAG","Data point:");
+            Log.e("TAG","Type: " + dp.getDataType().getName());
+            Log.e("TAG","Start: " + getStartTimeString(dp));
+            Log.e("TAG","End: " + getEndTimeString(dp));
+            for (Field field : dp.getDataType().getFields()) {
+                Log.e("TAG","Field: " + field.getName() + "Value: " + dp.getValue(field));
+            }
+        }
+
+    }
+
+    private String getStartTimeString(DataPoint dataPoint) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return Instant.ofEpochSecond(dataPoint.getStartTime(TimeUnit.SECONDS))
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDateTime().toString();
+        }
+        return "";
+    }
+
+    private String getEndTimeString(DataPoint dataPoint) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return Instant.ofEpochSecond(dataPoint.getEndTime(TimeUnit.SECONDS))
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDateTime().toString();
+        }
+        return "";
     }
 
     private void setListeners() {
@@ -258,10 +353,10 @@ public class StepCounterFragment extends Fragment implements SensorEventListener
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        totalSteps = sensorEvent.values[0];
-        GlobalVariables.totalSteps = totalSteps;
-        stepCountTextView.setText("" + (totalSteps - previousSteps));
-        changeDistanceAndCalories(totalSteps - previousSteps);
+//        totalSteps = sensorEvent.values[0];
+//        GlobalVariables.totalSteps = totalSteps;
+//        stepCountTextView.setText("" + (totalSteps - previousSteps));
+//        changeDistanceAndCalories(totalSteps - previousSteps);
     }
 
     private void changeDistanceAndCalories(Float steps) {

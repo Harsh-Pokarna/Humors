@@ -1,42 +1,45 @@
 package com.example.humors.auth;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.humors.R;
 import com.example.humors.api.ApiClient;
-import com.example.humors.home.HomeActivity;
 import com.example.humors.newUser.NewUserHomeActivity;
 import com.example.humors.utils.Constants;
-import com.example.humors.utils.ExtFunctions;
 import com.example.humors.utils.SharedPrefs;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.fitness.FitnessOptions;
+import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.tasks.Task;
 import com.loopj.android.http.TextHttpResponseHandler;
-import com.yqritc.scalablevideoview.ScalableVideoView;
 
-import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 import cz.msebera.android.httpclient.Header;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class WelcomeActivity extends AppCompatActivity {
 
-    private static final int RC_SIGN_IN = 1;
+    private static final int RC_SIGN_IN = 1, GOOGLE_FIT_PERMISSIONS_CODE = 2;
     private Button mailSignInButton, googleSignInButton;
     private View bgOverlay;
     private VideoView mVideoView;
@@ -44,6 +47,12 @@ public class WelcomeActivity extends AppCompatActivity {
     private SharedPrefs sharedPrefs;
 
     private GoogleSignInClient googleSignInClient;
+
+    FitnessOptions
+            fitnessOptions = FitnessOptions.builder()
+            .addDataType(DataType.AGGREGATE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
+            .addDataType(DataType.AGGREGATE_CALORIES_EXPENDED, FitnessOptions.ACCESS_READ)
+            .addDataType(DataType.AGGREGATE_DISTANCE_DELTA, FitnessOptions.ACCESS_READ).build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +87,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 .build();
 
         googleSignInClient = GoogleSignIn.getClient(this, gso);
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
 //        if (account != null) {
 //            startActivity(HomeActivity.newInstance(this));
@@ -166,12 +174,21 @@ public class WelcomeActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }
+        if (requestCode == GOOGLE_FIT_PERMISSIONS_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                accessGoogleFit();
+            }
+        }
+    }
+
+    private void accessGoogleFit() {
+
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            checkExistingStatus(account.getEmail());
+            setUpFitness();
         } catch (ApiException e) {
             if (e.getStatusCode() == 7) {
                 Toast.makeText(this, "Please connect to internet", Toast.LENGTH_SHORT).show();
@@ -180,6 +197,20 @@ public class WelcomeActivity extends AppCompatActivity {
             Log.e("TAG", "The error in sign in is: " + e.getMessage());
             Toast.makeText(this, "Failed to Sign In, Please try again later", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void setUpFitness() {
+        GoogleSignInAccount account = GoogleSignIn.getAccountForExtension(this, fitnessOptions);
+
+        if (!GoogleSignIn.hasPermissions(account, fitnessOptions)) {
+            GoogleSignIn.requestPermissions(
+                    this, // your activity
+                    GOOGLE_FIT_PERMISSIONS_CODE, // e.g. 1
+                    account,
+                    fitnessOptions);
+        }
+            checkExistingStatus(account.getEmail());
+
     }
 
     private void checkExistingStatus(String userEmail) {
